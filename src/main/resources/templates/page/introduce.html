@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default_layout">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/page/introduce.css}">
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <script type="text/javascript"
+            th:src="@{'/js/require/require.min.js'}"
+            th:attr="data-main=@{/js/introduce/introduceInit.js}">
+    </script>
+</th:block>
+
+<div class="row justify-content-md-center" layout:fragment="content">
+    <div id="content" class="col-md-auto">
+        <div class="menu-list">
+            <div class="title">교회소개</div>
+            <div class="menu selected" data-value="introduce">우정교회는?</div>
+            <div class="menu" data-value="head-pastor">담임목사 인사말</div>
+            <div class="menu" data-value="helper">섬기는 사람들</div>
+            <div class="menu" data-value="worship-time">예배시간 안내</div>
+            <div class="menu" data-value="direction">오시는 길</div>
+        </div>
+        <div class="detail introduce">
+            <div class="title">우정교회는?</div>
+            <div class="bdy">
+                <div class="box">
+                    <div class="sub-title">예배 공동체</div>
+                    <div class="desc">
+                        우리는 하나님을 즐거워하여 모일 때마다 <br>
+                        거룩한 축제를 벌이며 모든 지체가 하나님을 <br>
+                        사랑하여 기쁨으로 섬기는 공동체입니다
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="sub-title">선교 공동체</div>
+                    <div class="desc">
+                        우리는 세상의 소외된 이웃을 힘껏 섬기며 <br>
+                        지역사회와 땅 끝까지 선교하기를 원하며 <br>
+                        모든 지체들이 서로 나누고 섬기는 <br>
+                        사랑이 풍성한 공동체입니다
+                    </div>
+                </div>
+            </div>
+            <div class="bdy">
+                <div class="box">
+                    <div class="sub-title">양육과 훈련 공동체</div>
+                    <div class="desc">
+                        우리는 말씀연구와 경건훈련에 <br>
+                        최선을 다하며 모든 지체가 훈련받고 <br>
+                        차세대를 양성하며 또 다른 사람을 <br>
+                        양육하는 사역 공동체입니다
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="sub-title">비전 공동체</div>
+                    <div class="desc">
+                        우리는 울산의 10만 영혼을 감당하고 <br>
+                        1만 개의 건강한 목장을 세우며 <br>
+                        1천 명의 선교사를 파송해서 <br>
+                        민족을 치유하고 세상을 섬기는 <br>
+                        비전을 가진 공동체입니다
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detail head-pastor hide">
+            <div class="title">담임목사 인사말</div>
+        </div>
+        <div class="detail helper hide">
+            <div class="title">섬기는 사람들</div>
+        </div>
+        <div class="detail worship-time hide">
+            <div class="title">예배시간 안내</div>
+        </div>
+        <div class="detail direction hide">
+            <div class="title">오시는 길</div>
+        </div>
+    </div>
+</div>
+</html>

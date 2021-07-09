@@ -1,0 +1,199 @@
+#content {
+    padding-top: 10px;
+}
+
+.main-preach {
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
+.main-preach > div{
+    /*border-top: 1px solid lightgrey;*/
+    /*border-bottom: 1px solid lightgrey;*/
+}
+
+.main-preach .description {
+    /*border-left: 1px solid lightgrey;*/
+    /*border-right: 1px solid lightgrey;*/
+    /*background-color: #3b6275;*/
+    height: 125px;
+    /*color: white;*/
+}
+.main-preach .description > div{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.main-preach .description > div:first-child{
+    height: 33px;
+    line-height: 33px;
+    background-color: #3b6275;
+    margin-bottom: 15px;
+}
+.main-preach .description .title {
+    width: 50%;
+    display: inline-block;
+    /*font-weight: bold;*/
+    /*color: #3b6275;*/
+    color: white;
+    font-size: 1rem;
+}
+.main-preach .description .date {
+    width: 50%;
+    text-align: right;
+    display: inline-block;
+    color: #dedede;
+}
+.main-preach .description .preach-title {
+    color: #323232;
+    padding-left: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.main-preach .description .preach-verse{
+    font-size: 1rem;
+    color: gray;
+    padding-left: 15px;
+}
+
+.main-preach .preach-player {
+    height: 420px;
+}
+.main-preach .preach-list {
+    padding: 0;
+    border: 1px solid lightgrey;
+    width: 330px;
+    height: 440px;
+    margin-left: 70px;
+    overflow-y: scroll;
+}
+.main-preach .preach-list .l-row{
+    border-bottom: 1px solid lightgrey;
+    padding: 10px 20px;
+    font-size: .9rem;
+    cursor: pointer;
+    border-left: 6px solid white;
+}
+.main-preach .preach-list .l-row:last-child{
+    border-bottom: none;
+}
+.main-preach .preach-list .l-row.selected{
+    border-left: 6px solid #3b6275;
+}
+.main-preach .preach-list .l-row:not(.selected):hover{
+    border-left: 6px solid #61879f;
+}
+.main-preach .preach-list .l-row > div{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.main-preach .preach-list .l-row .date{
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    color: gray;
+}
+.main-preach .preach-list .l-row .type{
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+    color: #2f2f2f;
+}
+.main-preach .preach-list .l-row .title{
+    font-size: 1rem;
+    /*font-weight: bold;*/
+}
+.main-preach .preach-list .l-row .verse{
+    color: #4e4e4e;
+}
+
+
+.board {
+    width: 600px;
+    padding: 20px;
+    color: #2f2f2f;
+    margin-right: 10px;
+}
+.board.double {
+    width: 1210px;
+}
+.board .header{
+    font-weight: bold;
+    font-size: 1.2rem;
+    /*text-align: center;*/
+    padding-left: 10px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.board .list {
+    border: 1px solid lightgrey;
+    background-color: white;
+    height: 200px;
+    overflow-y: scroll;
+    font-size: .95rem;
+}
+.board .list.photo {
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.board .list.photo > div.next,
+.board .list.photo > div.prev{
+    height: 100%;
+    line-height: 150px;
+    width: 60px;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.board .list.photo > div.next.disable,
+.board .list.photo > div.prev.disable {
+    cursor: default;
+}
+.board .list.photo > div.pic-area {
+    width: 1050px;
+    display: flex;
+}
+.board .list.photo > div.pic-area > div{
+    width: 175px;
+    padding-left: 12px;
+    padding-right: 12px;
+    height: 150px;
+    overflow: hidden;
+}
+.board .list.photo > div.pic-area > div img{
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+
+.board .list .l-row{
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 45px;
+    line-height: 45px;
+    cursor: pointer;
+}
+.board .list .l-row:hover{
+    background-color: #eaeaea;
+}
+.board .list .l-row .title{
+    width: 80%;
+}
+.board .list .l-row .date{
+    width: 20%;
+    padding-left: 10px;
+    text-align: right;
+    color: gray;
+}
+
+
+.gray-background {
+    background-color: #eaeaea;
+    padding-bottom: 50px;
+}
+.main-color {
+    background-color: #3b6275;
+}

@@ -1,0 +1,51 @@
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!--headerFragment 선언-->
+
+<div th:fragment="headerFragment">
+    <div id="main-menu">
+        <div>
+            <div class="logo">
+                <img th:src="@{/img/logo.png}" alt="" onclick="window.location.href = '/'">
+            </div>
+            <div class="menu-list">
+                <div class="menu" onclick="window.location.href = '/introduce'">교회소개</div>
+                <div class="menu">부서소개</div>
+                <div class="menu">말씀과 찬양</div>
+                <div class="menu">커뮤니티</div>
+            </div>
+        </div>
+    </div>
+    <div id="user-info">
+        <div class="login">
+            <button>로그인</button>
+        </div>
+        <div class="user">
+            <span class="user-name"></span> <span class="logout">로그아웃</span>
+        </div>
+    </div>
+
+    <div id="login-popup" class="popup">
+        <div class="window">
+            <div class="close">✕</div>
+            <div class="logo"><img th:src="@{/img/logo.png}" alt=""></div>
+            <div>
+                <input type="text" id="user_id" name="user_id" placeholder="아이디">
+            </div>
+            <div>
+                <input type="password" id="password" name="password" placeholder="비밀번호">
+            </div>
+            <div>
+                <button id="login-btn">로그인</button>
+            </div>
+            <div class="functions">
+                <span>회원가입</span>
+                <span>|</span>
+                <span>아이디/비밀번호 찾기</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

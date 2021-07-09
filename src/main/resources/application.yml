@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/wj?serverTimezone=Asia/Seoul
+    username: jaeng
+    password: spdhvhzj
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+
+logging:
+  level:
+    org.springframework.boot: debug
+    org.mybatis.example: trace
+
+token:
+  expiration-time: 14400
+  refresh-expiration-time: 28800
+  issuer: http://woojeong.or.kr
+  signing-key: UlsanWoojeong
+
+naver-api:
+  client-id: fyti1ssu8d
+  client-secret: tjDLsh5FSgUGLZRQChd0gXZhFfFRaSAGdjw3LlZ9
+
+data-root: /Users/kohyunmin/Documents/_Currents/CheckingManager/statics/appdata/
+data-url-root: /appdata

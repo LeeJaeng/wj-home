@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="cacheEnabled" value="true" />
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="aggressiveLazyLoading" value="true" />
+        <setting name="useGeneratedKeys" value="true" />
+        <setting name="defaultExecutorType" value="SIMPLE" />
+        <setting name="defaultStatementTimeout" value="400" />
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="wjUserVo" type="org.woojeong.config.security.user.WjUserVo"/>
+<!--        <typeAlias alias="incomeExpenseListParams" type="kr.co.kface.checkingapiserver.api.v1.incomeExpense.params.IncomeExpenseListParams"/>-->
+<!--        <typeAlias alias="incomeExpenseRegisterParams" type="kr.co.kface.checkingapiserver.api.v1.incomeExpense.params.IncomeExpenseRegisterParams"/>-->
+<!--        <typeAlias alias="companyRegisterParams" type="kr.co.kface.checkingapiserver.api.v1.company.params.CompanyRegisterParams"/>-->
+    </typeAliases>
+
+</configuration>

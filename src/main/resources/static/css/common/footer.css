@@ -1,0 +1,24 @@
+#footer {
+    background-color: #3b6275;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid lightgrey;
+    font-size: .85rem;
+    color: white;
+}
+
+#footer > div{
+    width: 1000px;
+    margin: auto;
+}
+
+#footer > div {
+    display: flex;
+}
+#footer .logo {
+    width: 200px;
+}
+
+#footer .content > div{
+    margin-bottom: 5px;
+}

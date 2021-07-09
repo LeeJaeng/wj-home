@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mybatis.example.account">
+
+    <select id="getUserByUsername" resultType="wjUserVo" parameterType="java.lang.String">
+        select * from wj_user
+        where user_id = #{user_id}
+    </select>
+    <select id="isExistId" resultType="java.lang.Long" parameterType="java.lang.String">
+        select count(*) from wj_user
+        where user_id = #{user_id}
+    </select>
+    <insert id="insertUser" parameterType="wjUserVo">
+        INSERT INTO wj_user (user_name, user_id, user_hash, user_salt, user_email, user_phone, cdate)
+        VALUES (#{user_name}, #{user_id}, #{user_hash}, #{user_salt}, #{user_email}, #{user_phone}, now())
+        ON DUPLICATE KEY UPDATE user_id = #{user_id}
+    </insert>
+    <select id="getUserAuth" resultType="java.lang.Integer" parameterType="java.lang.Long">
+        SELECT auth FROM wj_user_auth
+        WHERE user_idx = #{userIdx}
+    </select>
+
+</mapper>
