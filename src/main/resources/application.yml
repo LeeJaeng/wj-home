@@ -1,14 +1,14 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/wj?serverTimezone=Asia/Seoul
-    username: jaeng
-    password: spdhvhzj
-    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://database-1.climzdtlgsg7.ap-northeast-2.rds.amazonaws.com:3306/wj?serverTimezone=Asia/Seoul
-#    username: admin
+#    url: jdbc:mysql://127.0.0.1:3306/wj?serverTimezone=Asia/Seoul
+#    username: jaeng
 #    password: spdhvhzj
 #    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-1.climzdtlgsg7.ap-northeast-2.rds.amazonaws.com:3306/wj?serverTimezone=Asia/Seoul
+    username: admin
+    password: spdhvhzj
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jackson:
     serialization:
