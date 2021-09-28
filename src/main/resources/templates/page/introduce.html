@@ -15,6 +15,7 @@
             th:src="@{'/js/require/require.min.js'}"
             th:attr="data-main=@{/js/introduce/introduceInit.js}">
     </script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wkglubd1qf&submodules=geocoder"></script>
 </th:block>
 
 <div class="row justify-content-md-center" layout:fragment="content">
@@ -75,12 +76,201 @@
         </div>
         <div class="detail helper hide">
             <div class="title">섬기는 사람들</div>
+            <div>
+                <div class="sub-title">교역자</div>
+                <div class="helper-list">
+                    <div class="line">
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/ysc.jpeg}" alt="">
+                            </div>
+                            <div class="name">유수창 목사</div>
+                            <div class="job">행정, 교구디렉터, 새가족, 영유아부</div>
+                            <div class="e-mail">✉️ 99shuchang@hanmail.net</div>
+                            <div class="tel">☎ 052-244-7833 (2층 사무실)</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/jyk.jpeg}" alt="">
+                            </div>
+                            <div class="name">전윤광 목사</div>
+                            <div class="job">5교구, 예배국, 신혼부부회</div>
+                            <div class="e-mail">✉️ spodio@naver.com</div>
+                            <div class="tel">☎ 052-244-7833 (2층 사무실)</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/mjw.png}" alt="">
+                            </div>
+                            <div class="name">문지원 목사</div>
+                            <div class="job">3교구, 청년부</div>
+                            <div class="e-mail">✉️ 81jiwon@hanmail.net</div>
+                            <div class="tel">☎ 052-244-7833 (2층 사무실)</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/kdh.png}" alt="">
+                            </div>
+                            <div class="name">김동훈 목사</div>
+                            <div class="job">4교구, 교육디렉터, 중고등부</div>
+                            <div class="e-mail">✉️ kyunwoo79@naver.com</div>
+                            <div class="tel">☎ 052-244-7833 (2층 사무실)</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/jkb.jpeg}" alt="">
+                            </div>
+                            <div class="name">정광복 목사</div>
+                            <div class="job">2교구, 선교국, 유초등부</div>
+                            <div class="e-mail">✉️ jpb815@naver.com</div>
+                            <div class="tel">☎ 052-244-7833 (2층 사무실)</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/kjj.png}" alt="">
+                            </div>
+                            <div class="name">김재준 전도사</div>
+                            <div class="job">1교구, 미디어, 유치부</div>
+                            <div class="e-mail">✉️ junandmi@hanmail.net</div>
+                            <div class="tel">☎ 052-244-7833 (2층 사무실)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="detail worship-time hide">
             <div class="title">예배시간 안내</div>
+            <div class="sub-title">장년부</div>
+            <div class="worship-time-list">
+                <div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class="type">주일낮 1부</td>
+                                <td class="time">오전 07:00</td>
+                                <td class="place">1층 우정홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">주일낮 2부</td>
+                                <td class="time">오전 10:00</td>
+                                <td class="place">3층 예루살렘홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">주일낮 3부</td>
+                                <td class="time">오전 10:00</td>
+                                <td class="place">3층 예루살렘홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">주일오후예배</td>
+                                <td class="time">오후 03:00</td>
+                                <td class="place">3층 예루살렘홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">금요성령집회</td>
+                                <td class="time">오후 08:30</td>
+                                <td class="place">3층 예루살렘홀</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class="type">새벽기도회(매일)</td>
+                                <td class="time">새벽 05:00</td>
+                                <td class="place">1층 우정홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">수요예배 1부</td>
+                                <td class="time">오전 10:00</td>
+                                <td class="place">1층 우정홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">수요예배 2부</td>
+                                <td class="time">오후 07:30</td>
+                                <td class="place">3층 예루살렘홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">저녁기도회(매일)</td>
+                                <td class="time">오후 08:00</td>
+                                <td class="place">2층 은혜홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">철야기도회(매일)</td>
+                                <td class="time">오후 10:00</td>
+                                <td class="place">2층 은혜홀</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-title">교회학교</div>
+            <div class="worship-time-list">
+                <div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class="type">영유아부</td>
+                                <td class="time">주일 오전 11:30</td>
+                                <td class="place">2층 은혜홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">유치부</td>
+                                <td class="time">주일 오후 12:00</td>
+                                <td class="place">1층 유치부실</td>
+                            </tr>
+                            <tr>
+                                <td class="type">유초등부</td>
+                                <td class="time">주일 오후 12:00</td>
+                                <td class="place">1층 우정홀</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class="type">중고등부</td>
+                                <td class="time">주일 오전 10:00</td>
+                                <td class="place">1층 우정홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">중고등부 기도회</td>
+                                <td class="time">토 오후 05:00</td>
+                                <td class="place">1층 우정홀</td>
+                            </tr>
+                            <tr>
+                                <td class="type">청년대학부</td>
+                                <td class="time">주일 오후 03:00</td>
+                                <td class="place">1층 우정홀</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="detail direction hide">
             <div class="title">오시는 길</div>
+            <div id="map">
+            </div>
+
+            <script>
+                const defaultPosition = new naver.maps.LatLng(35.5597665, 129.3567066)
+                const mapOption = {
+                    center: defaultPosition, //지도의 초기 중심 좌표
+                    zoom: 16, //지도의 초기 줌 레벨
+                    minZoom: 7, //지도의 최소 줌 레벨
+                    zoomControl: true, //줌 컨트롤의 표시 여부
+                    zoomControlOptions: { //줌 컨트롤의 옵션
+                        position: naver.maps.Position.TOP_RIGHT
+                    }
+                };
+                const map = new naver.maps.Map('map', mapOption);
+                const marker = new naver.maps.Marker({
+                    position: defaultPosition,
+                    map: map
+                });
+            </script>
         </div>
     </div>
 </div>

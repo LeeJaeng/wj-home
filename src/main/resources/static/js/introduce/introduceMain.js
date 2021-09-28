@@ -18,11 +18,9 @@ define([], function(){
 
         this.var.$menuList.find(".menu").click(function(){
             const menu = $(this).data('value')
-
-            if (_this.var.menuSelected === menu) {
-                return false
-            }
-
+            // if (_this.var.menuSelected === menu) {
+            //     return false
+            // }
             _this.var.$menuList.find(".selected").removeClass("selected")
             $(this).addClass("selected")
 

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default_layout">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/page/board.css}">
+    <link rel="stylesheet" th:href="@{/css/page/worship.css}">
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <script type="text/javascript"
+            th:src="@{'/js/require/require.min.js'}"
+            th:attr="data-main=@{/js/worship/worshipInit.js}">
+    </script>
+</th:block>
+
+<div class="row justify-content-md-center" layout:fragment="content">
+    <input type="hidden" class="init-val-remove" name="board_type" th:value="${data.board_type}">
+    <input type="hidden" class="init-val-remove" name="board_idx" th:value="${data.board_idx}">
+    <div id="content" class="col-md-auto">
+        <div class="menu-list">
+            <div class="title">말씀과 찬양</div>
+<!--            <div class="menu selected" data-value="all">영상전체</div>-->
+            <div class="menu" data-value="head-pastor">담임목사 설교</div>
+            <div class="menu" data-value="sub-pastor">부교역자 설교</div>
+            <div class="menu" data-value="sunday">주일예배</div>
+            <div class="menu" data-value="friday">금요성령집회</div>
+            <div class="menu" data-value="wednesday">수요예배</div>
+            <div class="menu" data-value="dawn">새벽예배</div>
+            <div class="menu" data-value="praise">찬양</div>
+            <div class="menu" data-value="etc">기타예배</div>
+        </div>
+        <div class="detail">
+            <div id="register">게시물 등록</div>
+            <div class="sub-title"></div>
+            <div class="desc">
+                <div class="functions"></div>
+                <div class="list">
+                    <table>
+                    </table>
+                    <div class="container">
+                        <div class="paging row justify-content-md-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="board-detail hide">
+            <div class="functions">
+                <div class="back">＜이전으로</div>
+            </div>
+            <div class="title-area">
+                <div>
+                    <div class="title"></div>
+                    <div class="verse"></div>
+                </div>
+                <div>
+                    <div class="host-name"></div>
+                    <div class="date"></div>
+                    <div class="worship-type"></div>
+                </div>
+            </div>
+            <div class="desc">
+            </div>
+            <div class="buttons">
+            </div>
+        </div>
+    </div>
+    <div id="registerPopup" class="popup">
+        <div class="window">
+            <div class="close">✕</div>
+            <div class="title">게시물 등록</div>
+            <div class="form">
+                <div>
+                    <div class="label">게시물 구분</div>
+                    <div class="data">
+                        <select name="category">
+                            <option value="">선택</option>
+                            <option value="1">담임목사 설교</option>
+                            <option value="2">부교역자 설교</option>
+                            <option value="3">예배실황</option>
+                            <option value="4">찬양</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="label">날짜</div>
+                    <div class="data">
+                        <input type="text" name="date" class="date-picker short">
+                    </div>
+                </div>
+                <div>
+                    <div class="label">예배 구분</div>
+                    <div class="data">
+                        <select name="worship_type">
+                            <option value="">선택</option>
+                            <option value="sun1">주일 1부</option>
+                            <option value="sun2">주일 2부</option>
+                            <option value="sun3">주일 3부</option>
+                            <option value="sun4">주일 4부</option>
+                            <option value="fri">금요성령집회</option>
+                            <option value="wed1">수요예배 오전</option>
+                            <option value="wed2">수요예배 저녁</option>
+                            <option value="dawn">새벽예배</option>
+                            <option value="etc">기타</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="praise hide">
+                    <div class="label">팀이름</div>
+                    <div class="data">
+                        <input type="text" name="praise_team" class="short">
+                    </div>
+                </div>
+                <div class="preach preacher hide">
+                    <div class="label">설교자</div>
+                    <div class="data">
+                        <select name="preacher">
+                            <option value="">선택</option>
+                        </select>
+<!--                        <input type="text" name="preacher_etc" class="short" placeholder="설교자" style="display: none">-->
+                    </div>
+                </div>
+                <div class="content-title">
+                    <div class="label">게시물 제목</div>
+                    <div class="data">
+                        <input type="text" name="title" autocomplete="off" placeholder="">
+                    </div>
+                </div>
+                <div class="preach hide">
+                    <div class="label">본문</div>
+                    <div class="data">
+                        <input type="text" name="verse">
+                    </div>
+                </div>
+                <div>
+                    <div class="label">내용</div>
+                    <div class="data">
+                        <textarea name="content" cols="30" rows="10" placeholder="유튜브 '퍼가기' 내용을 붙여넣기 해주세요"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="functions">
+                <button class="register">등록</button>
+                <button class="edit">수정</button>
+                <button class="cancel">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

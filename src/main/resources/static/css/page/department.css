@@ -1,0 +1,135 @@
+#content {
+    width: 1200px;
+    min-height: 800px;
+    padding-top: 50px;
+    display: flex;
+}
+
+#content .menu-list {
+    width: 230px;
+    padding-left: 40px;
+    margin-right: 80px;
+}
+#content .menu-list .title{
+    padding-left: 16px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #404040;
+    /*color: gray;*/
+}
+#content .menu-list .menu{
+    padding-left: 10px;
+    font-size: 1rem;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 10px;
+    color: #2f2f2f;
+    cursor: pointer;
+    border-left: 6px solid white;
+}
+#content .menu-list .menu.selected{
+    /*border-left: 6px solid #a94141;*/
+    color: #a94141;
+    font-weight: bold;
+}
+#content .menu-list .menu:not(.selected):hover{
+    /*border-left: 6px solid #61879f;*/
+    font-weight: bold;
+}
+
+
+#content .detail {
+    width: 890px;
+}
+#content .detail .title{
+    font-size: 1.3rem;
+    padding-left: 20px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: #404040;
+    /*color: #a94141;*/
+    /*border-bottom: 1px solid lightgrey;*/
+    border-left: 6px solid #a94141;
+}
+
+#content .detail .sub-title {
+    font-weight: bold;
+    font-size: 1.15rem;
+    height: 35px;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 20px;
+    color: #404040;
+    padding-left: 5px;
+}
+#content .detail .desc {
+    padding-left: 10px;
+}
+#content .detail .mini-title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+#content .detail .title-desc {
+    font-weight: bold;
+    /*text-align: center;*/
+    height: 45px;
+    line-height: 45px;
+    /*color: #a94141;*/
+    font-size: 1.5rem;
+}
+#content .detail .verse {
+    font-size: 1rem;
+    color: #404040;
+}
+#content .detail .r {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    /*padding-left: 10px;*/
+}
+
+
+#content .detail img  {
+    width: 900px;
+}
+
+#content .detail.infant .desc .label {
+    display: inline-block;
+    width: 110px;
+    color: gray;
+    font-size: 1rem;
+}
+#content .detail.infant .desc .n {
+    display: inline-block;
+    width: 250px;
+    font-size: 1rem;
+    color: #404040;
+}
+
+
+
+
+#content .detail .desc {
+    font-size: 1.05rem;
+    color: #404040;
+}
+#content .detail .desc .label {
+    display: inline-block;
+    width: 130px;
+    color: gray;
+    font-size: 1rem;
+}
+#content .detail .desc .n {
+    display: inline-block;
+    width: 250px;
+    font-size: 1rem;
+    color: #404040;
+}
+#content .detail .desc .n.long {
+    width: 700px;
+}
+
+

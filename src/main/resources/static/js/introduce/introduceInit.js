@@ -5,9 +5,11 @@ require.config({
     }
 });
 require(['common/init', 'common/userInfo', 'introduceMain'] , function(init, userInfo, introduceMain){
-    init.init(function(){
-        console.log(userInfo)
-        introduceMain.init()
+    init.init({
+        menu: 'introduce',
+        callback: function(){
+            introduceMain.init()
+        }
     });
 });
 

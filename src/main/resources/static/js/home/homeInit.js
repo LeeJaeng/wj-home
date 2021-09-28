@@ -5,9 +5,10 @@ require.config({
     }
 });
 require(['common/init', 'common/userInfo', 'homeMain'] , function(init, userInfo, homeMain){
-    init.init(function(){
-        console.log(userInfo)
-        homeMain.init()
+    init.init({
+        callback: function(){
+            homeMain.init()
+        }
     });
 });
 

@@ -1,6 +1,7 @@
 package org.woojeong.config.security.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.cors.CorsUtils;
 import org.woojeong.config.security.auth.ajax.AjaxLoginFailureHandler;
 import org.woojeong.config.security.auth.ajax.AjaxLoginFilter;
 import org.woojeong.config.security.auth.ajax.AjaxLoginProvider;
@@ -123,8 +124,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .httpBasic().disable()
 //                .formLogin().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
 
+//                .and()
+//                .authorizeRequests()
+//                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll() // - (1)
+//                .antMatchers("/api/v*/public/**").permitAll()
+//                .antMatchers("/api/v*/user/**").permitAll()
+//                .and()
+//                .cors()
+
+
+                .and()
                 .addFilterBefore(buildAjaxLoginProcessingFilter(AUTHENTICATION_URL), UsernamePasswordAuthenticationFilter.class)    // 로그인의 경우
 
                 .exceptionHandling()

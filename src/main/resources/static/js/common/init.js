@@ -3,10 +3,10 @@ define(['common/userInfo', 'common/header'], function(userInfo, header){
     function Init() {
     }
 
-    Init.prototype.init = function(callback) {
+    Init.prototype.init = function({menu, callback}) {
         // 유저 정보 먼저 받아오고
         userInfo.getInitTokenFromCookie(function(){
-            header.init()
+            header.init(menu)
             callback()
         });
     }

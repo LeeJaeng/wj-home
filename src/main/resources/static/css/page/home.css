@@ -14,7 +14,7 @@
 .main-preach .description {
     /*border-left: 1px solid lightgrey;*/
     /*border-right: 1px solid lightgrey;*/
-    /*background-color: #3b6275;*/
+    /*background-color: #a94141;*/
     height: 125px;
     /*color: white;*/
 }
@@ -25,14 +25,14 @@
 .main-preach .description > div:first-child{
     height: 33px;
     line-height: 33px;
-    background-color: #3b6275;
+    background-color: #a94141;
     margin-bottom: 15px;
 }
 .main-preach .description .title {
     width: 50%;
     display: inline-block;
     /*font-weight: bold;*/
-    /*color: #3b6275;*/
+    /*color: #a94141;*/
     color: white;
     font-size: 1rem;
 }
@@ -43,7 +43,7 @@
     color: #dedede;
 }
 .main-preach .description .preach-title {
-    color: #323232;
+    color: #a94141;
     padding-left: 15px;
     font-size: 1.2rem;
     font-weight: bold;
@@ -74,13 +74,12 @@
     border-left: 6px solid white;
 }
 .main-preach .preach-list .l-row:last-child{
-    border-bottom: none;
 }
 .main-preach .preach-list .l-row.selected{
-    border-left: 6px solid #3b6275;
+    border-left: 6px solid #a94141;
 }
 .main-preach .preach-list .l-row:not(.selected):hover{
-    border-left: 6px solid #61879f;
+    border-left: 6px solid #a94141;
 }
 .main-preach .preach-list .l-row > div{
     padding-top: 4px;
@@ -106,6 +105,22 @@
     color: #4e4e4e;
 }
 
+.main-preach .preach-list .more{
+    color: #404040;
+    text-decoration: none;
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-left: 6px solid white;
+    text-align: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-bottom: 1px solid lightgrey;
+}
+.main-preach .preach-list .more:hover{
+    font-weight: bold;
+    color: #a94141;
+}
 
 .board {
     width: 600px;
@@ -123,8 +138,21 @@
     padding-left: 10px;
     height: 50px;
     line-height: 50px;
+    position: relative;
 }
 
+.board .header .more{
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: gray;
+    font-size: 1rem;
+    font-weight: normal;
+}
+.board .header .more a{
+    text-decoration: none;
+    color: gray;
+}
 .board .list {
     border: 1px solid lightgrey;
     background-color: white;
@@ -136,6 +164,7 @@
     display: flex;
     padding-top: 25px;
     padding-bottom: 25px;
+    height: 340px;
 }
 .board .list.photo > div.next,
 .board .list.photo > div.prev{
@@ -151,19 +180,30 @@
     cursor: default;
 }
 .board .list.photo > div.pic-area {
-    width: 1050px;
-    display: flex;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: table;
 }
+
 .board .list.photo > div.pic-area > div{
-    width: 175px;
-    padding-left: 12px;
-    padding-right: 12px;
-    height: 150px;
+    display: table-cell;
+    width: 33%;
+    padding-left: 20px;
+    padding-right: 20px;
     overflow: hidden;
+    height: 300px;
+    cursor: pointer;
+}
+.board .list.photo > div.pic-area > div:hover{
+    font-weight: bold;
+}
+.board .list.photo > div.pic-area > div .title{
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #404040;
 }
 .board .list.photo > div.pic-area > div img{
-    cursor: pointer;
-    height: 100%;
     width: 100%;
 }
 
@@ -195,5 +235,5 @@
     padding-bottom: 50px;
 }
 .main-color {
-    background-color: #3b6275;
+    background-color: #a94141;
 }

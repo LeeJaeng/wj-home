@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default_layout">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/page/board.css}">
+    <link rel="stylesheet" th:href="@{/css/page/community.css}">
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <script type="text/javascript"
+            th:src="@{'/js/require/require.min.js'}"
+            th:attr="data-main=@{/js/community/communityInit.js}">
+    </script>
+</th:block>
+
+
+<div class="row justify-content-md-center" layout:fragment="content">
+    <input type="hidden" class="init-val-remove" name="board_type" th:value="${data.board_type}">
+    <input type="hidden" class="init-val-remove" name="board_idx" th:value="${data.board_idx}">
+    <div id="content" class="col-md-auto">
+        <div class="menu-list">
+            <div class="title">커뮤니티</div>
+<!--            <div class="menu selected" data-value="all">영상전체</div>-->
+<!--            <div class="menu selected" data-value="notice">교회소식</div>-->
+            <div class="menu" data-value="paper">교회주보</div>
+            <div class="menu" data-value="photo">교회사진들</div>
+            <div class="menu" data-value="file">방송실협조</div>
+        </div>
+        <div class="detail">
+            <div id="register">게시물 등록</div>
+            <div class="sub-title">교회주보</div>
+            <div class="desc">
+                <div class="functions"></div>
+                <div class="list">
+                    <table>
+                    </table>
+                    <div class="container">
+                        <div class="paging row justify-content-md-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="board-detail hide">
+            <div class="functions">
+                <div class="back">＜이전으로</div>
+            </div>
+            <div class="title-area">
+                <div>
+                    <div class="title"></div>
+                    <div class="date"></div>
+                </div>
+            </div>
+            <div class="files">
+                <div class="header">첨부파일</div>
+                <div class="list">
+                </div>
+            </div>
+            <div class="desc">
+            </div>
+            <div class="photos">
+            </div>
+            <div class="buttons">
+            </div>
+        </div>
+    </div>
+    <div id="registerPopup" class="popup">
+        <div class="window">
+            <div class="close">✕</div>
+            <div class="title">게시물 등록</div>
+            <div class="form" style="padding: 30px;">
+                <div class="content-type">
+                    <div class="label">게시물 구분</div>
+                    <div class="data">
+                        <select name="category">
+                            <option value="">선택해주세요</option>
+<!--                            <option value="1">교회소식</option>-->
+                            <option value="2">교회주보</option>
+                            <option value="3">교회사진들</option>
+                            <option value="4">방송실협조</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="content-title">
+                    <div class="label">게시물 제목</div>
+                    <div class="data">
+                        <input type="text" name="title" autocomplete="off" placeholder="">
+                    </div>
+                </div>
+                <div>
+                    <div class="label">파일 업로드</div>
+                    <div class="data">
+                        <input type="file" name="files" multiple>
+                    </div>
+                </div>
+                <div>
+                    <div class="label">내용</div>
+                    <div class="data">
+                        <textarea name="content" cols="30" rows="10" placeholder=""></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="functions">
+                <button class="register">등록</button>
+                <button class="cancel">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mybatis.example.board">
+
+    <insert id="insertWorshipBoard" parameterType="worshipRegisterDTO">
+        INSERT INTO wj_board_worship (created_user_idx, category, worship_type, worship_date, title, verse, host_name,
+                                      content, created_date, updated_date)
+        VALUES (
+                #{user_idx}, #{category}, #{worship_type}, #{date}, #{title}, #{verse}, #{host_name}, #{content}, now(), now()
+        )
+    </insert>
+    <update id="editWorshipBoard" parameterType="worshipRegisterDTO">
+        UPDATE wj_board_worship
+            SET
+                category = #{category},
+                worship_type = #{worship_type},
+                worship_date = #{date},
+                title = #{title},
+                verse = #{verse},
+                host_name = #{host_name},
+                content = #{content},
+                updated_date = now()
+        WHERE board_idx = #{board_idx}
+    </update>
+    <update id="deleteWorshipBoard" parameterType="java.lang.Long">
+        UPDATE wj_board_worship
+        SET
+            is_deleted = true,
+            updated_date = now()
+        WHERE board_idx = #{board_idx}
+    </update>
+    <select id="getWorshipBoardList" parameterType="worshipBoardListDTO" resultType="worshipBoardVo">
+        SELECT SQL_CALC_FOUND_ROWS
+            board_idx, category, created_user_idx, DATE_FORMAT(worship_date, '%Y-%m-%d') as date,
+            worship_type, host_name, title, verse, content, (created_user_idx = #{my_user_idx}) as is_mine,
+            DATE_FORMAT(created_date, '%Y.%m.%d %H:%i') as created_date,
+            DATE_FORMAT(updated_date, '%Y.%m.%d %H:%i') as updated_date
+        FROM wj_board_worship
+        WHERE is_deleted is NOT TRUE
+            ${query}
+        ORDER BY worship_date desc, worship_type desc
+        LIMIT #{start}, #{cnt}
+    </select>
+    <select id="getWorshipBoard" parameterType="worshipBoardListDTO" resultType="worshipBoardVo">
+        SELECT
+            board_idx, category, created_user_idx, DATE_FORMAT(worship_date, '%Y-%m-%d') as date,
+            worship_type, host_name, title, verse, content, (created_user_idx = #{my_user_idx}) as is_mine,
+            DATE_FORMAT(created_date, '%Y.%m.%d %H:%i') as created_date,
+            DATE_FORMAT(updated_date, '%Y.%m.%d %H:%i') as updated_date
+        FROM wj_board_worship
+        WHERE is_deleted is NOT TRUE
+        AND board_idx = #{board_idx}
+    </select>
+
+    <select id="foundRows" parameterType="hashmap" resultType="java.lang.Long">
+        SELECT found_rows()
+    </select>
+
+    <insert id="insertCommunityBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="board_idx">
+        INSERT INTO wj_board (created_user_idx, category, title, content, created_date, updated_date)
+        VALUES (
+                   #{user_idx}, #{category}, #{title}, #{content}, now(), now()
+               )
+    </insert>
+    <insert id="insertCommunityBoardFiles" parameterType="hashmap">
+        INSERT INTO board_files (board_idx, file_type, aws_file_name, origin_file_name, url, created_date, is_deleted)
+        VALUE (#{board_idx}, #{file_type}, #{aws_file_name}, #{origin_file_name}, #{url}, now(), false)
+    </insert>
+    <update id="deleteCommunityBoard" parameterType="java.lang.Long">
+        UPDATE wj_board board
+            left join board_files files ON board.board_idx = files.board_idx
+        SET
+            board.is_deleted = true,
+            files.is_deleted = true,
+            board.updated_date = now()
+        WHERE board.board_idx = #{board_idx}
+    </update>
+    <select id="getCommunityBoardList" parameterType="communityBoardListDTO" resultType="communityBoardVo">
+        SELECT SQL_CALC_FOUND_ROWS
+            board.board_idx, category, created_user_idx,
+            title, content, (created_user_idx = #{my_user_idx}) as is_mine,
+            DATE_FORMAT(created_date, '%Y-%m-%d') as date,
+            DATE_FORMAT(created_date, '%Y.%m.%d %H:%i') as created_date,
+            DATE_FORMAT(updated_date, '%Y.%m.%d %H:%i') as updated_date,
+            (select url from board_files where board_idx = board.board_idx AND is_deleted is not TRUE order by idx limit 1) as thumb
+        FROM wj_board board
+
+        WHERE board.is_deleted is NOT TRUE ${query}
+        ORDER BY created_date desc
+        LIMIT #{start}, #{cnt}
+    </select>
+    <select id="getCommunityBoard" parameterType="hashmap" resultType="hashmap">
+        SELECT
+            board.board_idx, category, created_user_idx,
+            title, content, (created_user_idx = #{my_user_idx}) as is_mine,
+            DATE_FORMAT(board.created_date, '%Y.%m.%d %H:%i') as created_date,
+            DATE_FORMAT(board.updated_date, '%Y.%m.%d %H:%i') as updated_date
+        FROM wj_board board
+        WHERE board.is_deleted is NOT TRUE
+        AND board.board_idx = #{board_idx}
+    </select>
+    <select id="getCommunityBoardFiles" parameterType="hashmap" resultType="hashmap">
+        SELECT
+            *
+        FROM board_files
+        WHERE board_idx = #{board_idx} AND is_deleted is not true
+    </select>
+</mapper>

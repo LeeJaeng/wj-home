@@ -59,10 +59,10 @@ public class JwtAuthProvider implements AuthenticationProvider {
 //            userInfo.set_manager(jwsClaims.getBody().get("is_manager", Boolean.class));
 //            userInfo.set_supervisor(jwsClaims.getBody().get("is_manager", Boolean.class));
 //            userInfo.set_admin(jwsClaims.getBody().get("is_admin", Boolean.class));
-//            userInfo.setUser_idx(Long.valueOf(jwsClaims.getBody().get("user_idx", Integer.class)));
-//            userInfo.setUser_phone(jwsClaims.getBody().get("user_phone", String.class));
-//            userInfo.setUser_id(jwsClaims.getBody().get("user_id", String.class));
-//            userInfo.setUser_name(jwsClaims.getBody().get("user_name", String.class));
+            userInfo.setUser_idx(Long.valueOf(jwsClaims.getBody().get("user_idx", Integer.class)));
+            userInfo.setUser_phone(jwsClaims.getBody().get("user_phone", String.class));
+            userInfo.setUser_id(jwsClaims.getBody().get("user_id", String.class));
+            userInfo.setUser_name(jwsClaims.getBody().get("user_name", String.class));
 //            userInfo.setUser_address(jwsClaims.getBody().get("user_address", String.class));
 //        }
 
@@ -73,8 +73,13 @@ public class JwtAuthProvider implements AuthenticationProvider {
 //        userInfo.setUser_phone(jwsClaims.getBody().get("user_phone", String.class));
 //        userInfo.setUser_id(jwsClaims.getBody().get("user_id", String.class));
 //        userInfo.setUser_name(jwsClaims.getBody().get("user_name", String.class));
-
         userInfo.setAuthorities(authorities);
+
+        for (GrantedAuthority authority : authorities) {
+            if (authority.getAuthority().equals("ADMIN")) {
+                userInfo.setAdmin(true);
+            }
+        }
 
         return new JwtAuthToken(userInfo, userInfo.getAuthorities());
     }

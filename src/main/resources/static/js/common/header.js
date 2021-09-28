@@ -9,25 +9,28 @@ define(['common/loginPopup', 'common/userInfo'], function(loginPopup, userInfo){
         this.var.$user = this.var.$userInfo.find(".user")
     }
 
-    Header.prototype.init = function() {
+    Header.prototype.init = function(menu) {
         if (userInfo.loggedIn) {
             this.userInit()
         }
         else {
             this.guestInit()
         }
+        console.log(menu);
+        if (menu) {
+            this.var.$mainMenu.find(".menu." + menu).addClass("selected")
+        }
     }
     Header.prototype.userInit = function(){
-        this.var.$login.remove();
+        this.var.$login.remove()
         this.var.$user.find(".user-name").text(userInfo.userName + '님')
-        this.var.$user.show();
+        this.var.$user.show()
 
         this.logoutBtnEvent()
     }
     Header.prototype.guestInit = function(){
-        this.var.$user.remove();
-        this.var.$login.show();
-
+        this.var.$user.remove()
+        this.var.$login.show()
         this.loginBtnEvent()
     }
 
@@ -38,7 +41,7 @@ define(['common/loginPopup', 'common/userInfo'], function(loginPopup, userInfo){
         });
     }
     Header.prototype.logoutBtnEvent = function() {
-        const _this = this;
+        const _this = this
         this.var.$user.find(".logout").click(function(){
             userInfo.logout()
         });
