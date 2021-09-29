@@ -29,8 +29,8 @@ bin/
 *.iml
 *.ipr
 out/
-!**/aws.yml
-!**/database.yml
+**/aws.yml
+**/database.yml
 
 !**/src/main/**/out/
 !**/src/test/**/out/
