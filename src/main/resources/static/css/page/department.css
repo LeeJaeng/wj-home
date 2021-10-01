@@ -31,8 +31,8 @@
     border-left: 6px solid white;
 }
 #content .menu-list .menu.selected{
-    /*border-left: 6px solid #a94141;*/
-    color: #a94141;
+    /*border-left: 6px solid rgba(53, 170, 205, 1);*/
+    color: rgba(53, 170, 205, 1);
     font-weight: bold;
 }
 #content .menu-list .menu:not(.selected):hover{
@@ -52,17 +52,17 @@
     margin-bottom: 40px;
     font-weight: bold;
     color: #404040;
-    /*color: #a94141;*/
+    /*color: rgba(53, 170, 205, 1);*/
     /*border-bottom: 1px solid lightgrey;*/
-    border-left: 6px solid #a94141;
+    border-left: 6px solid rgba(53, 170, 205, 1);
 }
 
 #content .detail .sub-title {
     font-weight: bold;
     font-size: 1.15rem;
     height: 35px;
-    border-bottom: 1px solid lightgrey;
-    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 28px;
     color: #404040;
     padding-left: 5px;
 }
@@ -72,14 +72,16 @@
 #content .detail .mini-title {
     font-size: 1.2rem;
     margin-bottom: 8px;
+    color: rgba(53, 170, 205, 1)
 }
 #content .detail .title-desc {
     font-weight: bold;
     /*text-align: center;*/
     height: 45px;
     line-height: 45px;
-    /*color: #a94141;*/
+    /*color: rgba(53, 170, 205, 1);*/
     font-size: 1.5rem;
+    color: rgba(15, 17, 119, 0.8);
 }
 #content .detail .verse {
     font-size: 1rem;
@@ -99,8 +101,8 @@
 #content .detail.infant .desc .label {
     display: inline-block;
     width: 110px;
-    color: gray;
-    font-size: 1rem;
+    font-size: 0.94rem;
+    color: #888;
 }
 #content .detail.infant .desc .n {
     display: inline-block;
@@ -119,14 +121,17 @@
 #content .detail .desc .label {
     display: inline-block;
     width: 130px;
-    color: gray;
-    font-size: 1rem;
+    color: #888;
+    font-size: 0.94rem;
+    font-weight: bold;
+    padding: 4px 0;
 }
 #content .detail .desc .n {
     display: inline-block;
     width: 250px;
     font-size: 1rem;
     color: #404040;
+    padding: 4px 0;
 }
 #content .detail .desc .n.long {
     width: 700px;

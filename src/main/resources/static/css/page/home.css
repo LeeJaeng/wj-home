@@ -1,5 +1,6 @@
 #content {
     padding-top: 10px;
+    overflow-x: hidden;
 }
 
 .main-preach {
@@ -14,25 +15,25 @@
 .main-preach .description {
     /*border-left: 1px solid lightgrey;*/
     /*border-right: 1px solid lightgrey;*/
-    /*background-color: #a94141;*/
-    height: 125px;
+    /*background-color: rgba(53, 170, 205, 1);*/
+    height: 136px;
     /*color: white;*/
 }
-.main-preach .description > div{
-    padding-left: 10px;
-    padding-right: 10px;
+.main-preach .description > div {
+    padding-left: 16px;
+    padding-right: 16px;
 }
 .main-preach .description > div:first-child{
-    height: 33px;
-    line-height: 33px;
-    background-color: #a94141;
-    margin-bottom: 15px;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgba(53, 170, 205, 1);
+    margin-bottom: 20px;
 }
 .main-preach .description .title {
     width: 50%;
     display: inline-block;
     /*font-weight: bold;*/
-    /*color: #a94141;*/
+    /*color: rgba(53, 170, 205, 1);*/
     color: white;
     font-size: 1rem;
 }
@@ -40,19 +41,23 @@
     width: 50%;
     text-align: right;
     display: inline-block;
-    color: #dedede;
+    color: rgba(255, 255, 255, 0.67);
+    font-size: 0.9em;
 }
 .main-preach .description .preach-title {
-    color: #a94141;
+    color: rgba(15, 17, 119, 1);
     padding-left: 15px;
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 2px;
 }
-.main-preach .description .preach-verse{
-    font-size: 1rem;
+.main-preach .description .preach-verse {
+    font-size: 0.96rem;
     color: gray;
     padding-left: 15px;
+}
+.main-preach .description .preach-verse i {
+    margin-right: 4px;
 }
 
 .main-preach .preach-player {
@@ -60,26 +65,31 @@
 }
 .main-preach .preach-list {
     padding: 0;
-    border: 1px solid lightgrey;
+    border: 2px solid rgba(53, 170, 205, 0.67);
     width: 330px;
-    height: 440px;
-    margin-left: 70px;
+    height: 496px;
+    margin-left: 20px;
     overflow-y: scroll;
 }
-.main-preach .preach-list .l-row{
-    border-bottom: 1px solid lightgrey;
+.main-preach .preach-list .l-row {
+    border-bottom: 1px solid rgba(53, 170, 205, 0.2);
     padding: 10px 20px;
     font-size: .9rem;
     cursor: pointer;
     border-left: 6px solid white;
 }
+.main-preach .preach-list .l-row:last-child {
+    margin-bottom: 16px;
+    border-bottom: 0;
+}
 .main-preach .preach-list .l-row:last-child{
 }
 .main-preach .preach-list .l-row.selected{
-    border-left: 6px solid #a94141;
+    border-left: 6px solid rgba(53, 170, 205, 0.67);
 }
 .main-preach .preach-list .l-row:not(.selected):hover{
-    border-left: 6px solid #a94141;
+    border-left: 6px solid rgba(53, 170, 205, 0);
+    background-color: rgba(53, 170, 205, 0.08);
 }
 .main-preach .preach-list .l-row > div{
     padding-top: 4px;
@@ -89,20 +99,21 @@
     display: inline-block;
     width: 50%;
     text-align: left;
-    color: gray;
+    color: #bbb;
 }
 .main-preach .preach-list .l-row .type{
     display: inline-block;
     width: 50%;
     text-align: right;
-    color: #2f2f2f;
+    color: rgba(15, 17, 119, 0.67);
+    font-weight: bold;
 }
 .main-preach .preach-list .l-row .title{
     font-size: 1rem;
     /*font-weight: bold;*/
 }
 .main-preach .preach-list .l-row .verse{
-    color: #4e4e4e;
+    color: rgba(53, 170, 205, 1);
 }
 
 .main-preach .preach-list .more{
@@ -119,7 +130,10 @@
 }
 .main-preach .preach-list .more:hover{
     font-weight: bold;
-    color: #a94141;
+    color: rgba(53, 170, 205, 1);
+}
+.main-preach .preach-list .more i {
+    margin-right: 4px;
 }
 
 .board {
@@ -151,20 +165,22 @@
 }
 .board .header .more a{
     text-decoration: none;
-    color: gray;
+    color: #777;
+}
+.board .header .more a:hover {
+    color: rgba(53, 170, 205, 1);
 }
 .board .list {
-    border: 1px solid lightgrey;
+    border: 1px solid #e6e9ee;
     background-color: white;
     height: 200px;
     overflow-y: scroll;
     font-size: .95rem;
 }
 .board .list.photo {
-    display: flex;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    height: 340px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    height: inherit;
 }
 .board .list.photo > div.next,
 .board .list.photo > div.prev{
@@ -181,27 +197,33 @@
 }
 .board .list.photo > div.pic-area {
     width: 100%;
-    padding-left: 40px;
-    padding-right: 40px;
-    display: table;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .board .list.photo > div.pic-area > div{
-    display: table-cell;
-    width: 33%;
-    padding-left: 20px;
-    padding-right: 20px;
+    position: relative;
+    display: inline-block;
+    background-size: cover;
+    width: calc(33% - 24px);
+    margin: 0 12px;
     overflow: hidden;
-    height: 300px;
+    height: 260px;
     cursor: pointer;
 }
-.board .list.photo > div.pic-area > div:hover{
-    font-weight: bold;
-}
 .board .list.photo > div.pic-area > div .title{
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    color: #404040;
+    position: absolute;
+    padding: 0 16px;
+    height: 44px;
+    line-height: 44px;
+    bottom: 0;
+    width: 100%;
+    font-size: 1rem;
+    background-color: rgba(24, 24, 24, 0.9);
+    color: white;
+}
+.board .list.photo > div.pic-area > div:hover .title{
+    background-color: rgba(53, 170, 205, 1);
 }
 .board .list.photo > div.pic-area > div img{
     width: 100%;
@@ -216,8 +238,12 @@
     line-height: 45px;
     cursor: pointer;
 }
+.board .list > .l-row:not(:last-child) {
+    border-bottom: 1px solid #f2f4f7;
+}
 .board .list .l-row:hover{
-    background-color: #eaeaea;
+    background-color: #f8f9fb;
+    color: rgba(15, 17, 119, 1);
 }
 .board .list .l-row .title{
     width: 80%;
@@ -226,14 +252,15 @@
     width: 20%;
     padding-left: 10px;
     text-align: right;
-    color: gray;
+    font-size: 0.9em;
+    color: #aaa;
 }
 
 
 .gray-background {
-    background-color: #eaeaea;
+    background-color: #f2f4f7;
     padding-bottom: 50px;
 }
 .main-color {
-    background-color: #a94141;
+    background-color: rgba(53, 170, 205, 1);
 }

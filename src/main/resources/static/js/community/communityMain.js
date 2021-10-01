@@ -286,7 +286,7 @@ define(
                     '<td style="text-align: left; padding-left: 5px;">'+
                     '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
                     '</td>'+
-                    '<td style="width: 150px;">'+ v.created_date +'</td>'
+                    '<td class="date" style="width: 150px;">'+ v.created_date +'</td>'
                 )
                 // }
 
@@ -352,7 +352,7 @@ define(
                             $files.show()
                             $.each(json.files, function(i, v){
                                 $files.find(".list").append(
-                                    '<div class="file"><a href="'+ v.url +'">'+ v.origin_file_name +'</a></div>'
+                                    '<div class="file"><a href="'+ v.url +'"><i class="fas fa-download"></i> '+ v.origin_file_name +'</a></div>'
                                 )
                             })
                         }

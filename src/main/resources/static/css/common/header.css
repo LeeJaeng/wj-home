@@ -1,6 +1,6 @@
 #main-menu {
     height: 90px;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 2px solid #e6e9ee;
 }
 
 #main-menu > div {
@@ -13,7 +13,7 @@
 }
 
 #main-menu .logo {
-    width: 220px;
+    width: 212px;
     height: 100%;
     line-height: 100px;
     /*background-color: aliceblue;*/
@@ -44,8 +44,8 @@
 #main-menu .menu-list .menu.selected,
 #main-menu .menu-list .menu:hover {
     font-weight: bold;
-    color: #a94141;
-    /*border-bottom: 6px solid #a94141;*/
+    color: rgba(53, 170, 205, 1);
+    /*border-bottom: 6px solid rgba(53, 170, 205, 1);*/
 }
 
 #user-info {
@@ -61,11 +61,15 @@
     height: 88px;
     line-height: 94px;
 }
+#user-info .user i {
+    color: rgba(53, 170, 205, 1);
+}
 #user-info .user .user-name{
     font-weight: bold;
+    color: #333;
 }
 #user-info .user .logout{
-    margin-left: 10px;
+    margin-left: 24px;
     color: gray;
     cursor: pointer;
 }
@@ -76,15 +80,15 @@
 #user-info .login button {
     padding: 5px 15px;
     background-color: transparent;
-    color: #a94141;
-    /*background-color: #4f6e81;*/
-    /*color: white;*/
-    border: 1px solid #a94141;
+    color: rgba(53, 170, 205, 1);
+    border: 2px solid rgba(53, 170, 205, 0.2);
     border-radius: 5px;
     margin-top: 30px;
 }
 #user-info .login button:hover{
-    font-weight: bold;
+    background-color: rgba(53, 170, 205, 0.9);
+    color: white;
+    border: 2px solid rgba(53, 170, 205, 1);
 }
 
 #login-popup {
@@ -134,9 +138,9 @@
 #login-popup .window button {
     height: 60px;
     width: 100%;
-    background-color: #a94141;
+    background-color: rgba(53, 170, 205, 1);
     color: white;
-    border: 1px solid #a94141;
+    border: 1px solid rgba(53, 170, 205, 1);
 }
 #login-popup .window .functions {
     line-height: 60px;

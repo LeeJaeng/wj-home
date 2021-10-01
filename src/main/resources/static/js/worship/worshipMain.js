@@ -399,23 +399,23 @@ define(
                     case 1:
                         $row.append(
                             '<td style="text-align: left; padding-left: 5px;">'+
-                            '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
-                            '   <div style="font-size: .9rem; color: grey">' + v.verse +'</div>' +
+                            '   <div style="font-size: 1.05rem;"> '+ v.title +'</div>'+
+                            '   <div style="font-size: .9rem; color: grey"><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
                             '</td>'+
-                            '<td style="width: 120px;">예동열 담임목사</td>' +
-                            '<td style="width: 90px;">'+ v.date +'</td>'+
-                            '<td style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
+                            '<td class="pastor" style="width: 120px;">예동열 담임목사</td>' +
+                            '<td class="date" style="width: 90px;">'+ v.date +'</td>'+
+                            '<td class="worship" style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
                         )
                         break
                     case 2:
                         $row.append(
                             '<td style="text-align: left; padding-left: 5px;">'+
                             '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
-                            '   <div style="font-size: .9rem; color: grey">' + v.verse +'</div>' +
+                            '   <div style="font-size: .9rem; color: grey"><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
                             '</td>'+
-                            '<td style="width: 120px;">'+ v.host_name +'</td>' +
-                            '<td style="width: 90px;">'+ v.date +'</td>'+
-                            '<td style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
+                            '<td class="pastor" style="width: 120px;">'+ v.host_name +'</td>' +
+                            '<td class="date" style="width: 90px;">'+ v.date +'</td>'+
+                            '<td class="worship" style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
                         )
                         break
                     case 3:
@@ -423,8 +423,8 @@ define(
                             '<td style="text-align: left; padding-left: 5px;">'+
                             '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
                             '</td>'+
-                            '<td style="width: 90px;">'+ v.date +'</td>'+
-                            '<td style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
+                            '<td class="date" style="width: 90px;">'+ v.date +'</td>'+
+                            '<td class="worship" style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
                         )
                         break
                     case 4:
@@ -432,9 +432,9 @@ define(
                             '<td style="text-align: left; padding-left: 5px;">'+
                             '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
                             '</td>'+
-                            '<td style="width: 120px;">'+ v.host_name +'</td>' +
-                            '<td style="width: 90px;">'+ v.date +'</td>'+
-                            '<td style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
+                            '<td class="pastor" style="width: 120px;">'+ v.host_name +'</td>' +
+                            '<td class="date" style="width: 90px;">'+ v.date +'</td>'+
+                            '<td class="worship" style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
                         )
                         break
                 }
