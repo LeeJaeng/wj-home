@@ -69,7 +69,7 @@ define(
 
                 $preachPlayer.find(".date").text(date)
                 $preachPlayer.find(".preach-title").text(preachTitle)
-                $preachPlayer.find(".preach-verse").text(preachVerse)
+                $preachPlayer.find(".preach-verse").find(".verse").text(preachVerse)
 
                 $preachPlayer.find("iframe").remove()
                 if (data.content) {
@@ -187,9 +187,9 @@ define(
                             return false
 
                         const $row = $(
-                            '<div>' +
+                            '<div style="background-image: url(' + v.thumb + ')">' +
                             '   <div class="title">'+ v.title +'</div>' +
-                            '   <div class="pic"><img src="'+ v.thumb +'" alt=""></div>' +
+                            // '   <div class="pic"><img src="'+ v.thumb +'" alt=""></div>' +
                             '</div>'
                         )
                         $row.click(function(){

@@ -7,7 +7,7 @@
     <div id="main-menu">
         <div>
             <div class="logo">
-                <img th:src="@{/img/logo.png}" alt="" onclick="window.location.href = '/'">
+                <img th:src="@{/img/logo-small.png}" alt="" onclick="window.location.href = '/'">
             </div>
             <div class="menu-list">
                 <div class="menu introduce" onclick="window.location.href = '/introduce'">교회소개</div>
@@ -22,6 +22,7 @@
             <button>로그인</button>
         </div>
         <div class="user">
+            <i class="fas fa-user"></i>
             <span class="user-name"></span> <span class="logout">로그아웃</span>
         </div>
     </div>
@@ -29,7 +30,7 @@
     <div id="login-popup" class="popup">
         <div class="window">
             <div class="close">✕</div>
-            <div class="logo"><img th:src="@{/img/logo.png}" alt=""></div>
+            <div class="logo"><img th:src="@{/img/logo-small.png}" alt=""></div>
             <div>
                 <input type="text" id="user_id" name="user_id" placeholder="아이디">
             </div>

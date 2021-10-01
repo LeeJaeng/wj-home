@@ -31,8 +31,8 @@
     border-left: 6px solid white;
 }
 #content .menu-list .menu.selected{
-    /*border-left: 6px solid #a94141;*/
-    color: #a94141;
+    /*border-left: 6px solid rgba(53, 170, 205, 1);*/
+    color: rgba(53, 170, 205, 1);
     font-weight: bold;
 }
 #content .menu-list .menu:not(.selected):hover{
@@ -53,16 +53,16 @@
     margin-bottom: 40px;
     font-weight: bold;
     color: #404040;
-    /*color: #a94141;*/
+    /*color: rgba(53, 170, 205, 1);*/
     /*border-bottom: 1px solid lightgrey;*/
-    border-left: 6px solid #a94141;
+    border-left: 6px solid rgba(53, 170, 205, 1);
 }
 
 #content .detail .sub-title {
     font-weight: bold;
-    font-size: 1.15rem;
-    height: 45px;
-    border-bottom: 1px solid lightgrey;
+    font-size: 1.36rem;
+    height: 56px;
+    /*border-bottom: 2px solid #eee;*/
     /*margin-bottom: 20px;*/
     color: #404040;
     padding-left: 5px;
@@ -72,18 +72,18 @@
 #content .detail .desc .list table{
     width: 100%;
     /*border-top: 1px solid gray;*/
-    border-bottom: 1px solid gray;
+    border-bottom: 2px solid #eee;
     /*margin-top: 50px;*/
 }
 #content .detail .desc .list table tr{
     cursor: pointer;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid #f2f4f7;
 }
 #content .detail .desc .list table tr:last-child{
     border-bottom: none;
 }
 #content .detail .desc .list table tr:hover{
-    background-color: #eaeaea;
+    background-color: #f8f9fb;
 }
 #content .detail .desc .list table th{
     border-bottom: 1px solid gray;
@@ -95,8 +95,21 @@
 #content .detail .desc .list table td{
     color: #404040;
     vertical-align: middle;
-    height: 70px;
+    height: 88px;
     text-align: center;
+}
+#content .detail .desc .list table td i {
+    margin: 0 4px;
+}
+#content .detail .desc .list table td.pastor,
+#content .detail .desc .list table td.date {
+    font-size: 0.96em;
+    color: #aaa;
+}
+#content .detail .desc .list table td.worship {
+    color: rgba(15, 17, 119, 0.67);
+    font-weight: bold;
+    font-size: 0.96em;
 }
 
 

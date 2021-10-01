@@ -31,8 +31,8 @@
     border-left: 6px solid white;
 }
 #content .menu-list .menu.selected{
-    /*border-left: 6px solid #a94141;*/
-    color: #a94141;
+    /*border-left: 6px solid rgba(53, 170, 205, 1);*/
+    color: rgba(53, 170, 205, 1);
     font-weight: bold;
 }
 #content .menu-list .menu:not(.selected):hover{
@@ -52,24 +52,30 @@
     margin-bottom: 40px;
     font-weight: bold;
     color: #404040;
-    /*color: #a94141;*/
+    /*color: rgba(53, 170, 205, 1);*/
     /*border-bottom: 1px solid lightgrey;*/
-    border-left: 6px solid #a94141;
+    border-left: 6px solid rgba(53, 170, 205, 1);
 }
 
 
 #content .detail.introduce .bdy{
     display: flex;
-    margin-bottom: 20px;
 }
 #content .detail.introduce .box{
-    margin-bottom: 40px;
-    border: 1px solid #a94141;
-    box-shadow: 2px 1px 1px #a94141;
-    border-radius: 10px;
-    margin-right: 30px;
+    border: 4px solid rgba(53, 170, 205, 0.2);
+    /*box-shadow: 2px 1px 1px rgba(53, 170, 205, 1);*/
+    border-radius: 20px;
+    margin: 0 24px 24px 0;
     padding: 30px;
     width: 400px;
+}
+#content .detail.introduce .box .icon {
+    margin: 16px;
+    text-align: center;
+}
+#content .detail.introduce .box .icon i {
+    font-size: 5em;
+    color: rgba(53, 170, 205, 0.5);
 }
 #content .detail.introduce .box .sub-title{
     font-size: 1.4rem;
@@ -77,7 +83,7 @@
     margin-bottom: 20px;
     font-weight: bold;
     /*color: #404040;*/
-    color: #a94141;
+    color: rgba(53, 170, 205, 1);
 }
 #content .detail.introduce .box .desc{
     font-size: 1.1rem;
@@ -94,55 +100,76 @@
     font-weight: bold;
     font-size: 1.15rem;
     height: 40px;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 2px solid #eeee;
     margin-bottom: 20px;
     color: #404040;
     padding-left: 5px;
 }
 #content .detail.helper .helper-list{
-
+    padding: 0 12px 56px 12px;
+}
+#content .detail.helper .helper-list > div {
+    display: inline-block;
+    padding: 12px 0;
+    width: 272px;
+    border-bottom: 1px solid #eee;
+}
+#content .detail.helper .helper-list > div:last-child {
+    border-bottom: 0;
+}
+#content .detail.helper .helper-list > div span{
+    display: inline-block;
+    width: 80px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: rgba(53, 170, 205, 0.75);
 }
 #content .detail.helper .helper-list .line{
     display: flex;
 }
 #content .detail.helper .helper-list .line > div{
     width: 290px;
-    height: 400px;
+    height: 432px;
 }
 #content .detail.helper .helper-list .line > div > div{
     width: 230px;
     margin-left: 30px;
 }
 #content .detail.helper .helper-list .line > div .pic{
-    height: 220px;
+    height: 260px;
     overflow: hidden;
     text-align: center;
 }
 #content .detail.helper .helper-list .line > div img{
-    width: 180px;
+    width: 220px;
 }
 #content .detail.helper .helper-list .line > div .name{
-    text-align: center;
+    padding: 12px 0 4px 12px;
     font-size: 1.15rem;
-    padding-top: 7px;
+    font-weight: bold;
     color: #2f2f2f;
 }
 #content .detail.helper .helper-list .line > div .job{
-    font-size: .95rem;
-    text-align: center;
-    color: #4e4e4e;
+    padding-left: 12px;
+    margin-bottom: 4px;
+    font-size: .9rem;
+    color: #aaa;
 }
 #content .detail.helper .helper-list .line > div .e-mail{
     padding-top: 6px;
     font-size: .9rem;
-    color: gray;
-    padding-left: 20px;
+    color: #555;
+    padding-left: 12px;
 }
 #content .detail.helper .helper-list .line > div .tel{
     padding-top: 3px;
     font-size: .9rem;
-    color: gray;
-    padding-left: 20px;
+    color: #555;
+    padding-left: 12px;
+}
+#content .detail.helper .helper-list .line > div i {
+    color: rgba(53, 170, 205, 1);
+    margin-right: 3px;
 }
 
 
@@ -150,7 +177,7 @@
     font-weight: bold;
     font-size: 1.15rem;
     height: 35px;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 2px solid #eee;
     margin-bottom: 20px;
     color: #404040;
     padding-left: 5px;
@@ -169,7 +196,7 @@
 }
 #content .detail.worship-time .worship-time-list > div > div table{
     width: 100%;
-    border: 1px solid lightgrey;
+    border: 2px solid rgba(53, 170, 205, 0.2);
 }
 #content .detail.worship-time .worship-time-list > div > div table td{
     height: 50px;
@@ -180,17 +207,43 @@
 }
 #content .detail.worship-time .worship-time-list > div > div table td.type{
     width: 140px;
-    background-color: #eaeaea;
+    background-color: rgba(53, 170, 205, 0.1);
     color: #4e4e4e;
 }
 #content .detail.worship-time .worship-time-list > div > div table td.time{
     width: 140px;
 }
-
+#content .detail.worship-time .worship-time-list > div > div table tr:nth-child(even) td.type{
+    background-color: rgba(53, 170, 205, 0.15);
+}
+#content .detail.worship-time .worship-time-list > div > div table tr:nth-child(even) td.time,
+#content .detail.worship-time .worship-time-list > div > div table tr:nth-child(even) td.place {
+    background-color: rgba(53, 170, 205, 0.05);
+}
 
 #content .detail.direction #map {
     margin-top: 30px;
     width: 800px;
     height: 400px;
     border: 1px solid lightgrey;
+}
+
+#content .detail.head-pastor img {
+    width: 200px;
+    border: 2px solid #eee;
+}
+#content .detail.head-pastor .greetings {
+    font-size: 1.1em;
+    line-height: 1.67em;
+    margin-bottom: 80px;
+}
+#content .detail.head-pastor .greetings span {
+    color: rgba(53, 170, 205, 1);
+    font-weight: bold;
+}
+#content .detail.head-pastor .greetings span.subtitle {
+    display: inline-block;
+    font-size: 1.2em;
+    color: rgba(15, 17, 119, 0.8);
+    margin: 8px 0 4px 0;
 }

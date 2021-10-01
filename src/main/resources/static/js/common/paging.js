@@ -36,8 +36,8 @@ define([], function(){
     }
     Paging.prototype.drawPaging = function() {
         const _this = this
-        const $prev = $('<div class="prev col-md-auto">＜</div>')
-        const $next = $('<div class="next col-md-auto">＞</div>')
+        const $prev = $('<div class="prev col-md-auto"><i class="fas fa-chevron-left"></i></div>')
+        const $next = $('<div class="next col-md-auto"><i class="fas fa-chevron-right"></i></div>')
 
         if (this.curPage === 1) {
             $prev.addClass("disabled")

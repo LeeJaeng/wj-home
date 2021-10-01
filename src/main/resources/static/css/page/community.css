@@ -13,15 +13,18 @@
     height: 35px;
     line-height: 30px;
     text-align: center;
-    color: #a94141;
+    color: rgba(53, 170, 205, 1);
     padding: 0;
-    border: 1px solid #a94141;
+    border: 2px solid rgba(53, 170, 205, 0.33);
     border-radius: 5px;
     background-color: white;
     cursor: pointer;
 }
 #register:hover {
+    color: white;
     font-weight: bold;
+    border: 2px solid rgba(53, 170, 205, 1);
+    background-color: rgba(53, 170, 205, 0.9);
 }
 
 
@@ -42,7 +45,7 @@
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 #registerPopup .window .close{
     position: absolute;
@@ -58,7 +61,7 @@
 }
 #registerPopup .window .title{
     font-size: 1.1rem;
-    background-color: #a94141;
+    background-color: rgba(53, 170, 205, 1);
     color: white;
     height: 50px;
     line-height: 50px;
@@ -81,8 +84,8 @@
     margin-left: 20px;
 }
 #registerPopup .window .functions button.register{
-    border: 1px solid #a94141;
-    background-color: #a94141;
+    border: 1px solid rgba(53, 170, 205, 1);
+    background-color: rgba(53, 170, 205, 1);
     color: white;
     box-shadow: none;
 }
@@ -141,25 +144,32 @@
 #content .board-detail .functions {
     display: flex;
     padding-bottom: 15px;
-    border-bottom: 1px solid lightgrey;
+    /*border-bottom: 1px solid lightgrey;*/
 }
 #content .board-detail .functions .back,
 #content .board-detail .functions .to-list {
-    height: 40px;
+    height: 44px;
     line-height: 40px;
     width: 100px;
     text-align: center;
-    border: 1px solid lightgrey;
+    border: 2px solid #eee;
     border-radius: 5px;
     cursor: pointer;
 }
+#content .board-detail .functions .back i {
+    opacity: 0.33;
+    margin-right: 4px;
+}
 #content .board-detail .functions .back:hover {
-    background-color: #eaeaea;
+    color: rgba(53, 170, 205, 1);
+}
+#content .board-detail .functions .back:hover i {
+    opacity: 1;
 }
 
 #content .board-detail .title-area {
     margin-top: 15px;
-    border-left: 4px solid #a94141;
+    border-left: 4px solid rgba(53, 170, 205, 1);
     padding-top: 7px;
     padding-bottom: 7px;
 }
@@ -187,18 +197,31 @@
 }
 #content .board-detail .files {
     margin-top: 10px;
-    text-align: right;
+    padding-left: 20px;
     color: gray;
+}
+#content .board-detail .files .file a {
+    margin-top: 8px;
+    display: inline-block;
+    padding: 10px 32px;
+    border-radius: 6px;
+    border: 2px solid rgba(53, 170, 205, 1);
+    background-color: rgba(53, 170, 205, 0.9);
+    text-decoration: none;
+    color: white;
+}
+#content .board-detail .files .file a:hover {
+    background-color: rgba(53, 170, 205, 1);
+}
+#content .board-detail .files .file a i {
+    margin-right: 4px;
 }
 
 #content .board-detail .desc {
-    padding-top: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid lightgrey;
+    padding: 40px 10px;
 }
 #content .board-detail .photos img {
     width: 100%;
+    max-width: 890px;
     margin-bottom: 10px;
 }
