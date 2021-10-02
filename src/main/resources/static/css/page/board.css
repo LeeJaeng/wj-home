@@ -1,14 +1,15 @@
 #content {
     width: 1200px;
     min-height: 900px;
-    padding-top: 50px;
     display: flex;
 }
 
 #content .menu-list {
     width: 230px;
     padding-left: 40px;
+    padding-top: 50px;
     margin-right: 80px;
+    border-right: 2px dashed #eee;
 }
 #content .menu-list .title{
     padding-left: 16px;
@@ -44,6 +45,7 @@
 #content .detail {
     position: relative;
     width: 890px;
+    padding-top: 50px;
 }
 #content .detail .title{
     font-size: 1.3rem;
@@ -111,7 +113,9 @@
     font-weight: bold;
     font-size: 0.96em;
 }
-
+#content .board-detail {
+    padding-top: 50px;
+}
 
 #content .board-detail .buttons {
     margin-top: 30px;
@@ -120,8 +124,13 @@
 }
 #content .board-detail .buttons button{
     border: 1px solid lightgrey;
-    padding: 5px 10px;
+    padding: 6px 16px;
+    border-radius: 4px;
     margin-left: 10px;
+}
+#content .board-detail .buttons button:hover {
+    font-weight: bold;
+    color: rgba(15, 17, 119, 1);
 }
 
 

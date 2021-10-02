@@ -1,14 +1,15 @@
 #content {
     width: 1200px;
     min-height: 800px;
-    padding-top: 50px;
     display: flex;
 }
 
 #content .menu-list {
     width: 230px;
     padding-left: 40px;
+    padding-top: 50px;
     margin-right: 80px;
+    border-right: 2px dashed #eee;
 }
 #content .menu-list .title{
     padding-left: 16px;
@@ -43,6 +44,7 @@
 
 #content .detail {
     width: 890px;
+    padding-top: 50px;
 }
 #content .detail .title{
     font-size: 1.3rem;
@@ -93,9 +95,6 @@
 }
 
 
-#content .detail.helper {
-
-}
 #content .detail.helper .sub-title{
     font-weight: bold;
     font-size: 1.15rem;
@@ -113,6 +112,14 @@
     padding: 12px 0;
     width: 272px;
     border-bottom: 1px solid #eee;
+}
+#content .detail.helper .helper-list .contact {
+    width: inherit;
+    color: #888;
+}
+#content .detail.helper .helper-list .contact i {
+    color: rgba(53, 170, 205, 1);
+    margin: 4px 4px 0 0;
 }
 #content .detail.helper .helper-list > div:last-child {
     border-bottom: 0;

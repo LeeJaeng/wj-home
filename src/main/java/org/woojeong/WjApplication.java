@@ -8,8 +8,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 public class WjApplication {
     public static final String APPLICATION_LOCATIONS = "spring.config.location="
             + "classpath:application.yml,"
-            + "classpath:aws.yml,"
-            + "classpath:database.yml";
+            + "classpath:aws.yml";
+//            + "classpath:database.yml";
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(WjApplication.class).properties(APPLICATION_LOCATIONS).run(args);
