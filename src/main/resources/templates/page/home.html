@@ -18,28 +18,55 @@
 </th:block>
 
 <div id="content" class="" layout:fragment="content">
-    <div class="">
-        <div class="main-preach row justify-content-md-center">
-            <div class="col-md-auto preach-player">
-                <div class="description">
-                    <div><span class="title">담임목사 주일설교</span><span class="date"></span></div>
-                    <div class="preach-title"></div>
-                    <div class="preach-verse">
-                        <i class="fas fa-bible"></i>
-                        <span class="verse"></span>
-                    </div>
+    <div class="upper">
+        <div class="banner">
+
+            <!-- 배너 자리. 990 * 300 사이즈로 하고 배경색을 banner와 맞추면 됨 -->
+
+            <!-- 다른 배너가 없을 시 기본 배너-->
+            <div class="default">
+                <div>
+                    <i class="fas fa-church"></i>
+                    <div>예배</div>
                 </div>
-                <div class="player">
-                    <iframe width="640" height="360" src="https://www.youtube.com/embed/3Q_sAkiDMrQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
+                <div>
+                    <i class="fas fa-plane"></i>
+                    <div>선교</div>
+                </div>
+                <div>
+                    <i class="fas fa-book-open"></i>
+                    <div>양육과 훈련</div>
+                </div>
+                <div>
+                    <i class="fas fa-praying-hands"></i>
+                    <div>비전</div>
                 </div>
             </div>
-            <div class="col-md-auto preach-list">
-                <div class="li">
+
+        </div>
+        <div class="main-preach-con">
+            <div class="main-preach row justify-content-md-center">
+                <div class="col-md-auto preach-player">
+                    <div class="description">
+                        <div><span class="title">담임목사 주일설교</span><span class="date"></span></div>
+                        <div class="preach-title"></div>
+                        <div class="preach-verse">
+                            <i class="fas fa-bible"></i>
+                            <span class="verse"></span>
+                        </div>
+                    </div>
+                    <div class="player">
+                        <iframe width="640" height="360" src="https://www.youtube.com/embed/3Q_sAkiDMrQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
-                <a class="more" href="/worship">
-                    <i class="fas fa-plus-circle"></i> 담임목사 설교 더 보기
-                </a>
+                <div class="col-md-auto preach-list">
+                    <div class="li">
+                    </div>
+                    <a class="more" href="/worship">
+                        <i class="fas fa-plus-circle"></i> 담임목사 설교 더 보기
+                    </a>
+                </div>
             </div>
         </div>
     </div>

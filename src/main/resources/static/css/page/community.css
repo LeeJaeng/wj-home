@@ -6,15 +6,14 @@
 
 #register {
     position: absolute;
-    top: 0;
+    top: 50px;
     font-size: .95rem;
     right: 5px;
-    width: 100px;
-    height: 35px;
-    line-height: 30px;
+    height: 38px;
+    line-height: 34px;
     text-align: center;
     color: rgba(53, 170, 205, 1);
-    padding: 0;
+    padding: 0 16px;
     border: 2px solid rgba(53, 170, 205, 0.33);
     border-radius: 5px;
     background-color: white;
@@ -25,6 +24,9 @@
     font-weight: bold;
     border: 2px solid rgba(53, 170, 205, 1);
     background-color: rgba(53, 170, 205, 0.9);
+}
+#register i {
+    margin-right: 4px;
 }
 
 

@@ -1,7 +1,6 @@
 #content {
     width: 1200px;
     min-height: 800px;
-    padding-top: 50px;
     display: flex;
 }
 
@@ -9,6 +8,8 @@
     width: 230px;
     padding-left: 40px;
     margin-right: 80px;
+    padding-top: 50px;
+    border-right: 2px dashed #eee;
 }
 #content .menu-list .title{
     padding-left: 16px;
@@ -43,6 +44,7 @@
 
 #content .detail {
     width: 890px;
+    padding-top: 50px;
 }
 #content .detail .title{
     font-size: 1.3rem;
