@@ -8,13 +8,13 @@ define(
         }
 
         HomeMain.prototype.init = function() {
-            this.getHeadPastorSermon()
+            this.getSermon()
             this.getPaper()
             this.getWorship()
             this.getPhoto()
         }
 
-        HomeMain.prototype.getHeadPastorSermon = function() {
+        HomeMain.prototype.getSermon = function() {
             const _this = this
             const $preachList = this.var.$mainPreach.find(".preach-list").find(".li")
             // 첫 데이터 받기
@@ -24,35 +24,52 @@ define(
                 init: true,
                 callback: function(json) {
                     $.each(json.list, function(i, v){
-                        const $row = $(
-                            '<div class="l-row">' +
-                            '   <div><span class="date">'+ v.date  +'</span><span class="type">'+ util.getWorshipName(v.worship_type) +'</span></div>' +
-                            '   <div><span class="title">'+ v.title  +'</span></div>' +
-                            '   <div><span class="verse">'+ v.verse  +'</span></div>' +
-                            '</div>'
-                        )
-                        $preachList.append($row)
+                        // const $row = $(
+                        //     '<div class="l-row">' +
+                        //     '   <div><span class="date">'+ v.date  +'</span><span class="type">'+ util.getWorshipName(v.worship_type) +'</span></div>' +
+                        //     '   <div><span class="title">'+ v.title  +'</span></div>' +
+                        //     '   <div><span class="verse">'+ v.verse  +'</span></div>' +
+                        //     '</div>'
+                        // )
+                        // $preachList.append($row)
 
                         if (i === 0) {
-                            $row.addClass("selected")
-                            setMainSermon(v)
+                            // $row.addClass("selected")
+                            setSermon('main', v)
+                            return false;
                         }
-
-                        $row.click(function(){
-                            if ($row.hasClass("selected")){
-                                return false
-                            }
-                            $preachList.find('.selected').removeClass("selected")
-                            $row.addClass("selected")
-                            setMainSermon(v)
-                        })
+                        //
+                        // $row.click(function(){
+                        //     if ($row.hasClass("selected")){
+                        //         return false
+                        //     }
+                        //     $preachList.find('.selected').removeClass("selected")
+                        //     $row.addClass("selected")
+                        //     setMainSermon(v)
+                        // })
                     })
                 }
 
             });
 
-            function setMainSermon (data) {
-                const $preachPlayer = _this.var.$mainPreach.find(".preach-player")
+            ajaxRequests.getWorshipBoardList({
+                type: 'main-sermon-sun4',
+                page: 1,
+                init: true,
+                callback: function(json) {
+                    $.each(json.list, function(i, v){
+                        if (i === 0) {
+                            setSermon('sub', v)
+                            return false;
+                        }
+                    })
+                }
+
+            });
+
+
+            function setSermon (type, data) {
+                const $preachPlayer = _this.var.$mainPreach.find(".preach-player." + type)
 
                 let date = ''
                 let preachTitle = ''
@@ -121,7 +138,7 @@ define(
                         )
                         /*
                                     <div class="menu" data-value="head-pastor">담임목사 설교</div>
-            <div class="menu" data-value="sub-pastor">부교역자 설교</div>
+            <div class="menu" data-value="sub-pastor">설교</div>
             <div class="menu" data-value="sunday">주일예배</div>
             <div class="menu" data-value="friday">금요성령집회</div>
             <div class="menu" data-value="wednesday">수요예배</div>

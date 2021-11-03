@@ -126,7 +126,7 @@ define(
             $.each(gVar.data.pastorList, function (i, v) {
                 $hostSel.append('<option value="' + v + '">' + v + '</option>')
             });
-            // $hostSel.append('<option value="etc">직접입력</option>')
+            $hostSel.append('<option value="etc">직접입력</option>')
 
             this.registerEvent();
 
@@ -212,14 +212,14 @@ define(
                 //     }
                 // }
             })
-            $registerPopup.find("[name=preacher]").change(function () {
-                const value = $(this).val()
-                if (value === 'etc') {
-                    $registerPopup.find("[name=host_etc]").show()
-                } else {
-                    $registerPopup.find("[name=host_etc]").hide()
-                }
-            })
+            // $registerPopup.find("[name=preacher]").change(function () {
+            //     const value = $(this).val()
+            //     if (value === 'etc') {
+            //         $registerPopup.find("[name=host_etc]").show()
+            //     } else {
+            //         $registerPopup.find("[name=host_etc]").hide()
+            //     }
+            // })
             $registerPopup.find("[name=preacher]").change(function () {
                 const $preachEtc = $preachData.find("[name=preacher_etc]")
                 if ($(this).val() === 'etc') {
@@ -293,8 +293,19 @@ define(
                     }
 
                     if (data.category === 2) {
-                        if (data.host_name)
-                            $registerPopup.find('[name=preacher]').val(data.host_name)
+                        if (data.host_name) {
+                            const searchHost = gVar.data.pastorList.findIndex((n) => n === data.host_name)
+                            const $preachEtc = $registerPopup.find("[name=preacher_etc]")
+
+                            if (searchHost === -1) {
+                                $registerPopup.find('[name=preacher]').val('etc')
+                                $preachEtc.show()
+                                $preachEtc.val(data.host_name)
+                            } else {
+                                $registerPopup.find('[name=preacher]').val(data.host_name)
+                                $preachEtc.hide()
+                            }
+                        }
                     }
 
                     if(data.title){
@@ -310,7 +321,6 @@ define(
                     $registerPopup.find(".edit").off()
                     $registerPopup.find(".edit").click(function(){
                         _this.setRegisterParams(function (params) {
-                            console.log(params)
                             params.board_idx = idx
                             ajaxRequests.editWorshipBoard(params, function(json){
                                 $registerPopup.find(".close").click()
