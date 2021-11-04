@@ -12,9 +12,9 @@
     height: 38px;
     line-height: 34px;
     text-align: center;
-    color: rgba(53, 170, 205, 1);
+    color: rgba(35, 118, 173, 1);
     padding: 0 16px;
-    border: 2px solid rgba(53, 170, 205, 0.33);
+    border: 2px solid rgba(35, 118, 173, 0.33);
     border-radius: 5px;
     background-color: white;
     cursor: pointer;
@@ -22,8 +22,8 @@
 #register:hover {
     color: white;
     font-weight: bold;
-    border: 2px solid rgba(53, 170, 205, 1);
-    background-color: rgba(53, 170, 205, 0.9);
+    border: 2px solid rgba(35, 118, 173, 1);
+    background-color: rgba(35, 118, 173, 0.9);
 }
 #register i {
     margin-right: 4px;
@@ -63,7 +63,7 @@
 }
 #registerPopup .window .title{
     font-size: 1.1rem;
-    background-color: rgba(53, 170, 205, 1);
+    background-color: rgba(35, 118, 173, 1);
     color: white;
     height: 50px;
     line-height: 50px;
@@ -86,8 +86,8 @@
     margin-left: 20px;
 }
 #registerPopup .window .functions button.register{
-    border: 1px solid rgba(53, 170, 205, 1);
-    background-color: rgba(53, 170, 205, 1);
+    border: 1px solid rgba(35, 118, 173, 1);
+    background-color: rgba(35, 118, 173, 1);
     color: white;
     box-shadow: none;
 }
@@ -163,7 +163,7 @@
     margin-right: 4px;
 }
 #content .board-detail .functions .back:hover {
-    color: rgba(53, 170, 205, 1);
+    color: rgba(35, 118, 173, 1);
 }
 #content .board-detail .functions .back:hover i {
     opacity: 1;
@@ -171,7 +171,7 @@
 
 #content .board-detail .title-area {
     margin-top: 15px;
-    border-left: 4px solid rgba(53, 170, 205, 1);
+    border-left: 4px solid rgba(35, 118, 173, 1);
     padding-top: 7px;
     padding-bottom: 7px;
 }
@@ -207,13 +207,13 @@
     display: inline-block;
     padding: 10px 32px;
     border-radius: 6px;
-    border: 2px solid rgba(53, 170, 205, 1);
-    background-color: rgba(53, 170, 205, 0.9);
+    border: 2px solid rgba(35, 118, 173, 1);
+    background-color: rgba(35, 118, 173, 0.9);
     text-decoration: none;
     color: white;
 }
 #content .board-detail .files .file a:hover {
-    background-color: rgba(53, 170, 205, 1);
+    background-color: rgba(35, 118, 173, 1);
 }
 #content .board-detail .files .file a i {
     margin-right: 4px;

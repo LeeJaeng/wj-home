@@ -44,8 +44,8 @@
 #main-menu .menu-list .menu.selected,
 #main-menu .menu-list .menu:hover {
     font-weight: bold;
-    color: rgba(53, 170, 205, 1);
-    /*border-bottom: 6px solid rgba(53, 170, 205, 1);*/
+    color: rgba(35, 118, 173, 1);
+    /*border-bottom: 6px solid rgba(35, 118, 173, 1);*/
 }
 
 #user-info {
@@ -62,7 +62,7 @@
     line-height: 94px;
 }
 #user-info .user i {
-    color: rgba(53, 170, 205, 1);
+    color: rgba(35, 118, 173, 1);
 }
 #user-info .user .user-name{
     font-weight: bold;
@@ -80,15 +80,15 @@
 #user-info .login button {
     padding: 5px 15px;
     background-color: transparent;
-    color: rgba(53, 170, 205, 1);
-    border: 2px solid rgba(53, 170, 205, 0.2);
+    color: rgba(35, 118, 173, 1);
+    border: 2px solid rgba(35, 118, 173, 0.2);
     border-radius: 5px;
     margin-top: 30px;
 }
 #user-info .login button:hover{
-    background-color: rgba(53, 170, 205, 0.9);
+    background-color: rgba(35, 118, 173, 0.9);
     color: white;
-    border: 2px solid rgba(53, 170, 205, 1);
+    border: 2px solid rgba(35, 118, 173, 1);
 }
 
 #login-popup {
@@ -138,9 +138,9 @@
 #login-popup .window button {
     height: 60px;
     width: 100%;
-    background-color: rgba(53, 170, 205, 1);
+    background-color: rgba(35, 118, 173, 1);
     color: white;
-    border: 1px solid rgba(53, 170, 205, 1);
+    border: 1px solid rgba(35, 118, 173, 1);
 }
 #login-popup .window .functions {
     line-height: 60px;

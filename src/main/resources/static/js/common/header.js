@@ -16,7 +16,6 @@ define(['common/loginPopup', 'common/userInfo'], function(loginPopup, userInfo){
         else {
             this.guestInit()
         }
-        console.log(menu);
         if (menu) {
             this.var.$mainMenu.find(".menu." + menu).addClass("selected")
         }
