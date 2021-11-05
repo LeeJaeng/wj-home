@@ -128,7 +128,6 @@ define(
                 page: 1,
                 init: true,
                 callback: function(json) {
-                    console.log(json)
                     $.each(json.list, function(i, v){
                         const $row = $(
                             '<div class="l-row">' +

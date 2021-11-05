@@ -19,35 +19,17 @@
 
 <div id="content" class="" layout:fragment="content">
     <div class="upper">
-        <div class="banner">
-
-            <!-- 배너 자리. 990 * 300 사이즈로 하고 배경색을 banner와 맞추면 됨 -->
-            <div>
-                <!--                <img th:src="@{/img/banner/banner1.jpeg}" alt="">-->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('https://www.woori.cc/data/main/WC_20210802140932731.jpg')"></div>
+                <div class="swiper-slide" style="background-image: url('https://www.woori.cc/data/main/WC_20211007105247632.jpg')"></div>
+                <div class="swiper-slide" style="background-image: url('https://www.woori.cc/data/main/WC_20210925145919923.jpg')"></div>
+                <div class="swiper-slide" style="background-image: url('https://www.woori.cc/data/main/WC_20210917161335441.jpg')"></div>
+                <div class="swiper-slide" style="background-image: url('https://www.woori.cc/data/main/WC_20210629191030018.jpg')"></div>
             </div>
-            <div>
-                <!--                <img th:src="@{/img/banner/banner2.jpeg}" alt="">-->
-            </div>
-            <!-- 다른 배너가 없을 시 기본 배너-->
-            <!--            <div class="default">-->
-            <!--                <div>-->
-            <!--                    <i class="fas fa-church"></i>-->
-            <!--                    <div>예배</div>-->
-            <!--                </div>-->
-            <!--                <div>-->
-            <!--                    <i class="fas fa-plane"></i>-->
-            <!--                    <div>선교</div>-->
-            <!--                </div>-->
-            <!--                <div>-->
-            <!--                    <i class="fas fa-book-open"></i>-->
-            <!--                    <div>양육과 훈련</div>-->
-            <!--                </div>-->
-            <!--                <div>-->
-            <!--                    <i class="fas fa-praying-hands"></i>-->
-            <!--                    <div>비전</div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
         <div class="main-preach-con">
             <div class="main-preach row justify-content-md-center">
@@ -105,4 +87,5 @@
 
     </div>
 </div>
+
 </html>

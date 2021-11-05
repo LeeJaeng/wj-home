@@ -7,6 +7,31 @@
     <meta charset="UTF-8" />
     <title>우정교회 홈페이지</title>
 
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <style>
+        .swiper-pagination-bullet {
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            line-height: 16px;
+            opacity: 1;
+            background: white;
+            margin-right: 4px;
+            box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #fff;
+            background: #007aff;
+            border: 2px solid white;
+        }
+    </style>
+
     <!-- config fragment 사용 -->
     <th:block th:replace="fragment/config :: configFragment" ></th:block>
 </head>
@@ -22,6 +47,22 @@
 
 <!-- footer fragment 사용 -->
 <th:block th:replace="fragment/footer :: footerFragment"> </th:block>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + "</span>";
+            },
+        },
+    });
+</script>
 </body>
 
 </html>

@@ -32,8 +32,8 @@
     border-left: 6px solid white;
 }
 #content .menu-list .menu.selected{
-    /*border-left: 6px solid rgba(53, 170, 205, 1);*/
-    color: rgba(53, 170, 205, 1);
+    /*border-left: 6px solid rgba(35, 118, 173, 1);*/
+    color: rgba(35, 118, 173, 1);
     font-weight: bold;
 }
 #content .menu-list .menu:not(.selected):hover{
@@ -55,9 +55,9 @@
     margin-bottom: 40px;
     font-weight: bold;
     color: #404040;
-    /*color: rgba(53, 170, 205, 1);*/
+    /*color: rgba(35, 118, 173, 1);*/
     /*border-bottom: 1px solid lightgrey;*/
-    border-left: 6px solid rgba(53, 170, 205, 1);
+    border-left: 6px solid rgba(35, 118, 173, 1);
 }
 
 #content .detail .sub-title {

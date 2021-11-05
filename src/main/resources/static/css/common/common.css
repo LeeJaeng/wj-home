@@ -105,7 +105,7 @@ body {
 }
 .paging > div.selected {
     font-weight: bold;
-    color: rgba(53, 170, 205, 1);
+    color: rgba(35, 118, 173, 1);
 }
 .paging > div:not(.disabled){
     cursor: pointer;

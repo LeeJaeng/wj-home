@@ -12,48 +12,54 @@
     height: 840px;
 }
 
-.upper .banner {
+.upper .swiper {
     width: 100%;
     height: 400px;
     /*배너광고에 따라 이 색 변경*/
     background-color: rgba(8, 8, 66, 1);
     text-align: center;
 }
-.upper .banner img {
+.upper .swiper .swiper-slide {
     height: 400px;
+    line-height: 400px;
+    background-size: cover;
+    background-position: 50% 50%;
 }
-.upper .banner .default {
-    margin: 0 auto;
-    padding-top: 80px;
-    display: flex;
-    flex-direction: row;
-    width: 920px;
-    font-weight: bold;
-    font-size: 1.6em;
-}
-.upper .banner .default > div  {
-    width: 0;
-    flex-grow: 1;
-}
+/*.upper .banner img {*/
+/*    height: 400px;*/
+/*}*/
+/*.upper .banner .default {*/
+/*    margin: 0 auto;*/
+/*    padding-top: 80px;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    width: 920px;*/
+/*    font-weight: bold;*/
+/*    font-size: 1.6em;*/
+/*}*/
+/*.upper .banner .default > div  {*/
+/*    width: 0;*/
+/*    flex-grow: 1;*/
+/*}*/
 
-.upper .banner .default > div i {
-    font-size: 4em;
-}
-.upper .banner .default > div > div {
-    margin-top: 16px;
-}
-.upper .banner .default > div:nth-child(1) {
-    color: #9ad4e6;
-}
-.upper .banner .default > div:nth-child(2) {
-    color: #e69aae;
-}
-.upper .banner .default > div:nth-child(3) {
-    color: #e6c49a;
-}
-.upper .banner .default > div:nth-child(4) {
-    color: #9ae6ab;
-}
+/*.upper .banner .default > div i {*/
+/*    font-size: 4em;*/
+/*}*/
+/*.upper .banner .default > div > div {*/
+/*    margin-top: 16px;*/
+/*}*/
+/*.upper .banner .default > div:nth-child(1) {*/
+/*    color: #9ad4e6;*/
+/*}*/
+/*.upper .banner .default > div:nth-child(2) {*/
+/*    color: #e69aae;*/
+/*}*/
+/*.upper .banner .default > div:nth-child(3) {*/
+/*    color: #e6c49a;*/
+/*}*/
+/*.upper .banner .default > div:nth-child(4) {*/
+/*    color: #9ae6ab;*/
+/*}*/
 
 .main-preach-con {
     position: absolute;
@@ -73,7 +79,7 @@
 .main-preach .description {
     /*border-left: 1px solid lightgrey;*/
     /*border-right: 1px solid lightgrey;*/
-    /*background-color: rgba(53, 170, 205, 1);*/
+    /*background-color: rgba(35, 118, 173, 1);*/
     height: 40px;
     /*color: white;*/
     background-color: white;
@@ -85,14 +91,14 @@
 .main-preach .description > div:first-child{
     height: 40px;
     line-height: 40px;
-    background-color: rgba(53, 170, 205, 1);
+    background-color: rgba(35, 118, 173, 1);
     margin-bottom: 20px;
 }
 .main-preach .description .title {
     width: 50%;
     display: inline-block;
     /*font-weight: bold;*/
-    /*color: rgba(53, 170, 205, 1);*/
+    /*color: rgba(35, 118, 173, 1);*/
     color: white;
     font-size: 1rem;
 }
@@ -129,7 +135,7 @@
     background-color: white;
 }
 .main-preach .preach-list .l-row {
-    border-bottom: 1px solid rgba(53, 170, 205, 0.2);
+    border-bottom: 1px solid rgba(35, 118, 173, 0.2);
     padding: 10px 20px;
     font-size: .9rem;
     cursor: pointer;
@@ -142,11 +148,11 @@
 .main-preach .preach-list .l-row:last-child{
 }
 .main-preach .preach-list .l-row.selected{
-    border-left: 6px solid rgba(53, 170, 205, 0.67);
+    border-left: 6px solid rgba(35, 118, 173, 0.67);
 }
 .main-preach .preach-list .l-row:not(.selected):hover{
-    border-left: 6px solid rgba(53, 170, 205, 0);
-    background-color: rgba(53, 170, 205, 0.08);
+    border-left: 6px solid rgba(35, 118, 173, 0);
+    background-color: rgba(35, 118, 173, 0.08);
 }
 .main-preach .preach-list .l-row > div{
     padding-top: 4px;
@@ -170,7 +176,7 @@
     /*font-weight: bold;*/
 }
 .main-preach .preach-list .l-row .verse{
-    color: rgba(53, 170, 205, 1);
+    color: rgba(35, 118, 173, 1);
 }
 
 .main-preach .preach-list .more{
@@ -187,7 +193,7 @@
 }
 .main-preach .preach-list .more:hover{
     font-weight: bold;
-    color: rgba(53, 170, 205, 1);
+    color: rgba(35, 118, 173, 1);
 }
 .main-preach .preach-list .more i {
     margin-right: 4px;
@@ -225,7 +231,7 @@
     color: #777;
 }
 .board .header .more a:hover {
-    color: rgba(53, 170, 205, 1);
+    color: rgba(35, 118, 173, 1);
 }
 .board .list {
     border: 1px solid #e6e9ee;
@@ -280,7 +286,7 @@
     color: white;
 }
 .board .list.photo > div.pic-area > div:hover .title{
-    background-color: rgba(53, 170, 205, 1);
+    background-color: rgba(35, 118, 173, 1);
 }
 .board .list.photo > div.pic-area > div img{
     width: 100%;
@@ -319,6 +325,6 @@
     padding-bottom: 50px;
 }
 .main-color {
-    background-color: rgba(53, 170, 205, 1);
+    background-color: rgba(35, 118, 173, 1);
 }
 
