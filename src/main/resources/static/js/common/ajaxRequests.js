@@ -128,6 +128,32 @@ define(['common/ajax'], function(ajax){
     }
 
 
+    // hidden
+
+    AjaxRequest.prototype.getPrayerList = function({groupKey, callback}) {
+        ajax.ajaxCall({
+            method: 'GET',
+            uri: '/user/hidden/prayer/' + groupKey,
+            onSuccessCallback: function(json) {
+                callback(json)
+            },
+            onErrorCallback: function(json) {
+
+            }
+        })
+    }
+    AjaxRequest.prototype.registerPrayer = function({params, callback}) {
+        ajax.ajaxCall({
+            method: 'post',
+            data: JSON.stringify(params),
+            uri: '/user/hidden/prayer/content',
+            onSuccessCallback: function(json) {
+                callback(json)
+            },
+            onErrorCallback: function(json) {
+            }
+        })
+    }
 
     return new AjaxRequest();
 });

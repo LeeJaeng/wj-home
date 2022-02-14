@@ -37,6 +37,7 @@ define([], function(){
     Paging.prototype.drawPaging = function() {
         const _this = this
         const $prev = $('<div class="prev col-md-auto"><i class="fas fa-chevron-left"></i></div>')
+        const $num = $('<div class="num col-md-auto"></div>')
         const $next = $('<div class="next col-md-auto"><i class="fas fa-chevron-right"></i></div>')
 
         if (this.curPage === 1) {
@@ -45,12 +46,10 @@ define([], function(){
         if (this.curPage + this.pageCnt >= this.endPage) {
             $next.addClass("disabled")
         }
-
         this.$topNode.append($prev)
-        this.prevEvent($prev)
+        this.$topNode.append($num)
 
-
-        for (let i = 1 ; i < i+this.pageCnt ; i++) {
+        for (let i = 1 ; i < this.pageCnt + 1 ; i++) {
             if (i > _this.endPage) {
                 break
             }
@@ -63,12 +62,14 @@ define([], function(){
             }
 
 
-            _this.$topNode.append($page)
+            $num.append($page)
             _this.pageEvent($page, i)
         }
 
         this.$topNode.append($next)
-        this.nextEvent($prev)
+
+        this.prevEvent($prev)
+        this.nextEvent($next)
     }
     Paging.prototype.prevEvent = function($prev) {
         const _this = this
@@ -78,6 +79,8 @@ define([], function(){
             }
 
             _this.$topNode.find(".page").remove()
+
+            const $num = $prev.siblings('.num')
 
             const curFirstPage = _this.curPageSetList[0]
             const newFirstPage = curFirstPage - _this.pageCnt
@@ -89,13 +92,13 @@ define([], function(){
             _this.$topNode.find(".next").removeClass("disabled")
 
 
-            for (let i = newFirstPage ; i < i + _this.pageCnt ; i++) {
+            for (let i = newFirstPage ; i < newFirstPage + _this.pageCnt ; i++) {
                 _this.curPageSetList.push(i);
                 const $page = $("<div class='page col-md-auto'>"+ i +"</div>")
                 if (i === newFirstPage + _this.pageCnt - 1) {
                     $page.addClass("selected")
                 }
-                _this.$topNode.append($page)
+                $num.append($page)
                 _this.pageEvent($page, i)
             }
 
@@ -104,7 +107,9 @@ define([], function(){
     }
     Paging.prototype.nextEvent = function($next) {
         const _this = this
+        const $num = $next.siblings('.num')
         $next.click(function(){
+            console.log("click")
             if ($next.hasClass("disabled")) {
                 return false
             }
@@ -122,7 +127,7 @@ define([], function(){
             _this.$topNode.find(".prev").removeClass("disabled")
 
 
-            for (let i = newFirstPage ; i < i+_this.pageCnt ; i++) {
+            for (let i = newFirstPage ; i < newFirstPage +_this.pageCnt ; i++) {
                 if (i > _this.endPage) {
                     break
                 }
@@ -132,7 +137,7 @@ define([], function(){
                 if (i === newFirstPage) {
                     $page.addClass("selected")
                 }
-                _this.$topNode.append($page)
+                $num.append($page)
                 _this.pageEvent($page, i)
             }
             _this.pageEventFunction(newFirstPage)

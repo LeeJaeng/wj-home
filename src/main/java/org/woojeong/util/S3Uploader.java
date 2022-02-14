@@ -36,7 +36,7 @@ public class S3Uploader {
     }
 
     // S3로 파일 업로드하기
-    private String upload(File uploadFile, String fileName) {
+    public String upload(File uploadFile, String fileName) {
         String uploadImageUrl = putS3(uploadFile, fileName); // s3로 업로드
         removeNewFile(uploadFile);
         return uploadImageUrl;

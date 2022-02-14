@@ -162,6 +162,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(
+                "http://wjhome-env.eba-x82zpk3p.ap-northeast-2.elasticbeanstalk.com/",
+                "http://woojeong.or.kr",
+                "https://wjhome-env.eba-x82zpk3p.ap-northeast-2.elasticbeanstalk.com/",
+                "https://woojeong.or.kr"
 //                "https://checking-frontend.ddhouse.co.kr",
 //                "https://checking-frontend-test.ddhouse.co.kr",
 //                "https://checking-frontend-quick-test.ddhouse.co.kr",

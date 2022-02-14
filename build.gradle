@@ -46,6 +46,8 @@ dependencies {
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
     compile group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.3.1'
     compile 'org.springframework.cloud:spring-cloud-starter-aws:2.0.1.RELEASE'
+    compile 'commons-io:commons-io:2.11.0'
+    implementation 'org.imgscalr:imgscalr-lib:4.2'
 }
 
 

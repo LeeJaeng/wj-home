@@ -19,16 +19,18 @@
 </th:block>
 
 <div class="row justify-content-md-center" layout:fragment="content">
+    <input type="hidden" class="init-val-remove" name="board_type" th:value="${data.board_type}">
+    <input type="hidden" class="init-val-remove" name="board_idx" th:value="${data.board_idx}">
     <div id="content" class="col-md-auto">
         <div class="menu-list">
             <div class="title">교회소개</div>
-            <div class="menu selected" data-value="introduce">우정교회는?</div>
+            <div class="menu" data-value="introduce">우정교회는?</div>
             <div class="menu" data-value="head-pastor">담임목사 인사말</div>
             <div class="menu" data-value="helper">섬기는 사람들</div>
             <div class="menu" data-value="worship-time">예배시간 안내</div>
             <div class="menu" data-value="direction">오시는 길</div>
         </div>
-        <div class="detail introduce">
+        <div class="detail introduce hide">
             <div class="title">우정교회는?</div>
             <div class="bdy">
                 <div class="box">
@@ -88,9 +90,9 @@
         </div>
         <div class="detail head-pastor hide">
             <div class="title">담임목사 인사말</div>
-            <img th:src="@{/img/pastor.png}" alt="">
-            <br>
-            <br>
+            <div class="img">
+                <img th:src="@{/img/pastor.png}" alt="">
+            </div>
             <div class="greetings">
                 우리 우정교회의 비전은 가장 성경적이며<br>
                 가장 모범적인 교회를 이루는데 있습니다.<br>
@@ -100,7 +102,7 @@
                 또한 하나님 말씀의 원리를 연구할 뿐만 아니라<br>
                 그것을 우리 교회에 적용하고 실천하는데 힘써야 합니다.<br>
                 <br>
-                그렇다면, 가장 성경적인 교회는 어떤 교회일까요?<br>
+                그렇다면, 가장 성경적인 교회는 어떤 교회일까요?<br><br>
                 주님께서 가장 큰 계명(마22:37-40)이라고 가르쳐 주신<br>
                 <span>"사랑하라"</span>는 말씀을 따라서 하나님 사랑과 이웃 사랑을 실천하는 교회입니다.<br>
                 <span>"제자 삼으라"</span>는 지상명령(마28:19-20)을 따라서 복음전도와 양육훈련에 전력하는 교회입니다.<br>
@@ -142,6 +144,23 @@
         <div class="detail helper hide">
             <div class="title">섬기는 사람들</div>
             <div>
+<!--                <div class="sub-title">담임목사</div>-->
+                <div class="helper-list" style="padding-bottom: 30px;">
+                    <div class="line">
+                        <div style="height: 350px;">
+                            <div class="pic" style="background-color: #eeeeee;">
+                                <img th:src="@{/img/pastor.png}" alt="">
+                            </div>
+                            <div class="name">예동열 담임목사</div>
+<!--                            <div class="e-mail">-->
+<!--                                <i class="fas fa-envelope"></i>-->
+<!--                            </div>-->
+<!--                            <div class="tel">-->
+<!--                                <i class="fas fa-phone-alt"></i>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
                 <div class="sub-title">교역자</div>
                 <div class="helper-list">
                     <div class="line">
@@ -194,40 +213,10 @@
                     <div class="line">
                         <div>
                             <div class="pic">
-                                <img th:src="@{/img/helper/kdh.png}" alt="">
-                            </div>
-                            <div class="name">김동훈 목사</div>
-                            <div class="job">4교구, 교육디렉터, 중고등부</div>
-                            <div class="e-mail">
-                                <i class="fas fa-envelope"></i>
-                                kyunwoo79@naver.com
-                            </div>
-                            <div class="tel">
-                                <i class="fas fa-phone-alt"></i>
-                                052-244-7833 (2층 사무실)
-                            </div>
-                        </div>
-                        <div>
-                            <div class="pic">
-                                <img th:src="@{/img/helper/jkb_adjust.png}" alt="">
-                            </div>
-                            <div class="name">정광복 목사</div>
-                            <div class="job">2교구, 선교국, 유초등부</div>
-                            <div class="e-mail">
-                                <i class="fas fa-envelope"></i>
-                                jpb815@naver.com
-                            </div>
-                            <div class="tel">
-                                <i class="fas fa-phone-alt"></i>
-                                052-244-7833 (2층 사무실)
-                            </div>
-                        </div>
-                        <div>
-                            <div class="pic">
                                 <img th:src="@{/img/helper/kjj.png}" alt="">
                             </div>
                             <div class="name">김재준 전도사</div>
-                            <div class="job">1교구, 미디어, 유치부</div>
+                            <div class="job">1교구, 미디어, 유초등부</div>
                             <div class="e-mail">
                                 <i class="fas fa-envelope"></i>
                                 junandmi@hanmail.net
@@ -241,26 +230,183 @@
                 </div>
 
                 <div class="sub-title">장로</div>
-                <div class="helper-list">
-                    강호영 장로, 김남진 장로, 김달환 장로, 김유인 장로, 김종득 장로
-                    김정록 장로, 박두익 장로, 박용욱 장로, 박중학 장로, 서승철 장로
-                    성경모 장로, 이기범 장로, 이상봉 장로, 임성조 장로, 홍광석 장로
+                <div class="helper-list small">
+                    <div class="spc">시무장로</div>
+                    <div class="line">
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/강호영 장로님.jpeg}" alt="">
+                            </div>
+                            <div class="name">강호영 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/김남진 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">김남진 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/김달환 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">김달환 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/김유인 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">김유인 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/김정록 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">김정록 장로</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/김종득 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">김종득 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/박두익 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">박두익 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/박용욱 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">박용욱 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/박중학 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">박중학 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/서승철 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">서승철 장로</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/성경모 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">성경모 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/이기범 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">이기범 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/이상봉 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">이상봉 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/임성조 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">임성조 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/홍광석 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">홍광석 장로</div>
+                        </div>
+                    </div>
+                    <div class="spc">은퇴장로</div>
+                    <div class="line">
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/retire/이종희 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">이종희 장로</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/retire/황치규 장로님.jpg}" alt="">
+                            </div>
+                            <div class="name">황치규 장로</div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="sub-title">심방권사</div>
-                <div class="helper-list">
-                    <div><span>1교구</span> 최정방 권사</div>
-                    <div><span>2교구</span> 정경옥 권사</div>
-                    <div><span>3교구</span> 윤정화 권사</div>
-                    <div><span>4교구</span> 박정화 권사</div>
-                    <div><span>5교구</span> 차남숙 권사</div>
-                    <div><span>중고등부</span> 박소연 집사</div>
-                    <div><span>청년대학부</span> 이순진 집사</div>
+
+                <div class="helper-list small">
+                    <div class="line">
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/최정방 권사.jpg}" alt="">
+                            </div>
+                            <div class="name">최정방 권사</div>
+                            <div class="job">1교구</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/정경옥 권사.JPG}" alt="">
+                            </div>
+                            <div class="name">정경옥 권사</div>
+                            <div class="job">2교구</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/윤정화 권사.jpg}" alt="">
+                            </div>
+                            <div class="name">윤정화 권사</div>
+                            <div class="job">3교구</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/박정화 집사.jpg}" alt="">
+                            </div>
+                            <div class="name">박정화 집사</div>
+                            <div class="job">4교구</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/차남숙 권사.jpg}" alt="">
+                            </div>
+                            <div class="name">차남숙 권사</div>
+                            <div class="job">5교구</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/박소연 집사.png}" alt="">
+                            </div>
+                            <div class="name">박소연 집사</div>
+                            <div class="job">중고등부</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/이순진 집사.jpeg}" alt="">
+                            </div>
+                            <div class="name">이순진 집사</div>
+                            <div class="job">청년대학부</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="sub-title">직원</div>
                 <div class="helper-list">
                     <div>
-                        사무장 조석형 집사
+                        <div><span>사무장</span> 조석형 집사</div>
                     </div>
                 </div>
 

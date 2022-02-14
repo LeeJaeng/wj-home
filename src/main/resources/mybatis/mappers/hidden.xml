@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mybatis.example.hidden">
+    <select id="getPrayerList" parameterType="java.lang.String" resultType="prayerListVo">
+        SELECT gr.group_idx,
+               usr.idx as prayer_idx,
+               gr.group_name,
+               usr.prayer_name,
+               (SELECT content
+                FROM prayer_content
+                WHERE prayer_idx = usr.idx AND group_idx = gr.group_idx
+                  AND is_valid is TRUE
+                ORDER BY cdate DESC
+                LIMIT 1)  as content
+        FROM (
+                 SELECT gr.group_name, gr.idx as group_idx, mc.prayer_idx
+                 FROM prayer_group gr
+                          LEFT JOIN prayer_group_matching mc ON mc.group_idx = gr.idx
+                 WHERE gr.group_key = #{groupKey}
+             ) as gr
+                 LEFT JOIN prayer_user usr ON usr.idx = gr.prayer_idx
+        ORDER BY usr.prayer_name
+    </select>
+    <select id="getPrayerGroupName" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT gr.group_name
+        FROM prayer_group gr
+        WHERE gr.group_key = #{groupKey}
+    </select>
+    <insert id="insertPrayerContent" parameterType="insertPrayerContentDTO">
+        INSERT INTO prayer_content (prayer_idx, group_idx, content, cdate)
+        VALUES (#{prayer_idx}, #{group_idx}, #{content}, now())
+    </insert>
+    <update id="prevPrayerContentDelete" parameterType="insertPrayerContentDTO">
+        UPDATE prayer_content
+        SET
+            is_valid = FALSE
+        WHERE prayer_idx = #{prayer_idx} AND group_idx = #{group_idx} AND is_valid is TRUE
+    </update>
+</mapper>

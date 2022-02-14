@@ -57,14 +57,29 @@ define(
                 page: 1,
                 init: true,
                 callback: function(json) {
-                    $.each(json.list, function(i, v){
-                        if (i === 0) {
-                            setSermon('sub', v)
-                            return false;
-                        }
-                    })
+                    if (json.list.length === 0) {
+                        ajaxRequests.getWorshipBoardList({
+                            type: 'main-sun4',
+                            page: 1,
+                            init: true,
+                            callback: function(json) {
+                                $.each(json.list, function(i, v){
+                                    if (i === 0) {
+                                        setSermon('sub', v)
+                                        return false;
+                                    }
+                                })
+                            }
+                        });
+                    } else {
+                        $.each(json.list, function(i, v){
+                            if (i === 0) {
+                                setSermon('sub', v)
+                                return false;
+                            }
+                        })
+                    }
                 }
-
             });
 
 

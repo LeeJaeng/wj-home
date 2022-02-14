@@ -5,6 +5,8 @@ define(['common/loginPopup', 'common/userInfo'], function(loginPopup, userInfo){
             $mainMenu: $("#main-menu"),
             $userInfo: $("#user-info"),
         }
+        this.var.$menuList = this.var.$mainMenu.find(".menu-list")
+        this.var.$menuListDetail = this.var.$mainMenu.find(".menu-list-detail")
         this.var.$login = this.var.$userInfo.find(".login")
         this.var.$user = this.var.$userInfo.find(".user")
     }
@@ -19,6 +21,8 @@ define(['common/loginPopup', 'common/userInfo'], function(loginPopup, userInfo){
         if (menu) {
             this.var.$mainMenu.find(".menu." + menu).addClass("selected")
         }
+
+        this.menuEvent()
     }
     Header.prototype.userInit = function(){
         this.var.$login.remove()
@@ -43,6 +47,19 @@ define(['common/loginPopup', 'common/userInfo'], function(loginPopup, userInfo){
         const _this = this
         this.var.$user.find(".logout").click(function(){
             userInfo.logout()
+        });
+    }
+    Header.prototype.menuEvent = function(){
+        const _this = this
+        this.var.$menuList.mouseenter(function(){
+            _this.var.$menuListDetail.removeClass("hide")
+        });
+        this.var.$menuList.mouseleave(function(){
+            _this.var.$menuListDetail.addClass("hide")
+        });
+
+        this.var.$menuListDetail.find(".column").find("div").click(function(){
+            window.location.href = $(this).data('url')
         });
     }
 

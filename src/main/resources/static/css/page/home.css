@@ -17,13 +17,19 @@
     height: 400px;
     /*배너광고에 따라 이 색 변경*/
     background-color: rgba(8, 8, 66, 1);
+    /*background-color: rgba(35, 118, 173, 1);*/
+    /*background-color: white;*/
     text-align: center;
 }
 .upper .swiper .swiper-slide {
     height: 400px;
     line-height: 400px;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: 50% 50%;
+}
+.upper .swiper .swiper-slide img{
+    height: 400px;
 }
 /*.upper .banner img {*/
 /*    height: 400px;*/

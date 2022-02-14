@@ -60,14 +60,14 @@
     </select>
 
     <insert id="insertCommunityBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="board_idx">
-        INSERT INTO wj_board (created_user_idx, category, title, content, created_date, updated_date)
+        INSERT INTO wj_board (created_user_idx, category, title, content, created_date, updated_date, is_deleted)
         VALUES (
-                   #{user_idx}, #{category}, #{title}, #{content}, now(), now()
+                   #{user_idx}, #{category}, #{title}, #{content}, now(), now(), false
                )
     </insert>
     <insert id="insertCommunityBoardFiles" parameterType="hashmap">
-        INSERT INTO board_files (board_idx, file_type, aws_file_name, origin_file_name, url, created_date, is_deleted)
-        VALUE (#{board_idx}, #{file_type}, #{aws_file_name}, #{origin_file_name}, #{url}, now(), false)
+        INSERT INTO board_files (board_idx, file_type, aws_file_name, origin_file_name, ord, url, thumb_url, created_date, is_deleted)
+        VALUE (#{board_idx}, #{file_type}, #{aws_file_name}, #{origin_file_name}, #{ord}, #{url} ,#{thumb_url}, now(), false)
     </insert>
     <update id="deleteCommunityBoard" parameterType="java.lang.Long">
         UPDATE wj_board board
@@ -85,6 +85,7 @@
             DATE_FORMAT(created_date, '%Y-%m-%d') as date,
             DATE_FORMAT(created_date, '%Y.%m.%d %H:%i') as created_date,
             DATE_FORMAT(updated_date, '%Y.%m.%d %H:%i') as updated_date,
+            (SELECT url FROM board_files WHERE board_idx = board.board_idx AND ord = -1) as thumb_url,
             (select url from board_files where board_idx = board.board_idx AND is_deleted is not TRUE order by idx limit 1) as thumb
         FROM wj_board board
 
@@ -106,6 +107,7 @@
         SELECT
             *
         FROM board_files
-        WHERE board_idx = #{board_idx} AND is_deleted is not true
+        WHERE board_idx = #{board_idx} AND is_deleted is not true and ord >= 0
+        ORDER BY ord
     </select>
 </mapper>

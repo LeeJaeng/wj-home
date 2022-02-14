@@ -13,6 +13,7 @@ define(
                 $register: $("#register"),
                 $registerPopup: $("#registerPopup"),
                 menuSelected: 'paper',
+                uploading: false,
             }
 
 
@@ -152,6 +153,13 @@ define(
                 $registerPopup.find(".cancel").click()
             })
             $registerPopup.find(".register").click(function () {
+                if (_this.var.uploading) {
+                    alert("등록 중입니다.")
+                    return false;
+                }
+
+                _this.var.uploading = true
+
                 _this.setRegisterParams(function (params) {
                     const files = _this.var.$registerPopup.find('[name=files]')[0].files
                     const filesArr = Array.prototype.slice.call(files)
@@ -162,9 +170,11 @@ define(
                     formData.append("category", params.category);
                     formData.append("title", params.title);
                     formData.append("content", params.content);
+                    $("#loading").show();
 
                     ajaxRequests.registerCommunityBoard(formData, function(json){
                         _this.clearList()
+                        $("#loading").hide();
                         ajaxRequests.getCommunityBoardList({
                             type: _this.var.menuSelected,
                             page: 1,
@@ -173,7 +183,7 @@ define(
                                 _this.setList(json.list)
                             }
                         });
-                        alert("등록이 완료되었습니다.")
+                        _this.var.uploading = false
                         $registerPopup.find(".close").click();
                     });
                 });
@@ -271,12 +281,26 @@ define(
 
         // 게시판 리스트 세팅
         CommunityMain.prototype.clearList = function () {
-            const $list = this.var.$detail.find(".list").find("table")
-            $list.find("tr").remove()
+            const $list = this.var.$detail.find(".list");
+            $list.find("table").find("tr").remove()
+            $list.find(".thumb-list").find(".row").remove()
         }
         CommunityMain.prototype.setList = function (data) {
+            if(this.var.menuSelected === 'paper' || this.var.menuSelected === 'photo') {
+                this.setListThumb(data)
+            } else {
+                this.setListBoard(data)
+            }
+        }
+
+        CommunityMain.prototype.setListBoard = function (data) {
             const _this = this
             const $list = this.var.$detail.find(".list").find("table")
+            const $thumb = this.var.$detail.find(".list").find(".thumb-list")
+
+            $list.show();
+            $thumb.hide();
+
             $.each(data, function(i, v){
                 const $row = $("<tr></tr>")
 
@@ -286,11 +310,36 @@ define(
                     '<td style="text-align: left; padding-left: 5px;">'+
                     '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
                     '</td>'+
-                    '<td class="date" style="width: 150px;">'+ v.created_date +'</td>'
+                    '<td class="date" style="width: 150px;">'+ v.date +'</td>'
                 )
                 // }
 
                 $list.append($row)
+                $row.click(function(){
+                    _this.openDetail(v)
+                })
+            })
+        }
+        CommunityMain.prototype.setListThumb = function (data) {
+            const _this = this
+            const $list = this.var.$detail.find(".list").find("table")
+            const $thumb = this.var.$detail.find(".list").find(".thumb-list")
+            $list.hide();
+            $thumb.show();
+            console.log(data);
+            $.each(data, function(i, v){
+                if (i % 3 === 0) {
+                    $thumb.append("<div class='row'></div>")
+                }
+
+                const $row = $(
+                    "<div class='thumb'>" +
+                    "   <div class='img'><img src='"+ ( v.thumb_url ? v.thumb_url : v.thumb) +"' alt=''></div>" +
+                    "   <div class='header'>"+ v.title +"</div>" +
+                    "   <div class='date'>"+ (v.created_date.split(" ")[0]) +"</div>" +
+                    "</div>"
+                )
+                $thumb.find("div.row:last-child").append($row)
                 $row.click(function(){
                     _this.openDetail(v)
                 })
@@ -335,7 +384,7 @@ define(
                         data.content.replace(/\n/gi, "<br>")
                     )
 
-                    if (data.category === 3) {
+                    if (data.category === 3 || data.category === 1 ) {
                         if (json.files.length > 0) {
                             $photos.show()
                             $.each(json.files, function(i, v){

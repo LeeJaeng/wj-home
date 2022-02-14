@@ -51,6 +51,7 @@ define(['common/util', 'common/ajax'], function(util, ajax){
                 password: pw
             }),
             onSuccessCallback: function(json) {
+                // console.log(json)
                 util.setCookie("wj_gid", json.token, 240)
                 util.setCookie("wj_gid_r", json.refresh_token, 240)
                 window.location.reload()

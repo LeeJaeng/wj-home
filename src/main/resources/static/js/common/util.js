@@ -53,7 +53,7 @@ define([], function(){
         if (window.location.href.search("127.0.0.1") > -1 || window.location.href.search("localhost") > -1)  {
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;";
         } else {
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;domain=.woojeong.or.kr;";
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;domain=." + window.location.hostname;
         }
     };
 

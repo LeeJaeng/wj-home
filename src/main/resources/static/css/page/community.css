@@ -227,3 +227,40 @@
     max-width: 890px;
     margin-bottom: 10px;
 }
+
+
+#content .thumb-list {
+}
+#content .thumb-list > div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+#content .thumb-list .thumb {
+    position: relative;
+    width: 270px;
+    height: 350px;
+    text-align: center;
+    cursor: pointer;
+}
+#content .thumb-list .thumb img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+#content .thumb-list .thumb .header{
+    padding-top: 10px;
+    font-weight: bold;
+    color: #4b4b4b;
+}
+#content .thumb-list .thumb:hover .header{
+    color: rgba(35, 118, 173, 1);
+}
+#content .thumb-list .thumb .date{
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: .9rem;
+}

@@ -13,23 +13,26 @@
 <th:block layout:fragment="script">
     <script type="text/javascript"
             th:src="@{'/js/require/require.min.js'}"
-            th:attr="data-main=@{/js/department/departmentInit.js}">
+            th:attr="data-main=@{/js/department/departmentInit.js}" >
+
     </script>
 </th:block>
 
 <div class="row justify-content-md-center" layout:fragment="content">
+    <input type="hidden" class="init-val-remove" name="board_type" th:value="${data.board_type}">
+    <input type="hidden" class="init-val-remove" name="board_idx" th:value="${data.board_idx}">
     <div id="content" class="col-md-auto">
         <div class="menu-list">
             <div class="title">교육부서</div>
 <!--            <div class="menu selected" data-value="introduce">우정 교육부서</div>-->
-            <div class="menu selected" data-value="infant">영유아부</div>
+            <div class="menu" data-value="infant">영유아부</div>
             <div class="menu" data-value="kinder">유치부</div>
             <div class="menu" data-value="elementary">유초등부</div>
             <div class="menu" data-value="high">중고등부</div>
             <div class="menu" data-value="youth">청년대학부</div>
             <div class="menu" data-value="couple">신혼부부회</div>
         </div>
-        <div class="detail infant">
+        <div class="detail infant hide">
             <div class="title">영유아부</div>
             <div class="sub-title">부서소개</div>
             <div class="desc">
@@ -42,9 +45,7 @@
                     <div class="r">2. 말씀을 기준으로 아기들을 양육하게 하는 것</div>
                     <div class="r">3. 하나님께 귀하게 쓰임 받는 아기들이 되도록 기도하는 것</div>
                 </div>
-                <div class="mt-30">
-                    <img th:src="@{/img/department/infant_1.jpeg}">
-                </div>
+
             </div>
             <div class="sub-title mt-50">섬기는 사람들</div>
             <div class="desc mb-50">
@@ -82,6 +83,9 @@
                     </div>
                 </div>
             </div>
+            <div class="mt-50">
+                <img th:src="@{/img/department/infant_1.jpeg}">
+            </div>
         </div>
         <div class="detail kinder hide">
             <div class="title">유치부</div>
@@ -111,7 +115,7 @@
                     </div>
                     <div class="mt-15">
                         <span class="label">담당교역자</span>
-                        <span class="n">김재준 전도사</span>
+                        <span class="n">김부신 사모</span>
                         <span class="label">부장</span>
                         <span class="n">이두란권사</span>
                     </div>
@@ -125,6 +129,11 @@
                         <span class="n long">이지영, 정애란, 정현애, 최현정, 추효은, 홍성유</span>
                     </div>
                 </div>
+            </div>
+            <div class="mt-50">
+                <img th:src="@{/img/department/kinder1.jpg}">
+                <img th:src="@{/img/department/kinder2.jpg}">
+                <img th:src="@{/img/department/kinder3.jpg}">
             </div>
         </div>
         <div class="detail elementary hide">
@@ -155,7 +164,7 @@
                     </div>
                     <div class="mt-15">
                         <span class="label">담당교역자</span>
-                        <span class="n">정광복 목사</span>
+                        <span class="n">김재준 전도사</span>
                         <span class="label">부장</span>
                         <span class="n">이석우 집사</span>
                     </div>
@@ -182,7 +191,7 @@
         <div class="detail high hide">
             <div class="title">중고등부</div>
             <div class="sub-title">부서소개</div>
-            <div class="desc">
+            <div class="desc mb-50">
                 <div>
                     우정교회 중고등부는 청소년 학생들이 하나님을 향한 열정과 분명한 비전을 갖고, 이 시대에 하나님께서 사용하시는 그릇으로 다듬어져 가는 부서입니다.
                 </div>
@@ -192,9 +201,6 @@
                 <div class="mt-20">
                     또한 하나님을 사랑하고, 이웃을 사랑하며 빛과 소금의 역할을 잘 감당하는 학생들이 되기를 끊임없이 기도하고 있습니다.
                 </div>
-            </div>
-            <div class="mt-30 mb-50">
-                <img th:src="@{/img/department/high.jpeg}">
             </div>
             <div class="sub-title">예배시간 & 장소안내</div>
             <div class="desc mb-50">
@@ -256,17 +262,20 @@
                     </div>
                 </div>
             </div>
+            <div class="mt-50">
+                <img th:src="@{/img/department/high.jpeg}">
+            </div>
         </div>
         <div class="detail youth hide">
             <div class="title">청년대학부</div>
             <div class="sub-title">부서소개</div>
             <div class="desc mb-50">
                 <div>
-                    우정교회 LOG 청년부는 "너희는 세상의 빛"이라는(마 5:14) 예수님의 명령이자 약속을 순종하며 성취하는 공동체 입니다.
-                    20~26살의 연령대인 대학부와 27살~결혼 전의 연령대인 청년부가 진리 안에서 하나되어, 뜨겁게 찬양하고 기도하며 예배합니다.
+                    우정교회 LOG 청년부는 "너희는 세상의 빛"이라는(마 5:14) 예수님의 명령이자 약속을 순종하며 성취하는 공동체 입니다.<br>
+                    대학부(20~26세)와 청년부(27~40세)가 진리 안에서 하나되어, 뜨겁게 찬양하고 기도하며 예배합니다.
                 </div>
                 <div class="mt-20">
-                    우정교회 청년부는 "LOG"가 담고 있는 뜻처럼, 우리의 예배를 통해 하나님의 은혜와 영광이 우리의 인격과 삶을 변화시키며,
+                    우정교회 청년부는 "LOG"가 담고 있는 뜻처럼, 우리의 예배를 통해 하나님의 은혜와 영광이 우리의 인격과 삶을 변화시키며,<br>
                     가정과 학교와 일터와 세상을 비추시도록 우리에게 주신 청년의 때를 산 제사로 올려드립니다.
                 </div>
             </div>
@@ -286,29 +295,18 @@
                         <span class="n">이순진 집사</span>
                     </div>
                     <div class="mt-40">
-                        <span class="label">회장</span>
-                        <span class="n">우승규</span>
+                        <span class="label">청년부 목자장</span>
+                        <span class="n">김동현</span>
+                        <span class="label">대학부 목자장</span>
+                        <span class="n">김다윗</span>
                     </div>
                     <div class="mt-15">
-                        <span class="label">총무</span>
-                        <span class="n">장현석</span>
-                        <span class="label">기획국</span>
-                        <span class="n">김채현</span>
-                    </div>
-                    <div class="mt-15">
-                        <span class="label">예배국&목자장</span>
-                        <span class="n">이재영</span>
-                        <span class="label">진행국</span>
-                        <span class="n">조성민</span>
-                    </div>
-                    <br>
-                    <div class="mt-15">
-                        <span class="label">목자</span>
-                        <span class="n long">김동현 김선아 김안나 양성민 이성호 이성혜 이영훈 이재국 윤성웅 윤시온</span>
+                        <span class="label">청년부 목자</span>
+                        <span class="n long">김민아 김충렬 윤성웅 윤시온 이성혜 이영훈 임보람 장현석 지은호 최영신 하현호</span>
                     </div>
                     <div class="_mt-5">
-                        <span class="label"></span>
-                        <span class="n long">장요빈 장현석 장현아 전시온 최영신 하현호 허정은</span>
+                        <span class="label">대학부 목자</span>
+                        <span class="n long">김상래 신소연 장현아 조성민 최현정 추효은 한상원 황현정</span>
                     </div>
                 </div>
             </div>
@@ -328,6 +326,7 @@
                     <div class="r">1. 예비 신혼부부 학교를 통해서 예비부부를 초청하고 교회 성인공동체에 올라가기 전에 관계를 맺게 한다</div>
                     <div class="r">2. 제자훈련을 통해서 교회의 충성된 일꾼을 세워간다. </div>
                     <div class="r">3. 부부학교, 자녀학교 등 여러 방법을 통해 하나님의 일꾼으로 교회의 든든한 일꾼이 되게 한다. </div>
+
                 </div>
             </div>
             <div class="sub-title">섬기는 사람들</div>
@@ -351,6 +350,9 @@
                     <span class="n">이신애 집사</span>
                 </div>
 
+            </div>
+            <div class="mt-50">
+                <img th:src="@{/img/department/couple.jpg}">
             </div>
         </div>
     </div>

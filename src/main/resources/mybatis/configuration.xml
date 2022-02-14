@@ -18,9 +18,8 @@
         <typeAlias alias="worshipBoardListDTO" type="org.woojeong.api.v1.board.dto.WorshipBoardListDTO"/>
         <typeAlias alias="communityBoardListDTO" type="org.woojeong.api.v1.board.dto.CommunityBoardListDTO"/>
         <typeAlias alias="communityBoardVo" type="org.woojeong.api.v1.board.vo.CommunityBoardVo"/>
-<!--        <typeAlias alias="incomeExpenseListParams" type="kr.co.kface.checkingapiserver.api.v1.incomeExpense.params.IncomeExpenseListParams"/>-->
-<!--        <typeAlias alias="incomeExpenseRegisterParams" type="kr.co.kface.checkingapiserver.api.v1.incomeExpense.params.IncomeExpenseRegisterParams"/>-->
-<!--        <typeAlias alias="companyRegisterParams" type="kr.co.kface.checkingapiserver.api.v1.company.params.CompanyRegisterParams"/>-->
+        <typeAlias alias="prayerListVo" type="org.woojeong.api.v1.hidden.vo.PrayerListVo"/>
+        <typeAlias alias="insertPrayerContentDTO" type="org.woojeong.api.v1.hidden.dto.InsertPrayerContentDTO"/>
     </typeAliases>
 
 </configuration>

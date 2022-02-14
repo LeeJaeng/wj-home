@@ -51,9 +51,9 @@
     padding-left: 20px;
     height: 30px;
     line-height: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     font-weight: bold;
-    color: #404040;
+    color: #565656;
     /*color: rgba(35, 118, 173, 1);*/
     /*border-bottom: 1px solid lightgrey;*/
     border-left: 6px solid rgba(35, 118, 173, 1);
@@ -107,11 +107,18 @@
 #content .detail.helper .helper-list{
     padding: 0 12px 56px 12px;
 }
+
+#content .detail.helper .helper-list .spc{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: rgba(35, 118, 173, 0.75);
+    margin-bottom: 15px;
+}
 #content .detail.helper .helper-list > div {
     display: inline-block;
     padding: 12px 0;
     width: 272px;
-    border-bottom: 1px solid #eee;
+    /*border-bottom: 1px solid #eee;*/
 }
 #content .detail.helper .helper-list .contact {
     width: inherit;
@@ -138,17 +145,41 @@
     width: 290px;
     height: 432px;
 }
+#content .detail.helper .helper-list.small .line > div{
+    /*width: 210px;*/
+    height: 230px;
+}
 #content .detail.helper .helper-list .line > div > div{
     width: 230px;
-    margin-left: 30px;
+    margin-right: 50px;
 }
+#content .detail.helper .helper-list.small .line > div > div{
+    width: 120px;
+}
+
 #content .detail.helper .helper-list .line > div .pic{
     height: 260px;
     overflow: hidden;
     text-align: center;
 }
+#content .detail.helper .helper-list.small .line > div .pic{
+    height: 160px;
+}
 #content .detail.helper .helper-list .line > div img{
     width: 220px;
+}
+#content .detail.helper .helper-list.small .line > div img{
+    width: 120px;
+    height: 160px;
+}
+#content .detail.helper .helper-list.small .line > div .name{
+    padding: 12px 0 4px 0px;
+    text-align: center;
+    font-size: 1rem;
+}
+#content .detail.helper .helper-list.small .line > div .job{
+    padding-left: 0;
+    text-align: center;
 }
 #content .detail.helper .helper-list .line > div .name{
     padding: 12px 0 4px 12px;
@@ -235,13 +266,25 @@
     border: 1px solid lightgrey;
 }
 
-#content .detail.head-pastor img {
-    width: 200px;
-    border: 2px solid #eee;
+#content .detail.head-pastor  {
+    position: relative;
+}
+#content .detail.head-pastor .img {
+    position: absolute;
+    top: 120px;
+    right: 80px;
+    width: 220px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+#content .detail.head-pastor .img img{
+    width: 220px;
 }
 #content .detail.head-pastor .greetings {
-    font-size: 1.1em;
-    line-height: 1.67em;
+    font-size: 1.05em;
+    line-height: 1.8em;
+    margin-top: 10px;
     margin-bottom: 80px;
 }
 #content .detail.head-pastor .greetings span {
@@ -252,5 +295,5 @@
     display: inline-block;
     font-size: 1.2em;
     color: rgba(15, 17, 119, 0.8);
-    margin: 8px 0 4px 0;
+    margin: 8px 0 8px 0;
 }

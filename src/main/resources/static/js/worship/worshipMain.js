@@ -496,7 +496,20 @@ define(
                         })
                         $delete.click(function () {
                             if (confirm('정말 삭제하시겠습니까?')) {
-
+                                ajaxRequests.deleteWorshipBoard({
+                                    idx: data.board_idx,
+                                    callback: function() {
+                                        _this.var.$boardDetail.find(".back").click();
+                                        _this.clearList();
+                                        ajaxRequests.getWorshipBoardList({
+                                            type: _this.var.menuSelected,
+                                            page: 1,
+                                            init: true,
+                                            callback: function(json) {
+                                                _this.setList(json.list)
+                                            }
+                                        });
+                                    }})
                             }
                         })
                     }
