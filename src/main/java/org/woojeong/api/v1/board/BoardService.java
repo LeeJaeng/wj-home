@@ -79,6 +79,9 @@ public class BoardService {
             case "friday":
                 dto.setQuery("AND category = 3 AND worship_type = 'fri' ");
                 break;
+            case "head-pastor-friday":
+                dto.setQuery("AND category = 1 AND worship_type = 'fri' ");
+                break;
             case "wednesday":
                 dto.setQuery("AND category = 3 AND worship_type in ('wed1', 'wed2') ");
                 break;
@@ -130,6 +133,9 @@ public class BoardService {
     @Transactional
     public boolean registerCommunityBoard(List<MultipartFile> files, Map<String, Object> params) {
         boardDao.registerCommunityBoard(params);
+        if (files == null) {
+            return true;
+        }
         try {
             int ord  = 0;
             int i = 0;
@@ -243,6 +249,9 @@ public class BoardService {
                 break;
             case "file":
                 dto.setQuery("AND category = 4 ");
+                break;
+            case "edit":
+                dto.setQuery("AND category = 5 ");
                 break;
         }
 

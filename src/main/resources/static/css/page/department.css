@@ -84,11 +84,17 @@
     line-height: 45px;
     /*color: rgba(35, 118, 173, 1);*/
     font-size: 1.5rem;
-    color: rgba(15, 17, 119, 0.8);
+    /*color: rgba(15, 17, 119, 0.8);*/
+    color: rgba(35, 118, 173, 1)
 }
 #content .detail .verse {
+    display: inline-block;
     font-size: 1rem;
     color: #404040;
+    background-color: rgba(216, 231, 252, 0.69);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
 #content .detail .r {
     font-size: 1rem;
@@ -140,4 +146,10 @@
     width: 700px;
 }
 
+#content .detail .desc .grade{
+    font-weight: bold;
+    font-size: 1rem;
+    color: #888;
+    margin-top: 20px;
+}
 

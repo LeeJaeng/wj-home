@@ -59,7 +59,7 @@ define(
                 callback: function(json) {
                     if (json.list.length === 0) {
                         ajaxRequests.getWorshipBoardList({
-                            type: 'main-sun4',
+                            type: 'head-pastor-friday',
                             page: 1,
                             init: true,
                             callback: function(json) {

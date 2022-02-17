@@ -7,6 +7,9 @@ define(['common/userInfo', 'common/header'], function(userInfo, header){
         // 유저 정보 먼저 받아오고
         userInfo.getInitTokenFromCookie(function(){
             header.init(menu)
+            if (!userInfo.isAdmin) {
+                header.var.$menuList.find(".only-admin").remove()
+            }
             callback()
         });
     }

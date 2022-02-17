@@ -32,6 +32,9 @@ define(
 
             if (!userInfo.isAdmin) {
                 this.var.$register.remove()
+                // 정보수정 요청, 방송실 협조 안보이게
+                $("#info-edit").remove()
+                $("#file-board").remove()
             } else {
                 this.registerInit()
             }
@@ -204,6 +207,9 @@ define(
                     break;
                 case "file":
                     $category.val("4")
+                    break;
+                case "edit":
+                    $category.val("5")
                     break;
             }
 
