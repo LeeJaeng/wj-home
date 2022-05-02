@@ -127,6 +127,18 @@ define(['common/ajax'], function(ajax){
         })
     }
 
+    AjaxRequest.prototype.getMainBanners = function({ callback }) {
+        ajax.ajaxCall({
+            method: 'GET',
+            uri: '/public/common/main-banners',
+            onSuccessCallback: function(json) {
+                callback(json)
+            },
+            onErrorCallback: function(json) {
+            }
+        })
+    }
+
 
     // hidden
 

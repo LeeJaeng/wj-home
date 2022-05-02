@@ -50,7 +50,12 @@ dependencies {
     implementation 'org.imgscalr:imgscalr-lib:4.2'
 }
 
-
+task AAAAAA(type: Zip) {
+    archiveFileName = "my-distribution.zip"
+    destinationDirectory = file("$buildDir/dist")
+    from "$buildDir/libs"
+    from "$buildDir/../aws"
+}
 sourceSets {
 }
 configurations {

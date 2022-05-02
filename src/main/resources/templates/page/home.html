@@ -20,61 +20,41 @@
 <div id="content" class="" layout:fragment="content">
     <div class="upper">
         <div class="swiper mySwiper">
+<!--            <div class="background">-->
+<!--                <img th:src="@{/img/banner/main-banner.jpeg}">-->
+<!--            </div>-->
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url('https://kor-wj-bucket.s3.ap-northeast-2.amazonaws.com/images/banner/banner1.png')"></div>
-                <div class="swiper-slide" style="background-image: url('https://kor-wj-bucket.s3.ap-northeast-2.amazonaws.com/images/banner/banner2.png')"></div>
-                <div class="swiper-slide" style="background-image: url('https://kor-wj-bucket.s3.ap-northeast-2.amazonaws.com/images/banner/banner3.png')"></div>
-<!--                <div class="swiper-slide" style="background-image: url('https://www.woori.cc/data/main/WC_20210925145919923.jpg')"></div>-->
-<!--                <div class="swiper-slide" style="background-image: url('https://www.woori.cc/data/main/WC_20210917161335441.jpg')"></div>-->
-<!--                <div class="swiper-slide" style="background-image: url('https://www.woori.cc/data/main/WC_20210629191030018.jpg')"></div>-->
+<!--                <div class="swiper-slide" style="background-image: url('')">-->
+                <div class="swiper-slide">
+                    <img style="width: 100%; object-fit: cover;" src="https://kor-wj-bucket.s3.ap-northeast-2.amazonaws.com/images/banner/wj_church.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img style="width: 100%; height: auto; object-fit: cover;" src="https://kor-wj-bucket.s3.ap-northeast-2.amazonaws.com/images/banner/wj.png" alt="">
+                </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
         </div>
-        <div class="main-preach-con">
-            <div class="main-preach row justify-content-md-center">
-                <div class="col-md-auto preach-player main">
-                    <div class="description">
-                        <div><span class="title">담임목사 주일 설교</span><span class="date"></span></div>
-<!--                        <div class="preach-title"></div>-->
-<!--                        <div class="preach-verse">-->
-<!--                            <i class="fas fa-bible"></i>-->
-<!--                            <span class="verse"></span>-->
-<!--                        </div>-->
-                    </div>
-                    <div class="player">
-                    </div>
+    </div>
+    <div class="middle gray-background">
+        <div style="display: flex; margin-bottom: 70px; margin-top: 30px;">
+            <div class="board sermon">
+                <div class="header">담임목사 설교
+                    <div class="more"><a href="/worship"><i class="fas fa-plus-circle"></i> 더보기</a></div>
                 </div>
-                <div class="col-md-auto preach-player sub">
-                    <div class="description">
-                        <div><span class="title">담임목사 금요성회 설교</span><span class="date"></span></div>
-                    </div>
-                    <div class="player">
-                    </div>
+                <div class="list sermon">
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="gray-background">
-        <div class="row justify-content-md-center">
-            <div class="board paper col-lg-4">
+            <div class="board paper">
                 <div class="header">교회소식
                     <div class="more"><a href="/community"><i class="fas fa-plus-circle"></i> 더보기</a></div>
                 </div>
                 <div class="list">
                 </div>
             </div>
-            <div class="board worship col-lg-4">
-                <div class="header">말씀과 찬양
-                    <div class="more"><a href="/worship"><i class="fas fa-plus-circle"></i> 더보기</a></div>
-                </div>
-                <div class="list">
-                </div>
-            </div>
         </div>
-
-        <div class="row justify-content-md-center">
+        <div class="">
             <div class="board picture double col-lg-4">
                 <div class="header">교회사진
                     <div class="more"><a href="/community?type=photo"><i class="fas fa-plus-circle"></i> 더보기</a></div>
@@ -85,7 +65,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 

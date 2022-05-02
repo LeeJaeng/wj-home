@@ -5,6 +5,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link rel="shortcut icon" th:href="@{/img/favi.png}">
     <title>우정교회 홈페이지</title>
 
     <link
@@ -49,19 +50,6 @@
 <th:block th:replace="fragment/footer :: footerFragment"> </th:block>
 
 <script>
-    var swiper = new Swiper(".mySwiper", {
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + "</span>";
-            },
-        },
-    });
 </script>
 </body>
 

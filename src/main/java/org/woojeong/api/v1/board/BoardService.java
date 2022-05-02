@@ -64,6 +64,9 @@ public class BoardService {
             case "head-pastor":
                 dto.setQuery("AND category = 1 ");
                 break;
+            case "head-pastor-main":
+                dto.setQuery("AND category = 1 AND worship_type IN ('sun3', 'sun4', 'fri') ");
+                break;
             case "sub-pastor":
                 dto.setQuery("AND category = 2 ");
                 break;

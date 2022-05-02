@@ -385,10 +385,10 @@ define(
                 alert("담당자를 입력해주세요")
                 return false
             }
-            if (params.title === '') {
-                alert("제목을 입력해주세요")
-                return false
-            }
+            // if (params.title === '') {
+            //     alert("제목을 입력해주세요")
+            //     return false
+            // }
 
             callback(params)
         }

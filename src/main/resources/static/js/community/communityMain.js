@@ -332,7 +332,6 @@ define(
             const $thumb = this.var.$detail.find(".list").find(".thumb-list")
             $list.hide();
             $thumb.show();
-            console.log(data);
             $.each(data, function(i, v){
                 if (i % 3 === 0) {
                     $thumb.append("<div class='row'></div>")
@@ -389,8 +388,7 @@ define(
                     $boardDetail.find(".desc").html(
                         data.content.replace(/\n/gi, "<br>")
                     )
-
-                    if (data.category === 3 || data.category === 1 ) {
+                    if (data.category === 3 || data.category === 2 ) {
                         if (json.files.length > 0) {
                             $photos.show()
                             $.each(json.files, function(i, v){

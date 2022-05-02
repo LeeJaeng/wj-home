@@ -18,7 +18,7 @@
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wkglubd1qf&submodules=geocoder"></script>
 </th:block>
 
-<div class="row justify-content-md-center" layout:fragment="content">
+<div class="row justify-content-md-center" layout:fragment="content" style="border-top: 2px solid #e5e5e5;">
     <input type="hidden" class="init-val-remove" name="board_type" th:value="${data.board_type}">
     <input type="hidden" class="init-val-remove" name="board_idx" th:value="${data.board_idx}">
     <div id="content" class="col-md-auto">
@@ -238,7 +238,7 @@
                             </div>
                             <div class="tel">
                                 <i class="fas fa-phone-alt"></i>
-                                -244-7833 (2층 사무실)
+                                052-244-7833 (2층 사무실)
                             </div>
                         </div>
                     </div>
@@ -246,7 +246,6 @@
 
                 <div class="sub-title">장로</div>
                 <div class="helper-list small">
-                    <div class="spc">시무장로</div>
                     <div class="line">
                         <div>
                             <div class="pic">
@@ -428,9 +427,22 @@
                     </div>
                 </div>
                 <div class="sub-title">직원</div>
-                <div class="helper-list">
-                    <div>
-                        <div><span>사무장</span> 조석형 집사</div>
+                <div class="helper-list small">
+                    <div class="line">
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/조석형.jpeg}" alt="">
+                            </div>
+                            <div class="name">조석형 집사</div>
+                            <div class="job">사무장</div>
+                        </div>
+                        <div>
+                            <div class="pic">
+                                <img th:src="@{/img/helper/이세형.jpeg}" alt="">
+                            </div>
+                        <div class="name">이세형 집사</div>
+                            <div class="job">사무간사</div>
+                        </div>
                     </div>
                 </div>
 
@@ -455,7 +467,7 @@
                             </tr>
                             <tr>
                                 <td class="type">주일낮 3부</td>
-                                <td class="time">오전 12:00</td>
+                                <td class="time">오후 12:00</td>
                                 <td class="place">3층 예루살렘홀</td>
                             </tr>
                             <tr>
@@ -548,6 +560,9 @@
         <div class="detail direction hide">
             <div class="title">오시는 길</div>
             <div id="map">
+            </div>
+            <div style="margin-top: 30px;">
+                <img th:src="@{/img/location.png}" alt="" style="width: 800px;">
             </div>
 
             <script>

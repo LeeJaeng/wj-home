@@ -90,7 +90,7 @@
         FROM wj_board board
 
         WHERE board.is_deleted is NOT TRUE ${query}
-        ORDER BY created_date desc
+        ORDER BY board.created_date desc
         LIMIT #{start}, #{cnt}
     </select>
     <select id="getCommunityBoard" parameterType="hashmap" resultType="hashmap">

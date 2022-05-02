@@ -3,11 +3,45 @@ define(
     function(loginPopup, ajaxRequests, util){
         function HomeMain() {
             this.var = {
-                $mainPreach: $(".main-preach")
+                $mainPreach: $(".list.sermon"),
+                $bannerSlide: $(".swiper-wrapper"),
             }
         }
 
         HomeMain.prototype.init = function() {
+            const _this = this;
+            ajaxRequests.getMainBanners({
+                callback: function(json) {
+                    $.each(json.data, function(i, v){
+                        const $img = $(
+                            '<div class="swiper-slide"></div>'
+                        )
+                        $img.css('background-image', "url('"+ v.url +"')")
+                        _this.var.$bannerSlide.append($img)
+                    });
+                    const swiper = new Swiper(".mySwiper", {
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                            renderBullet: function (index, className) {
+                                return '<span class="' + className + '">' + "</span>";
+                            },
+                        },
+                        autoplay: {
+                            delay: 6000,
+                            disableOnInteraction: false,
+                        },
+                        // scrollbar: {
+                        //     el: ".swiper-scrollbar",
+                        //     hide: true,
+                        // },
+                    });
+                }
+            })
             this.getSermon()
             this.getPaper()
             this.getWorship()
@@ -19,72 +53,21 @@ define(
             const $preachList = this.var.$mainPreach.find(".preach-list").find(".li")
             // 첫 데이터 받기
             ajaxRequests.getWorshipBoardList({
-                type: 'head-pastor',
+                type: 'head-pastor-main',
                 page: 1,
                 init: true,
-                callback: function(json) {
-                    $.each(json.list, function(i, v){
-                        // const $row = $(
-                        //     '<div class="l-row">' +
-                        //     '   <div><span class="date">'+ v.date  +'</span><span class="type">'+ util.getWorshipName(v.worship_type) +'</span></div>' +
-                        //     '   <div><span class="title">'+ v.title  +'</span></div>' +
-                        //     '   <div><span class="verse">'+ v.verse  +'</span></div>' +
-                        //     '</div>'
-                        // )
-                        // $preachList.append($row)
-
-                        if (i === 0) {
-                            // $row.addClass("selected")
-                            setSermon('main', v)
+                callback: function (json) {
+                    console.log(json);
+                    $.each(json.list, function (i, v) {
+                        setSermon('main', v)
+                        if (i === 1)
                             return false;
-                        }
-                        //
-                        // $row.click(function(){
-                        //     if ($row.hasClass("selected")){
-                        //         return false
-                        //     }
-                        //     $preachList.find('.selected').removeClass("selected")
-                        //     $row.addClass("selected")
-                        //     setMainSermon(v)
-                        // })
                     })
                 }
-
             });
-
-            ajaxRequests.getWorshipBoardList({
-                type: 'main-sermon-sun4',
-                page: 1,
-                init: true,
-                callback: function(json) {
-                    if (json.list.length === 0) {
-                        ajaxRequests.getWorshipBoardList({
-                            type: 'head-pastor-friday',
-                            page: 1,
-                            init: true,
-                            callback: function(json) {
-                                $.each(json.list, function(i, v){
-                                    if (i === 0) {
-                                        setSermon('sub', v)
-                                        return false;
-                                    }
-                                })
-                            }
-                        });
-                    } else {
-                        $.each(json.list, function(i, v){
-                            if (i === 0) {
-                                setSermon('sub', v)
-                                return false;
-                            }
-                        })
-                    }
-                }
-            });
-
 
             function setSermon (type, data) {
-                const $preachPlayer = _this.var.$mainPreach.find(".preach-player." + type)
+                const $preachPlayer = _this.var.$mainPreach;
 
                 let date = ''
                 let preachTitle = ''
@@ -102,12 +85,13 @@ define(
                 $preachPlayer.find(".date").text(date)
                 $preachPlayer.find(".preach-title").text(preachTitle)
                 $preachPlayer.find(".preach-verse").find(".verse").text(preachVerse)
-
-                $preachPlayer.find("iframe").remove()
                 if (data.content) {
-                    $preachPlayer.find(".player").append(
-                        data.content
-                    )
+                    const div = $('<div></div>');
+                    const iframe = $(data.content)
+                    iframe.attr('width', '400');
+                    iframe.attr('height', '250');
+                    div.append(iframe);
+                    $preachPlayer.append(div)
                 }
             }
         }
@@ -214,13 +198,16 @@ define(
                 init: true,
                 callback: function(json) {
                     $.each(json.list, function(i, v){
-                        if (i === 3)
+                        if (i === 4)
                             return false
 
                         const $row = $(
-                            '<div style="background-image: url(' + v.thumb + ')">' +
-                            '   <div class="title">'+ v.title +'</div>' +
-                            // '   <div class="pic"><img src="'+ v.thumb +'" alt=""></div>' +
+                            '<div>' +
+                            // '<div style="background-image: url(' + v.thumb + ')">' +
+                            '   <div class="pic">' +
+                            '       <img src="'+ v.thumb +'" alt="">' +
+                            '       <div class="title">'+ v.title +'</div>' +
+                            '   </div>' +
                             '</div>'
                         )
                         $row.click(function(){

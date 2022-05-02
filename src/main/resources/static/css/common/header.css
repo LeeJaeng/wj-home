@@ -1,21 +1,21 @@
 #main-menu {
     height: 90px;
-    border-bottom: 2px solid #e6e9ee;
+    /*border-bottom: 2px solid #e6e9ee;*/
 }
 
 #main-menu > div {
-    display: flex;
-    position: relative;
-    max-width: 1150px;
-    margin: 0 auto;
-    /*border-right: 1px solid lightgrey;*/
-    /*border-left: 1px solid lightgrey;*/
+    display: table;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+#main-menu > div > div{
+    display: table-cell;
 }
 
 #main-menu .logo {
     width: 212px;
     height: 100%;
-    line-height: 100px;
+    line-height: 90px;
     /*background-color: aliceblue;*/
     margin-right: 20px;
     cursor: pointer;
@@ -27,18 +27,16 @@
 
 #main-menu .menu-list {
     display: flex;
-    width: 550px;
+    width: 750px;
     height: 88px;
-    margin-left: 300px;
+    margin-left: 60px;
     position: relative;
 }
 #main-menu .menu-list .menu {
     width: 25%;
     text-align: center;
     height: 88px;
-    line-height: 96px;
-    margin-right: 20px;
-    margin-left: 20px;
+    line-height: 90px;
     font-size: 1.1rem;
     cursor: pointer;
 }
@@ -57,14 +55,16 @@
     display: table;
     position: absolute;
     top: 88px;
-    left: -25px;
-    width: 600px;
+    padding-top: 5px;
+    /*left: -25px;*/
+    width: 100%;
     background-color: white;
-    z-index: 50;
-    padding: 0 25px 0 25px;
-    border-left: 1px solid #e6e9ee;
-    border-bottom: 1px solid #e6e9ee;
-    border-right: 1px solid #e6e9ee;
+    z-index: 1000;
+    -webkit-box-shadow: 1px 8px 6px 1px rgba(0,0,0,0.26);
+    box-shadow: 1px 8px 6px 1px rgba(0,0,0,0.26);
+    /*border-left: 1px solid #e6e9ee;*/
+    /*border-bottom: 1px solid #e6e9ee;*/
+    /*border-right: 1px solid #e6e9ee;*/
 }
 #main-menu .menu-list-detail > div{
     display: table-cell;
@@ -72,7 +72,7 @@
 }
 #main-menu .menu-list-detail > div > div{
     font-size: .9rem;
-    height: 45px;
+    height: 50px;
     text-align: center;
     cursor: pointer;
 }
@@ -86,7 +86,7 @@
     text-align: right;
     position: absolute;
     top: 0;
-    right: 40px;
+    right: 100px;
     width: 200px;
     height: 90px;
 }

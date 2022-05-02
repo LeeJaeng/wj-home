@@ -9,27 +9,44 @@
 
 .upper {
     position: relative;
-    height: 840px;
+    height: 650px;
 }
 
 .upper .swiper {
+    position: relative;
     width: 100%;
-    height: 400px;
+    height: 600px;
     /*배너광고에 따라 이 색 변경*/
-    background-color: rgba(8, 8, 66, 1);
+    /*background-color: rgba(8, 8, 66, 1);*/
     /*background-color: rgba(35, 118, 173, 1);*/
     /*background-color: white;*/
     text-align: center;
 }
+.upper .swiper .background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 450px;
+    z-index: 1;
+    background-color: black;
+}
+.upper .swiper .background img{
+    width: 100%;
+    opacity: .8;
+}
 .upper .swiper .swiper-slide {
-    height: 400px;
-    line-height: 400px;
+    height: 600px;
+    line-height: 600px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 .upper .swiper .swiper-slide img{
-    height: 400px;
+    height: 600px;
+}
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    opacity: 5;
 }
 /*.upper .banner img {*/
 /*    height: 400px;*/
@@ -67,152 +84,34 @@
 /*    color: #9ae6ab;*/
 /*}*/
 
-.main-preach-con {
-    position: absolute;
-    left: 0;
-    top: 430px;
-    width: 100%;
+.middle {
+    padding: 30px 200px 80px 200px;
 }
 
-.main-preach {
-    margin: 0 auto;
+.board.sermon {
+    width: 70%;
 }
-.main-preach > div{
-    /*border-top: 1px solid lightgrey;*/
-    /*border-bottom: 1px solid lightgrey;*/
-}
-
-.main-preach .description {
-    /*border-left: 1px solid lightgrey;*/
-    /*border-right: 1px solid lightgrey;*/
-    /*background-color: rgba(35, 118, 173, 1);*/
-    height: 40px;
-    /*color: white;*/
-    background-color: white;
-}
-.main-preach .description > div {
-    padding-left: 16px;
-    padding-right: 16px;
-}
-.main-preach .description > div:first-child{
-    height: 40px;
-    line-height: 40px;
-    background-color: rgba(35, 118, 173, 1);
-    margin-bottom: 20px;
-}
-.main-preach .description .title {
-    width: 50%;
-    display: inline-block;
-    /*font-weight: bold;*/
-    /*color: rgba(35, 118, 173, 1);*/
-    color: white;
-    font-size: 1rem;
-}
-.main-preach .description .date {
-    width: 50%;
-    text-align: right;
-    display: inline-block;
-    color: rgba(255, 255, 255, 0.67);
-    font-size: 0.9em;
-}
-.main-preach .description .preach-title {
-    color: rgba(15, 17, 119, 1);
-    padding-left: 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 2px;
-}
-.main-preach .description .preach-verse {
-    font-size: 0.96rem;
-    color: gray;
-    padding-left: 15px;
-}
-.main-preach .description .preach-verse i {
-    margin-right: 4px;
+.board.sermon .list,
+.board.paper .list {
+    height: 300px;
 }
 
-.main-preach .preach-list {
-    padding: 0;
-    border: 2px solid rgba(8, 8, 66, 1);
-    width: 330px;
-    height: 496px;
-    margin-left: 12px;
-    overflow-y: scroll;
-    background-color: white;
+.board.sermon .list {
+    display: flex;
+    justify-content: space-around;
 }
-.main-preach .preach-list .l-row {
-    border-bottom: 1px solid rgba(35, 118, 173, 0.2);
-    padding: 10px 20px;
-    font-size: .9rem;
-    cursor: pointer;
-    border-left: 6px solid white;
-}
-.main-preach .preach-list .l-row:last-child {
-    margin-bottom: 16px;
-    border-bottom: 0;
-}
-.main-preach .preach-list .l-row:last-child{
-}
-.main-preach .preach-list .l-row.selected{
-    border-left: 6px solid rgba(35, 118, 173, 0.67);
-}
-.main-preach .preach-list .l-row:not(.selected):hover{
-    border-left: 6px solid rgba(35, 118, 173, 0);
-    background-color: rgba(35, 118, 173, 0.08);
-}
-.main-preach .preach-list .l-row > div{
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
-.main-preach .preach-list .l-row .date{
-    display: inline-block;
-    width: 50%;
-    text-align: left;
-    color: #bbb;
-}
-.main-preach .preach-list .l-row .type{
-    display: inline-block;
-    width: 50%;
-    text-align: right;
-    color: rgba(15, 17, 119, 0.67);
-    font-weight: bold;
-}
-.main-preach .preach-list .l-row .title{
-    font-size: 1rem;
-    /*font-weight: bold;*/
-}
-.main-preach .preach-list .l-row .verse{
-    color: rgba(35, 118, 173, 1);
+.board.sermon .list > div{
+    margin-top: 25px;
 }
 
-.main-preach .preach-list .more{
-    color: #404040;
-    text-decoration: none;
-    display: block;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-left: 6px solid white;
-    text-align: center;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border-bottom: 1px solid lightgrey;
+.board.paper {
+    width: 30%;
 }
-.main-preach .preach-list .more:hover{
-    font-weight: bold;
-    color: rgba(35, 118, 173, 1);
-}
-.main-preach .preach-list .more i {
-    margin-right: 4px;
-}
-
-.board {
-    width: 600px;
-    padding: 20px;
-    color: #2f2f2f;
-    margin-right: 10px;
+.board:first-child {
+    margin-right: 70px;
 }
 .board.double {
-    width: 1210px;
+    width: 100%;
 }
 .board .header{
     font-weight: bold;
@@ -247,8 +146,8 @@
     font-size: .95rem;
 }
 .board .list.photo {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    /*padding-top: 32px;*/
+    /*padding-bottom: 32px;*/
     height: inherit;
 }
 .board .list.photo > div.next,
@@ -274,28 +173,37 @@
     position: relative;
     display: inline-block;
     background-size: cover;
-    width: calc(33% - 24px);
+    width: calc(25% - 24px);
     margin: 0 12px;
     overflow: hidden;
     height: 260px;
     cursor: pointer;
 }
+.board .list.photo > div.pic-area > div .pic{
+    position: relative;
+    height: 200px;
+    margin-top: 30px;
+}
 .board .list.photo > div.pic-area > div .title{
     position: absolute;
     padding: 0 16px;
-    height: 44px;
-    line-height: 44px;
+    height: 40px;
+    line-height: 40px;
     bottom: 0;
     width: 100%;
-    font-size: 1rem;
-    background-color: rgba(24, 24, 24, 0.9);
+    font-size: .9rem;
+    background-color: rgba(24, 24, 24, 0.7);
     color: white;
 }
 .board .list.photo > div.pic-area > div:hover .title{
-    background-color: rgba(35, 118, 173, 1);
+    background-color: rgba(24, 24, 24, 1);
+    /*background-color: rgba(35, 118, 173, 1);*/
 }
 .board .list.photo > div.pic-area > div img{
+    /*width: 100%;*/
+    object-fit: cover;
     width: 100%;
+    height: 100%;
 }
 
 
@@ -303,8 +211,8 @@
     display: flex;
     padding-left: 15px;
     padding-right: 15px;
-    height: 45px;
-    line-height: 45px;
+    height: 50px;
+    line-height: 50px;
     cursor: pointer;
 }
 .board .list > .l-row:not(:last-child) {
@@ -315,10 +223,10 @@
     color: rgba(15, 17, 119, 1);
 }
 .board .list .l-row .title{
-    width: 80%;
+    width: 65%;
 }
 .board .list .l-row .date{
-    width: 20%;
+    width: 35%;
     padding-left: 10px;
     text-align: right;
     font-size: 0.9em;
@@ -328,7 +236,6 @@
 
 .gray-background {
     background-color: #f2f4f7;
-    padding-bottom: 50px;
 }
 .main-color {
     background-color: rgba(35, 118, 173, 1);

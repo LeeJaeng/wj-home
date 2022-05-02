@@ -18,7 +18,7 @@
     </script>
 </th:block>
 
-<div class="row justify-content-md-center" layout:fragment="content">
+<div class="row justify-content-md-center" layout:fragment="content" style="border-top: 2px solid #e5e5e5;">
     <input type="hidden" class="init-val-remove" name="board_type" th:value="${data.board_type}">
     <input type="hidden" class="init-val-remove" name="board_idx" th:value="${data.board_idx}">
     <div id="content" class="col-md-auto">
@@ -178,7 +178,7 @@
                         <span class="label">회계</span>
                         <span class="n">허정은</span>
                         <span class="label">실행위원</span>
-                        <span class="n">하현호, 이동호</span>
+                        <span class="n">윤성웅, 하현호, 남주안, 이동호</span>
                     </div>
                     <div class="mt-15">
                         <span class="label">서기</span>
@@ -365,6 +365,9 @@
                         <span class="label">대학부 목자</span>
                         <span class="n long">김상래 신소연 장현아 조성민 최현정 추효은 한상원 황현정</span>
                     </div>
+                </div>
+                <div class="mt-50">
+                    <img th:src="@{/img/department/youth.jpeg}">
                 </div>
             </div>
         </div>

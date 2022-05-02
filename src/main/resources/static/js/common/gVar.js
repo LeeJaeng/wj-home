@@ -8,11 +8,9 @@ define(['common/util'], function(util){
         this.data = {
             pastorList: [
                 '예동열 담임목사',
-                '김동훈 목사',
                 '문지원 목사',
                 '유수창 목사',
                 '전윤광 목사',
-                '정광복 목사',
                 '김재준 전도사'
             ]
         }
