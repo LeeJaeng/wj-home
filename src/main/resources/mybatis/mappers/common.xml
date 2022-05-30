@@ -10,5 +10,11 @@
         WHERE is_valid is TRUE
         ORDER BY ord
     </select>
+    <select id="getHistories" resultType="hashmap" parameterType="java.lang.String">
+        select * from wj_histories
+        ORDER BY hist_year desc, hist_month desc, hist_day_from
+    </select>
+
+
 
 </mapper>

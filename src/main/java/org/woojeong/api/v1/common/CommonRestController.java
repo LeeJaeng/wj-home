@@ -21,5 +21,9 @@ public class CommonRestController {
         return ResponseEntity.ok(commonService.getMainBanners());
     }
 
+    @GetMapping(value = "/public/common/histories")
+    public ResponseEntity getHistories () {
+        return ResponseEntity.ok(commonService.getHistories());
+    }
 
 }

@@ -79,6 +79,9 @@ public class JwtAuthProvider implements AuthenticationProvider {
             if (authority.getAuthority().equals("ADMIN")) {
                 userInfo.setAdmin(true);
             }
+            if (authority.getAuthority().equals("MANAGER")) {
+                userInfo.setManager(true);
+            }
         }
 
         return new JwtAuthToken(userInfo, userInfo.getAuthorities());

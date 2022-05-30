@@ -25,6 +25,7 @@ public class WjUserInfo implements UserDetails {
 
     private boolean isAdmin = false;
     private boolean isManager = false;
+    private boolean isPraise = false;
 
     public String getId() {
         return user_id;

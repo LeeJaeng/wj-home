@@ -29,14 +29,24 @@ define(
         CommunityMain.prototype.init = function () {
             const _this = this
 
-
-            if (!userInfo.isAdmin) {
+            if (userInfo.isAdmin) {
+                this.registerInit()
+            }
+            else if (userInfo.isPraise) {
+                this.registerInit()
+                $("#info-edit").remove();
+                $("#r-opt-paper").remove();
+                $("#r-opt-photo").remove();
+                $("#r-opt-info").remove();
+                if (this.var.menuSelected !== 'file') {
+                    this.var.$register.hide()
+                }
+            }
+            else {
                 this.var.$register.remove()
                 // 정보수정 요청, 방송실 협조 안보이게
                 $("#info-edit").remove()
                 $("#file-board").remove()
-            } else {
-                this.registerInit()
             }
 
             // 초기 세팅
@@ -96,6 +106,11 @@ define(
 
                 _this.var.menuSelected = menu
                 _this.var.$detail.find(".sub-title").text($(this).text())
+                if (_this.var.menuSelected === 'file') {
+                    _this.var.$register.show()
+                } else {
+                    _this.var.$register.hide()
+                }
 
                 _this.clearList()
                 paging.init()

@@ -139,6 +139,18 @@ define(['common/ajax'], function(ajax){
         })
     }
 
+    AjaxRequest.prototype.getHistories = function({ callback }) {
+        ajax.ajaxCall({
+            method: 'GET',
+            uri: '/public/common/histories',
+            onSuccessCallback: function(json) {
+                callback(json)
+            },
+            onErrorCallback: function(json) {
+            }
+        })
+    }
+
 
     // hidden
 

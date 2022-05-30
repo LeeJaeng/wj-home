@@ -10,6 +10,9 @@ define(['common/userInfo', 'common/header'], function(userInfo, header){
             if (!userInfo.isAdmin) {
                 header.var.$menuList.find(".only-admin").remove()
             }
+            if (!userInfo.loggedIn) {
+                header.var.$menuList.find(".only-login").remove()
+            }
             callback()
         });
     }

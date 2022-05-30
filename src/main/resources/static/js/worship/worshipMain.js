@@ -24,10 +24,18 @@ define(
 
         WorshipMain.prototype.init = function () {
             const _this = this
-            if (!userInfo.isAdmin) {
-                this.var.$register.remove()
-            } else {
+            if (userInfo.isAdmin) {
+                this.var.$register.show()
                 this.registerInit()
+            } else if (userInfo.isPraise) {
+                this.registerInit()
+                if (this.var.menuSelected === 'praise') {
+                    this.var.$register.show()
+                }
+                this.var.$registerPopup.find('[name=category] option').remove()
+                this.var.$registerPopup.find('[name=category]').append('<option value="4">찬양</option>')
+            } else {
+                this.var.$register.remove()
             }
 
             // 초기 세팅

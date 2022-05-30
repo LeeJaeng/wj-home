@@ -2,6 +2,7 @@ define(['common/util', 'common/ajax'], function(util, ajax){
     function UserInfo() {
         this.loggedIn = false
         this.isAdmin = false
+        this.isPraise = false
         this.userName = ""
         this.userId = ""
 
@@ -33,6 +34,7 @@ define(['common/util', 'common/ajax'], function(util, ajax){
         } else {
             this.loggedIn = true;
             this.isAdmin = tokenObj.scopes.find(ele => ele === 'ADMIN') !== undefined
+            this.isPraise = tokenObj.scopes.find(ele => ele === 'PRAISE') !== undefined
             this.userName = tokenObj.user_name
             if (typeof callback === 'function')
                 callback()

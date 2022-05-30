@@ -282,8 +282,8 @@
     width: 220px;
 }
 #content .detail.head-pastor .greetings {
-    font-size: 1em;
-    line-height: 1.7em;
+    font-size: .98em;
+    line-height: 1.5em;
     margin-top: 10px;
     margin-bottom: 80px;
 }
@@ -296,4 +296,54 @@
     font-size: 1.2em;
     color: rgba(15, 17, 119, 0.8);
     margin: 8px 0 8px 0;
+}
+
+#content .detail.history table {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+    width: 700px;
+}
+#content .detail.history table:first-child {
+    padding-top: 0;
+}
+#content .detail.history table td{
+}
+
+#content .detail.history table .year{
+    width: 80px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    /*color: rgb(240, 105, 73);*/
+    color: rgba(35, 118, 173, 1);
+    padding-top: 5px;
+}
+#content .detail.history table .month{
+    text-align: center;
+    width: 60px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    /*color: rgb(240, 105, 73);*/
+    color: rgba(35, 118, 173, 1);
+    /*border-bottom: 1px solid #e8e8e8;*/
+}
+#content .detail.history table .month:last-child{
+    /*border-bottom: none;*/
+}
+#content .detail.history table .event{
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /*border-bottom: 1px solid #e8e8e8;*/
+}
+#content .detail.history table .event:last-child{
+    /*border-bottom: none;*/
+}
+#content .detail.history table .event .main{
+    font-size: 1.1rem;
+    padding-bottom: 3px;
+}
+#content .detail.history table .event .sub{
+    font-size: .9rem;
+    color: gray;
 }

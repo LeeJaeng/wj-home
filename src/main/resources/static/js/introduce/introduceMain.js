@@ -1,4 +1,4 @@
-define([], function(){
+define(['common/ajaxRequests',], function(ajaxRequests){
     function IntroduceMain() {
         const $content = $("#content");
         this.var = {
@@ -6,9 +6,6 @@ define([], function(){
             $menuList: $content.find(".menu-list"),
             menuSelected: 'introduce'
         }
-
-
-
         this.menuSelectEvent()
     }
 

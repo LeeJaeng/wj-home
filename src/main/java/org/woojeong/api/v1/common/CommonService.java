@@ -30,6 +30,13 @@ public class CommonService {
         return retMap;
     }
 
+    public Map<String, Object> getHistories () {
+        Map<String, Object> retMap = new HashMap<>();
+        retMap.put("data", dao.getHistories());
+        return retMap;
+    }
+
+
 
 //    public Map<String, Object> phoneVerify (String phone, boolean isForRegister) {
 //

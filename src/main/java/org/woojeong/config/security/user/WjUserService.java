@@ -50,6 +50,10 @@ public class WjUserService implements UserDetailsService {
                 wjUserInfo.setManager(true);
                 authorities.add(new SimpleGrantedAuthority("MANAGER"));
                 break;
+            case 3:
+                wjUserInfo.setPraise(true);
+                authorities.add(new SimpleGrantedAuthority("PRAISE"));
+                break;
         }
 
         wjUserInfo.setAuthorities(authorities);

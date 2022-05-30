@@ -17,5 +17,8 @@ public class CommonDao {
         return sqlSessionTemplate.selectList("org.mybatis.example.common.getMainBanners");
     }
 
-
+    // 간단해서 따로 DTO 안만듦
+    public List<Map<String, Object>> getHistories () {
+        return sqlSessionTemplate.selectList("org.mybatis.example.common.getHistories");
+    }
 }
