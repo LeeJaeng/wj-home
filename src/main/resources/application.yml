@@ -13,8 +13,8 @@ spring:
       max-request-size: 50MB
 
 
-#server:
-#  port: 5000
+server:
+  port: 5000
 
 
 logging:
