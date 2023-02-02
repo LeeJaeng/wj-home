@@ -24,6 +24,14 @@ define(
 
         WorshipMain.prototype.init = function () {
             const _this = this
+
+            if (gVar.isMobile) {
+                this.var.$content.find('.list').find('table').remove()
+            } else {
+                this.var.$content.find('.list').find('.mobile-list').remove()
+            }
+
+
             if (userInfo.isAdmin) {
                 this.var.$register.show()
                 this.registerInit()
@@ -42,6 +50,9 @@ define(
             const $selected = this.var.$menuList.find(".menu[data-value="+ this.var.menuSelected +"]")
             $selected.addClass("selected")
             this.var.$detail.find('.sub-title').text($selected.text())
+            if (gVar.isMobile) {
+                this.var.$menuList.scrollLeft($selected[0].offsetLeft);
+            }
 
 
             // 첫 데이터 받기
@@ -62,6 +73,7 @@ define(
                                 callback: function(json){
                                     _this.clearList()
                                     _this.setList(json.list)
+                                    _this.var.$detail.scrollTop(0);
                                 }
                             }
                         )
@@ -85,44 +97,47 @@ define(
 
             this.var.$menuList.find(".menu").click(function () {
                 const menu = $(this).data('value')
-                window.location.href = '/worship?type=' + menu
-                // if (_this.var.menuSelected === menu) {
-                //     return false
-                // }
-                // _this.var.$menuList.find(".selected").removeClass("selected")
-                // $(this).addClass("selected")
-                //
-                // _this.var.$boardDetail.find(".back").click();
-                //
-                //
-                //     _this.var.menuSelected = menu
-                // _this.var.$detail.find(".sub-title").text($(this).text())
-                //
-                // _this.clearList()
-                // paging.init()
-                // ajaxRequests.getWorshipBoardList({
-                //     type: menu,
-                //     page: 1,
-                //     init: true,
-                //     callback: function(json) {
-                //         paging.setPagingInfo(json.paging)
-                //         paging.drawPaging()
-                //         paging.setPageEventFunction(function(page){
-                //             ajaxRequests.getWorshipBoardList(
-                //                 {
-                //                     type: menu,
-                //                     page: page,
-                //                     init: false,
-                //                     callback: function(json){
-                //                         _this.clearList()
-                //                         _this.setList(json.list)
-                //                     }
-                //                 }
-                //             )
-                //         })
-                //         _this.setList(json.list)
-                //     }
-                // });
+                if (gVar.isMobile) {
+                    if (_this.var.menuSelected === menu) {
+                        return false
+                    }
+                    _this.var.$menuList.find(".selected").removeClass("selected")
+                    $(this).addClass("selected")
+
+                    _this.var.$boardDetail.find(".back").click();
+
+
+                    _this.var.menuSelected = menu
+                    _this.var.$detail.find(".sub-title").text($(this).text())
+
+                    _this.clearList()
+                    paging.init()
+                    ajaxRequests.getWorshipBoardList({
+                        type: menu,
+                        page: 1,
+                        init: true,
+                        callback: function(json) {
+                            paging.setPagingInfo(json.paging)
+                            paging.drawPaging()
+                            paging.setPageEventFunction(function(page){
+                                ajaxRequests.getWorshipBoardList(
+                                    {
+                                        type: menu,
+                                        page: page,
+                                        init: false,
+                                        callback: function(json){
+                                            _this.clearList()
+                                            _this.setList(json.list)
+                                        }
+                                    }
+                                )
+                            })
+                            _this.setList(json.list)
+                        }
+                    });
+                } else {
+                    window.location.href = '/worship?type=' + menu
+                }
             });
         }
 
@@ -404,64 +419,154 @@ define(
 
         // 게시판 리스트 세팅
         WorshipMain.prototype.clearList = function () {
-            const $list = this.var.$detail.find(".list").find("table")
-            $list.find("tr").remove()
+            let $list = null
+             if (gVar.isMobile) {
+                 $list = this.var.$detail.find(".mobile-list")
+                 $list.find("div").remove()
+             } else {
+                 $list = this.var.$detail.find(".list").find("table")
+                 $list.find("tr").remove()
+             }
         }
         WorshipMain.prototype.setList = function (data) {
             const _this = this
-            const $list = this.var.$detail.find(".list").find("table")
+            let $list = null
+            if (gVar.isMobile) {
+                $list = this.var.$detail.find(".mobile-list")
+            } else {
+                $list = this.var.$detail.find(".list").find("table")
+            }
             $.each(data, function(i, v){
-                const $row = $("<tr></tr>")
-
-                switch (v.category) {
-                    case 1:
-                        $row.append(
-                            '<td style="text-align: left; padding-left: 5px;">'+
-                            '   <div style="font-size: 1.05rem;"> '+ v.title +'</div>'+
-                            '   <div style="font-size: .9rem; color: grey"><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
-                            '</td>'+
-                            '<td class="pastor" style="width: 120px;">예동열 담임목사</td>' +
-                            '<td class="date" style="width: 90px;">'+ v.date +'</td>'+
-                            '<td class="worship" style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
-                        )
-                        break
-                    case 2:
-                        $row.append(
-                            '<td style="text-align: left; padding-left: 5px;">'+
-                            '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
-                            '   <div style="font-size: .9rem; color: grey"><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
-                            '</td>'+
-                            '<td class="pastor" style="width: 120px;">'+ v.host_name +'</td>' +
-                            '<td class="date" style="width: 90px;">'+ v.date +'</td>'+
-                            '<td class="worship" style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
-                        )
-                        break
-                    case 3:
-                        $row.append(
-                            '<td style="text-align: left; padding-left: 5px;">'+
-                            '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
-                            '</td>'+
-                            '<td class="date" style="width: 90px;">'+ v.date +'</td>'+
-                            '<td class="worship" style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
-                        )
-                        break
-                    case 4:
-                        $row.append(
-                            '<td style="text-align: left; padding-left: 5px;">'+
-                            '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
-                            '</td>'+
-                            '<td class="pastor" style="width: 120px;">'+ v.host_name +'</td>' +
-                            '<td class="date" style="width: 90px;">'+ v.date +'</td>'+
-                            '<td class="worship" style="width: 120px;">' + util.getWorshipName(v.worship_type) + '</td>'
-                        )
-                        break
+                let $row;
+                if (gVar.isMobile) {
+                    $row = $("<div class='l-row'></div>")
+                    switch (v.category) {
+                        case 1:
+                            $row.append(
+                                '<div>'+
+                                '   <div> '+ util.getWorshipName(v.worship_type) +'</div>'+
+                                '   <div> '+ v.title +'</div>'+
+                                '   <div><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
+                                '</div>'+
+                                '<div>'+
+                                '   <div class="pastor">예동열 담임목사</div>' +
+                                '   <div class="date">'+ v.date +'</div>'+
+                                '</div>'
+                            )
+                            break
+                        case 2:
+                            $row.append(
+                                '<div>'+
+                                '   <div> '+ util.getWorshipName(v.worship_type) +'</div>'+
+                                '   <div> '+ v.title +'</div>'+
+                                '   <div><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
+                                '</div>'+
+                                '<div>'+
+                                '   <div class="pastor">'+ v.host_name +'</div>' +
+                                '   <div class="date">'+ v.date +'</div>'+
+                                '</div>'
+                            )
+                            break
+                        case 3:
+                            $row.append(
+                                '<div>'+
+                                '   <div> '+ util.getWorshipName(v.worship_type) +'</div>'+
+                                '   <div> '+ v.title +'</div>'+
+                                '</div>'+
+                                '<div>'+
+                                '   <div class="pastor">'+ v.host_name +'</div>' +
+                                '   <div class="date">'+ v.date +'</div>'+
+                                '</div>'
+                            )
+                            break
+                        case 4:
+                            $row.append(
+                                '<div>'+
+                                '   <div> '+ util.getWorshipName(v.worship_type) +'</div>'+
+                                '   <div> '+ v.title +'</div>'+
+                                '</div>'+
+                                '<div>'+
+                                '   <div class="pastor">'+ v.host_name +'</div>' +
+                                '   <div class="date">'+ v.date +'</div>'+
+                                '</div>'
+                            )
+                            break
+                        case 5:
+                            $row.append(
+                                '<div>'+
+                                '   <div> '+ util.getWorshipName(v.worship_type) +'</div>'+
+                                '   <div> '+ v.title +'</div>'+
+                                '   <div><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
+                                '</div>'+
+                                '<div>'+
+                                '   <div class="pastor">'+ v.host_name +'</div>' +
+                                '   <div class="date">'+ v.date +'</div>'+
+                                '</div>'
+                            )
+                            break
+                    }
+                } else {
+                    $row = $("<tr></tr>")
+                    switch (v.category) {
+                        case 1:
+                            $row.append(
+                                '<td class="title-verse">'+
+                                '   <div> '+ v.title +'</div>'+
+                                '   <div><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
+                                '</td>'+
+                                '<td class="pastor">예동열 담임목사</td>' +
+                                '<td class="date">'+ v.date +'</td>'+
+                                '<td class="worship">' + util.getWorshipName(v.worship_type) + '</td>'
+                            )
+                            break
+                        case 2:
+                            $row.append(
+                                '<td class="title-verse">'+
+                                '   <div>'+ v.title +'</div>'+
+                                '   <div><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
+                                '</td>'+
+                                '<td class="pastor">'+ v.host_name +'</td>' +
+                                '<td class="date">'+ v.date +'</td>'+
+                                '<td class="worship">' + util.getWorshipName(v.worship_type) + '</td>'
+                            )
+                            break
+                        case 3:
+                            $row.append(
+                                '<td class="title-verse">'+
+                                '   <div>'+ v.title +'</div>'+
+                                '</td>'+
+                                '<td class="date">'+ v.date +'</td>'+
+                                '<td class="worship">' + util.getWorshipName(v.worship_type) + '</td>'
+                            )
+                            break
+                        case 4:
+                            $row.append(
+                                '<td class="title-verse">'+
+                                '   <div>'+ v.title +'</div>'+
+                                '</td>'+
+                                '<td class="pastor">'+ v.host_name +'</td>' +
+                                '<td class="date">'+ v.date +'</td>'+
+                                '<td class="worship">' + util.getWorshipName(v.worship_type) + '</td>'
+                            )
+                            break
+                        case 5:
+                            $row.append(
+                                '<td class="title-verse">'+
+                                '   <div>'+ v.title +'</div>'+
+                                '   <div><i class="fas fa-bible"></i> ' + v.verse +'</div>' +
+                                '</td>'+
+                                '<td class="pastor">'+ v.host_name +'</td>' +
+                                '<td class="date">'+ v.date +'</td>'+
+                                '<td class="worship">' + util.getWorshipName(v.worship_type) + '</td>'
+                            )
+                            break
+                    }
                 }
 
                 $list.append($row)
                 $row.click(function(){
                     _this.openDetail(v)
                 })
-
             })
         }
 
@@ -473,15 +578,23 @@ define(
             this.var.$boardDetail.find(".back").click(function(){
                 _this.var.$detail.removeClass("hide")
                 _this.var.$boardDetail.addClass("hide")
+
+                if (gVar.isMobile) {
+                    _this.var.$menuList.show();
+                }
             })
         }
         WorshipMain.prototype.openDetail = function (v) {
             const _this = this
             const $boardDetail = this.var.$boardDetail
             this.var.$detail.addClass("hide")
+
+            if (gVar.isMobile) {
+                this.var.$menuList.hide();
+            }
             $boardDetail.removeClass("hide")
             $boardDetail.find(".title").text('')
-            $boardDetail.find(".verse").text('')
+            $boardDetail.find(".verse span").text('')
             $boardDetail.find(".date").text('')
             $boardDetail.find(".worship-type").text('')
             $boardDetail.find(".host-name").text('')
@@ -523,7 +636,11 @@ define(
                     }
 
                     $boardDetail.find(".title").text(data.title)
-                    $boardDetail.find(".verse").text(data.verse)
+                    if (gVar.isMobile) {
+                        $boardDetail.find(".verse span").text(data.verse)
+                    } else {
+                        $boardDetail.find(".verse span").text(data.verse)
+                    }
                     $boardDetail.find(".date").text(data.date)
                     $boardDetail.find(".worship-type").text(util.getWorshipName(data.worship_type))
 
@@ -535,10 +652,17 @@ define(
 
                     const $iframe = $(data.content)
 
-                    $iframe
-                        .attr("width", "900")
-                        .attr("height", "500")
-
+                    if (gVar.isMobile) {
+                        const width = gVar.deviceWidth - 40
+                        const height = Math.floor(width / 1.6)
+                        $iframe
+                            .attr("width", width + '')
+                            .attr("height", height + '')
+                    } else {
+                        $iframe
+                            .attr("width", "900")
+                            .attr("height", "500")
+                    }
                     $boardDetail.find("iframe").remove()
                     $boardDetail.find(".desc").append($iframe)
 
@@ -551,4 +675,4 @@ define(
 
 
         return new WorshipMain();
-});
+    });

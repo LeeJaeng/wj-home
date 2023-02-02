@@ -1,0 +1,85 @@
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<div id="registerPopup" class="popup" th:fragment="worshipRegisterFragment">
+    <div class="window">
+        <div class="close">✕</div>
+        <div class="title">게시물 등록</div>
+        <div class="form">
+            <div>
+                <div class="label">게시물 구분</div>
+                <div class="data">
+                    <select name="category">
+                        <option value="">선택</option>
+                        <option value="1">담임목사 설교</option>
+                        <option value="5">원로목사 설교</option>
+                        <option value="2">부교역자/강사 설교</option>
+                        <option value="3">예배실황</option>
+                        <option value="4">찬양</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="label">날짜</div>
+                <div class="data">
+                    <input type="text" name="date" class="date-picker short">
+                </div>
+            </div>
+            <div>
+                <div class="label">예배 구분</div>
+                <div class="data">
+                    <select name="worship_type">
+                        <option value="">선택</option>
+                        <option value="sun1">주일 1부</option>
+                        <option value="sun2">주일 2부</option>
+                        <option value="sun3">주일 3부</option>
+                        <option value="sun4">주일 4부</option>
+                        <option value="fri">금요성령집회</option>
+                        <option value="wed1">수요예배 오전</option>
+                        <option value="wed2">수요예배 저녁</option>
+                        <option value="dawn">새벽예배</option>
+                        <option value="etc">기타</option>
+                    </select>
+                </div>
+            </div>
+            <div class="praise hide">
+                <div class="label">팀이름</div>
+                <div class="data">
+                    <input type="text" name="praise_team" class="short">
+                </div>
+            </div>
+            <div class="preach preacher hide">
+                <div class="label">설교자</div>
+                <div class="data">
+                    <select name="preacher">
+                        <option value="">선택</option>
+                    </select>
+                    <input type="text" name="preacher_etc" class="short" placeholder="설교자" style="display: none">
+                </div>
+            </div>
+            <div class="content-title">
+                <div class="label">게시물 제목</div>
+                <div class="data">
+                    <input type="text" name="title" autocomplete="off" placeholder="">
+                </div>
+            </div>
+            <div class="preach hide">
+                <div class="label">본문</div>
+                <div class="data">
+                    <input type="text" name="verse">
+                </div>
+            </div>
+            <div>
+                <div class="label">내용</div>
+                <div class="data">
+                    <textarea name="content" cols="30" rows="10" placeholder="유튜브 '퍼가기' 내용을 붙여넣기 해주세요"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="functions">
+            <button class="register">등록</button>
+            <button class="edit">수정</button>
+            <button class="cancel">취소</button>
+        </div>
+    </div>
+</div>
+</html>

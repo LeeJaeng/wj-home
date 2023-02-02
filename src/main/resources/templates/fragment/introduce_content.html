@@ -1,0 +1,939 @@
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<div id="content" class="col-md-auto" th:fragment="introduceFragment">
+    <div class="menu-list">
+        <div class="title">교회소개</div>
+        <div class="menu" data-value="introduce">우정교회는?</div>
+        <div class="menu" data-value="history">역사</div>
+        <div class="menu" data-value="head-pastor">담임목사 인사말</div>
+        <div class="menu" data-value="helper">섬기는 사람들</div>
+        <div class="menu" data-value="worship-time">예배시간 안내</div>
+        <div class="menu" data-value="direction">오시는 길</div>
+    </div>
+    <div class="detail introduce hide">
+        <div class="title">우정교회는?</div>
+        <div class="bdy">
+            <div class="box">
+                <div class="icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <div class="sub-title">예배 공동체</div>
+                <div class="desc">
+                    우리는 하나님을 즐거워하여 모일 때마다 <br>
+                    거룩한 축제를 벌이며 모든 지체가 하나님을 <br>
+                    사랑하여 기쁨으로 섬기는 공동체입니다
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div class="sub-title">선교 공동체</div>
+                <div class="desc">
+                    우리는 세상의 소외된 이웃을 힘껏 섬기며 <br>
+                    지역사회와 땅 끝까지 선교하기를 원하며 <br>
+                    모든 지체들이 서로 나누고 섬기는 <br>
+                    사랑이 풍성한 공동체입니다
+                </div>
+            </div>
+        </div>
+        <div class="bdy">
+            <div class="box">
+                <div class="icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="sub-title">양육과 훈련 공동체</div>
+                <div class="desc">
+                    우리는 말씀연구와 경건훈련에 <br>
+                    최선을 다하며 모든 지체가 훈련받고 <br>
+                    차세대를 양성하며 또 다른 사람을 <br>
+                    양육하는 사역 공동체입니다
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon">
+                    <i class="fas fa-praying-hands"></i>
+                </div>
+                <div class="sub-title">비전 공동체</div>
+                <div class="desc">
+                    우리는 울산의 10만 영혼을 감당하고 <br>
+                    1만 개의 건강한 목장을 세우며 <br>
+                    1천 명의 선교사를 파송해서 <br>
+                    민족을 치유하고 세상을 섬기는 <br>
+                    비전을 가진 공동체입니다
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div class="detail head-pastor hide">
+        <div class="title">담임목사 인사말</div>
+        <div class="img">
+            <img th:src="@{/img/pastor.png}" alt="">
+        </div>
+        <div class="greetings">
+            우리 우정교회의 비전은 가장 성경적이며<br class="m-no">
+            가장 모범적인 교회를 이루는데 있습니다.<br>
+            <br>
+            따라서 우리는 항상 하나님의 말씀을 읽고, 연구하며,<br class="m-no">
+            성경적인 교회의 모습이 어떤 것인지를 찾아가고자 노력해야 합니다.<br class="m-no">
+            또한 하나님 말씀의 원리를 연구할 뿐만 아니라<br class="m-no">
+            그것을 우리 교회에 적용하고 실천하는데 힘써야 합니다.<br>
+            <br>
+            그렇다면, 가장 성경적인 교회는 어떤 교회일까요?<br><br>
+            주님께서 가장 큰 계명(마22:37-40)이라고 가르쳐 주신<br class="m-no">
+            <span>"사랑하라"</span>는 말씀을 따라서 하나님 사랑과 이웃 사랑을 실천하는 교회입니다.<br><br>
+            <span>"제자 삼으라"</span>는 지상명령(마28:19-20)을 따라서 복음전도와 양육훈련에 전력하는 교회입니다.<br>
+            <br>
+            그렇기 때문에, 하나님 사랑과 이웃 사랑, 그리고 복음전도와 양육훈련이<br class="m-no">
+            우리 우정교회 전 성도들의 삶에서 나타나야 합니다.<br>
+            <br>
+            <span class="subtitle">하나. 하나님 사랑</span><br>
+            구체적인 모습은 예배를 통하여 나타납니다.<br>
+            진리의 말씀이 날마다 선포되고, 찬양과 기도에 풍성한 은혜가 있습니다.<br><br>
+            특별히 매주 있는 금요성령집회는 개인과 가정을 살릴 뿐 아니라<br class="m-no">
+            나라와 민족과 온 열방을 살리는 특별한 시간이며<br class="m-no">
+            우리 교회의 핵심 사역 중 하나 입니다.<br>
+            <br>
+            <span class="subtitle">둘. 이웃 사랑</span><br>
+            우선 성도간 말씀으로 서로의 삶을 나누는 것에 기반을 두면서,<br class="m-no">
+            더 나아가 지역사회와 소외 계층, 외국인 근로자, 새터민 그리고<br class="m-no">
+            농어촌 교회, 개척교회, 미자립교회, 선교사님들을 후원하기까지<br class="m-no">
+            실제로 돕고 지원하는 나눔의 사역입니다.<br>
+            <br>
+            <span class="subtitle">셋. 양육훈련</span><br>
+            매년 봄학기, 가을학기마다 10여개의 다양한 성경공부,<br class="m-no">
+            제자훈련과 같은 교육으로 진행되고 있습니다.<br><br>
+            또한 매주 목장 모임에서 주일 설교 말씀을 중심으로 나눔이 이루어지고 있어,<br class="m-no">
+            지속적인 훈련을 통해 성도들이 양육되고 있습니다.<br>
+            <br>
+            <span class="subtitle">넷. 복음전도</span><br>
+            수요 전도대를 통하여 지역복음화를 힘쓰고, 한 사람이 5명을 작정하여 3명을 전도하는<br class="m-no">
+            '153 우정 만남의 축제'를 매년마다 하고 있습니다.<br><br>
+            목장 모임에서 빈 방석을 준비하여 전도 대상자인 VIP 이름을 불러가며 기도하고 있고<br class="m-no">
+            매주 새가족들이 등록하여 정착하는<br class="m-no">
+            구원의 역사들이 생생하게 우리 교회 안에서 나타나고 있습니다.<br>
+            <br>
+            <br>
+            사랑하는 우정 가족 여러분, 올 한 해 가장 성경적이고<br class="m-no">
+            가장 모범적인 교회를 만들어 가는데 최선을 다합시다!<br><br>
+            하나님께서 우리 교회를 바라보실 때, 정말로 기뻐하시고 칭찬하시며 은혜를 더하실 줄 믿습니다.<br>
+            <br>
+            <br>
+            <div class="signature" style="text-align: right;">
+                담임목사
+                <img th:src="@{/img/signature.jpeg}" style="width: 135px;" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="detail history hide">
+        <div class="title">역사</div>
+        <div>
+            <div class="year" style="margin-top: 0;">2022</div>
+            <div class="item"><span> 12월 25일(주일)</span><span>사임: 유수창 목사</span></div>
+            <div class="item"><span> 12월 4일</span><span>부임: 김정길 목사, 정지수 목사, 조성필 목사</span></div>
+            <div class="item"><span> 12월 2일(금)~4일(주일)</span><span>뮤지컬 더북(성경이 된 사람들) 공연</span></div>
+            <div class="item"><span> 11월 27일(주일)</span><span>사임: 전윤광 목사, 김재준 강도사</span></div>
+            <div class="item"><span> 11월 13일(주일)</span><span>153우정 만남의 축제.</span></div>
+            <div class="item"><span> 10월 22일(토)</span><span>제4회 꿈을 먹고 살지요. 오전 10시~오후 3시 (명촌근린공원)</span></div>
+            <div class="item"><span> 10월 15일(토)</span><span><div class="div-2span">오후3시 임직식(76명)</div>
+                   <div class="div-2span"><span>장로</span> 육성우 김현식</div>
+                   <div class="div-2span"><span>장로은퇴</span> 임성조 박중학</div>
+                   <div class="div-2span"><span>집사장립</span><span>권오원 김영선 김재모 김주남 남동훈 박재형 백종식 손흥락 양승필 유영철 이동건 이두해 이세형 이인성
+                             이효원 장병호 전용태 하재원 한택창(19명)</span></div>
+                   <div class="div-2span"><span>집사취임</span> 박종석 손상식 여영신 이재학 이형권 정대식(6명)</div>
+                   <div class="div-2span"><span>권사취임</span><span>강화자 김갑수 김명희 김미숙 김성숙 김수미 김영희 김은주 김인자 김정금 김정숙 김지희 김행희 도성혜
+                             문성자 문영순 박미현 박소연 박정화 박찬경 백둘선 변옥자 서미경 손미경 오녹연 윤덕희 윤해숙 음영애
+                             이미경 이미영 이미희 이순옥 이용숙 이지윤 정선미 정애란 정현애 조춘자 차남숙 천경옥 천길선 최한나
+                             한정란 허미경 홍명옥 황경희 황미화(47명)</span>
+                   </div></span></div>
+            <div class="item"><span> 10월 10일(월)~11월 11일(금)</span><span>천고마비 33일 가을 새벽여행 강사: 예동열 목사</span></div>
+            <div class="item"><span> 6월 30일(목)</span><span>예동열 목사 수목협(수영로출신 담임목사 협의회) 회장 취임</span></div>
+            <div class="item"><span> 5월 15일(주일)</span><span>강사: 이은상 선교사(WMC 선교회 대표)</span></div>
+            <div class="item"><span> 4월 17일(주일)</span><span>임명: 정희철 집사(영상간사)</span></div>
+            <div class="item"><span> 1월 9일(주일)</span><span>임명: 이세형 집사(사무간사)</span></div>
+            <div class="item"><span> 1월 9일(주일)</span><span>선교주일 강사: 유은성 전도사, 김정화 사모</span></div>
+            <div class="item"><span>1월 2일(주일)</span><span>부임: 전경숙 전도사</span></div>
+
+            <div class="year">2021</div>
+            <div class="item"><span> 12월 31일(주일)</span><span>사임: 김동훈 목사</span></div>
+            <div class="item"><span> 11월 28일(주일)</span><span>사임: 정광복 목사</span></div>
+            <div class="item"><span> 11월 20일(토)~ 22년 1월 8일(토)</span><span>크리스마스트리 문화축제 (성남동 배달의 다리)</span></div>
+            <div class="item"><span> 11월 14(주일)</span><span>153우정 만남의 축제 강사 : 김성민 대표 (브라더스키퍼 대표)</span></div>
+            <div class="item"><span> 10월 11일(월)~11월 12일(금)</span><span>신명기와 함께 떠나는 30일 가을새벽여행 강사: 예동열 목사</span></div>
+            <div class="item"><span> 10월 10일(주일)~12일(화)</span><span>가을부흥회 강사 : 최병락 목사(강남중앙침례교회)</span></div>
+            <div class="item"><span> 9월 13일(월)-17일(금)</span><span>제106회 대한예수교장로회 총회</span></div>
+            <div class="item"><span> 3월 21일(주일)~25(목)</span><span>오후7시~  어! 성경과 함께하는 예배(강사 : 이애실 대표/생터성경사역원)</span></div>
+            <div class="item"><span> 1월 24일(주일)</span><span>선교주일 강사: 이종훈 목사</span></div>
+
+            <div class="year">2020</div>
+            <div class="item"><span> 12월 27일</span><span>사임: 안은진 간사</span></div>
+            <div class="item"><span> 12월 6일(주일)</span><span>부임: 김동훈 목사, 문지원 목사</span></div>
+            <div class="item"><span> 11월 29일</span><span>사임: 황주영 목사</span></div>
+            <div class="item"><span> 11월 22일(주일)</span><span>부임: 김재준 전도사</span></div>
+            <div class="item"><span> 11월 15일(주일)</span><span>153우정 만남의 축제</span></div>
+            <div class="item"><span> 11월 4일(수)~6일(금)</span><span>가을부흥회 강사: 오영택 목사(하늘비전교회)</span></div>
+            <div class="item"><span> 10월 25일(주일)</span><span>사임: 구현덕 목사</span></div>
+            <div class="item"><span> 10월 12일(월)~21년 1월 19일(화)</span><span>RPM임재 100일 기도회</span></div>
+            <div class="item"><span> 10월 12일(월)~11월 13일(금)</span><span>로마서와 함께 떠나는 가을 새벽여행 강사: 예동열 목사</span></div>
+            <div class="item"><span> 9월 13일(주일)~12월 31일(목)</span><span>불평제로 프로젝트</span></div>
+            <div class="item"><span> 4월 12일(주일)</span><span>부활절연합예배 강사: 김선규 목사(합동 증경총회장)</span></div>
+            <div class="item"><span> 4월 5일(주일)</span><span>부임: 유수창 목사</span></div>
+            <div class="item"><span> 3월 29일(주일)</span><span>사임: 고영석 목사</span></div>
+            <div class="item"><span> 1월 2일(주일)</span><span>신약부흥사경회 강사: 김강현 대표(생터사역연구원)</span></div>
+
+            <div class="year">2019</div>
+            <div class="item"><span> 12월 1일(주일)</span><span>부임: 전윤광 목사, 황주영 목사</span></div>
+            <div class="item"><span> 11월 24일(주일)</span><span>사임: 이정학 목사, 김동욱 목사, 조성민 목사</span></div>
+            <div class="item"><span> 11월 20일(수)~22(금)</span><span>가을 부흥회 강사: 안희환 목사</span></div>
+            <div class="item"><span> 11월 10일(주일)</span><span>강사: 김기중 목사</span></div>
+            <div class="item"><span> 10월 25일(금)</span><span>마임콘서트 (‘The Story’)출연진: 조인정(마임이스트) 조은주, 이경현(Guest 보컬) 안은진(재즈피아니스트)</span></div>
+            <div class="item"><span> 10월 19일(토)</span><span>제3회 꿈을 먹고 살지요(칠드 RUN) 오전10시~오후3시 / 명촌 근린공원</span></div>
+            <div class="item"><span> 10월 14일(월)~11월 29일(금)</span><span>새벽 5시 여호수아와 함께 떠나는 가을 새벽여행 강사: 예동열 목사</span></div>
+            <div class="item"><span> 9월 1일(주일)</span><span>부임: 안은진(예배간사)</span></div>
+            <div class="item"><span> 8월 18일(주일)</span><span>전교인 수련회 강사: 송동호 목사(IBA사무총장, 나우미션 대표)</span></div>
+            <div class="item"><span> 7월 26일(금)~8월 3일(토)</span><span>단기선교: 중국(심양, 단동, 연길 등)</span></div>
+            <div class="item"><span> 7월 10일(토)</span><span>WDTS3기 선교지 탐방: 양화진 선교사 묘역</span></div>
+            <div class="item"><span> 4월 21일(주일)</span><span>부활절연합예배 강사: 김영동목사</span></div>
+            <div class="item"><span> 4월 14일(주일)</span><span>선교사(태국) 파송: 이응윤, 최은숙</span></div>
+            <div class="item"><span> 1월 30일(수)~2월 1일(금)</span><span>신년부흥회 강사: 엄기영 목사</span></div>
+            <div class="item"><span> 1월 20일(주일)</span><span>선교주일 강사: 정경호 목사</span></div>
+            <div class="item"><span> 1월 14일(월)~18일(금)</span><span>제68기 복음학교 강사: 김용의 선교사</span></div>
+
+            <div class="year">2018</div>
+            <div class="item"><span> 12월 31일(월)</span><span>송구영신예배: 바이올리니스트 박지혜 초청</span></div>
+            <div class="item"><span> 12월 19일(수)</span><span>은퇴식
+                   장로 (황치규) 집사 (김인하 이창수 정영성 최해광) 권사 (마춘희 신세희 유옥선 최향숙)</span></div>
+            <div class="item"><span> 12월 2일(주일)</span><span>부임: 정광복 강도사</span></div>
+            <div class="item"><span> 11월 25일(주일)</span><span>153우정 만남의 축제 강사: 안재우 소장 - 행복한 복화술사</span></div>
+            <div class="item"><span> 10월 20일(토)</span><span>제2회 꿈을 먹고 살지요(칠드RUN).명촌 근린공원</span></div>
+            <div class="item"><span> 10월 7일(주일)</span><span>사임: 이석희 목사, 우영희 전도사</span></div>
+            <div class="item"><span> 7월 30(월)-8월 10(금)</span><span>장년부 종교개혁지 탐방(독일, 체코등)</span></div>
+            <div class="item"><span> 7월 19일(목)~22일(주일)</span><span>청년부 아웃리치 전북 진안 동향교회</span></div>
+            <div class="item"><span> 6월 15일(금), 16일(토)</span><span>울산노회주일학교연합회 교사 강습회</span></div>
+            <div class="item"><span> 6월 2일(토)</span><span><div class="div-2span">오후2시 임직감사예배(임직자 총62명)</div>
+                   <div class="div-2span"><span>장로장립</span>김정록 박두익 박중학 임성조</div>
+                    <div class="div-2span"><span>집사장립</span>김병진 김용석 박무득 육성우 이근호 장항규 지병훈 황문서</div>
+                        <div class="div-2span"><span>집사취임</span>강상문 김달수 이재준 장기풍 최원근</div>
+                            <div class="div-2span"><span>권사취임</span><span>강필숙 곽정희 김경애 김남희 김미숙 김영미 남궁정순 남명심 노미영 노성미 류은숙 민향자 박순이
+                             안옥화 오석자 윤정화 이경옥 이동숙 이동순 이두란 이순옥 이양옥 이옥련 이월식 이은숙 임덕희
+                             장순희 전미현 정명숙 정미옥 정수아 정순주 정영숙 주미순 주은희 진미숙 차경자 천위자 최정방 한경희 허정화 홍수경</span></div>
+                    <div class="div-2span"><span>명예권사추대</span>박명옥 양연화 윤명념</div>
+                </span></div>
+            <div class="item"><span> 4월 1일(주일)</span><span>울산시 부활절 연합예배, 2일(월), 3일(화) 강사: 김용의 선교사</span></div>
+            <div class="item"><span> 1월 21일(주일)</span><span>선교부흥회 강사: 김용의 선교사</span></div>
+
+
+            <div class="year">2017</div>
+            <div class="item"><span> 12월 15일(금)</span><span>방송인 이성미씨가 들려드리고 싶은 이야기.</span></div>
+            <div class="item"><span> 12월 10일</span><span>사임: 신성은 목사</span></div>
+            <div class="item"><span> 12월  3일</span><span>부임: 이정학 목사, 이석희 목사, 김동욱 목사, 구현덕 목사, 조성민 강도사, 우영희 전도사</span></div>
+            <div class="item"><span> 11월 26일</span><span>사임: 김길용 목사, 박형욱 목사, 이준영 강도사, 박재선 전도사, 김성도 전도사</span></div>
+            <div class="item"><span> 11월 26일(주일)</span><span>153우정 만남의 축제</span></div>
+            <div class="item"><span> 10월 22일</span><span>사임: 정의한 목사</span></div>
+            <div class="item"><span> 9월 1일(금)</span><span>영화상영: 예수는 역사다</span></div>
+            <div class="item"><span></span>8월</span><span>농촌지역 교회섬김 프로젝트(8월 한달 동안 전 교인이 농촌지역 교회에 파송)</span></div>
+            <div class="item"><span>7월 30일(주일)~8월 5일(토)</span><span>중고등부 단기선교 대만</span></div>
+            <div class="item"><span>7월 3일(월)~14일(금)</span><span>청년대학부 단기선교 캄보디아</span></div>
+            <div class="item"><span>7월 2일(주일)</span><span>강사: 김남현 선교사(YWAM태국선교사)</span></div>
+            <div class="item"><span> 5월 5일(금)</span><span>제1회 꿈을 먹고 살지요.
+                   울산명촌 야구장 일원</span></div>
+            <div class="item"><span> 3월 30일(목)~4월 1일(토)</span><span>
+                   “Blessing Generation"(세대 간의 축복) 크레그힐 목사 초청 세대간의 축복</span></div>
+            <div class="item"><span> 1월 1일(주일)</span><span>부임: 김성도 전도사</span></div>
+
+            <div class="year">2016</div>
+            <div class="item"><span> 12월 31일</span><span>사임: 고송지 전도사</span></div>
+            <div class="item"><span> 12월 25일(주일)</span><span>부임: 박형욱 목사</span></div>
+            <div class="item"><span> 12월 23일(금)</span><span>선교극단 증인</span></div>
+            <div class="item"><span> 12월 11일(주일)</span><span>사임: 김태명 목사</span></div>
+            <div class="item"><span> 12월  4일(주일)</span><span>부임: 이준영 강도사</span></div>
+            <div class="item"><span> 11월 13일(주일)</span><span>153우정 만남의 축제</span></div>
+            <div class="item"><span> 11월 6일(주일)</span><span>오후 2시 송정미 찬양사역자 초청 찬양집회</span></div>
+            <div class="item"><span> 8월 21일(주일)</span><span>부임: 고영석 목사</span></div>
+            <div class="item"><span> 7월 12일(화)~19일(화)</span><span>청년대학부 단기선교: 말레이시아</span></div>
+            <div class="item"><span> 2월 22일(월)~27일(토)</span><span>예동열 목사 인도 첸나이 한인교회 집회 인도</span></div>
+            <div class="item"><span> 2월 17일(수)~19일(금)</span><span>백동조 목사 초청 신년 축복성회</span></div>
+
+
+            <div class="year">2015</div>
+            <div class="item"><span> 12월 24일(주일)</span><span>부임: 정의한 목사</span></div>
+            <div class="item"><span> 12월 13일(주일)</span><span>부임: 고송지 전도사</span></div>
+            <div class="item"><span> 12월 4일(금)</span><span>강사: 김종찬 목사(가수, 말씀과찬양의교회)</span></div>
+            <div class="item"><span> 11월 29일(주일)</span><span>사임: 최호재 목사</span></div>
+            <div class="item"><span> 11월 26일(목), 27일(금)</span><span>오후8시 강사: 김동호 목사(높은뜻연합선교회대표)</span></div>
+            <div class="item"><span> 11월 15일(주일)</span><span>153우정 만남의 축제</span></div>
+            <div class="item"><span> 11월 2일(월)~4일(수)</span><span>울산복음화대성회  강사: 안인권 목사(워싱턴새소망교회)</span></div>
+            <div class="item"><span> 11월 1일(주일)</span><span>사임: 신수정 전도사</span></div>
+            <div class="item"><span> 8월 24일(월)~12월 1일(화)</span><span>새벽 5시, 오후 8시 말씀관통 100일 성경통독</span></div>
+            <div class="item">
+                <span> 6월 6일(토)</span>
+                <span>
+                        <div class="div-2span">오후2시 임직 및 은퇴 감사예배</div>
+                        <div class="div-2span"><span>장로 장립</span>강호영, 홍광석</div>
+                        <div class="div-2span"><span>집사 장립</span>김남극, 김봉환, 유승우, 윤준상, 조윤섭</div>
+                        <div class="div-2span"><span>집사 취임</span>이철흥</div>
+                        <div class="div-2span"><span>권사 취임</span>김숙희, 김시온, 정경옥, 조태자</div>
+                        <div class="div-2span"><span>명예권사추대</span>김정자, 김춘화, 손덕자, 이영자, 황청자</div>
+                        <div class="div-2span"><span>집사 은퇴</span>류춘남, 이영우, 정덕진</div>
+                        <div class="div-2span"><span>권사 은퇴</span>김정자, 나기순, 류순연, 우분옥, 이은순, 장순녀, 정금자, 정월선</div>
+                    </span>
+            </div>
+            <div class="item"><span> 2월 25(수)~27(금)</span><span>이동현 목사 초청 신년 축복성회</span></div>
+
+
+            <div class="year">2014</div>
+            <div class="item"><span> 12월 7일(주일)</span><span>정필도 목사 초청 1일 부흥회</span></div>
+            <div class="item"><span> 12월 7일(주일)</span><span>부임: 김태명 목사(유치부 담당) (박미영사모)</span></div>
+            <div class="item"><span> 11월 30일(주일)</span><span>사임: 김옥겸 전도사</span></div>
+            <div class="item"><span> 11월 22일(토)</span><span>교인단합대회 장소: 갈릴리 기도원(웅촌)</span></div>
+            <div class="item"><span> 11월 16일(주일)</span><span>153우정 만남의 축제 특별순서: 선명회 합창단과 함께(3부 예배)</span></div>
+            <div class="item"><span> 6월 29일(주일)~7월 1일(수)</span><span>오직성경으로집회(울산광역시 연합회) 강사: 김용의 선교사</span></div>
+            <div class="item"><span> 5월 5일(월)~9일(금)</span><span>대만 단기선교</span></div>
+            <div class="item"><span> 1월 19일(주일)</span><span>선교주일 강사: 김국명 목사(의정부 열방교회)</span></div>
+            <div class="item"><span> 1월 13일(월)~15일(수)</span><span>신년축복대성회 강사: 장학봉 목사(성안교회 담임, CTS 해피 바이블 진행)</span></div>
+            <div class="item"><span> 1월 6일(월)~10일(금)</span><span>중고등부 낙도선교(소안도)</span></div>
+            <div class="item"><span> 1월 5일(주일)</span><span>부임: 박재선 전도사(유아부 담당)</span></div>
+
+
+            <div class="year">2013</div>
+            <div class="item"><span> 12월 8일(주일)</span><span>부임: 김옥겸 전도사</span></div>
+            <div class="item"><span> 7월 20일(토)</span><span>소향콘서트 개최</span></div>
+            <div class="item"><span> 7월 2일(화)~13일(토)</span><span>청년대학부 단기선교 캄보디아(파일린)</span></div>
+            <div class="item"><span> 6월 16일(주일)</span><span>QT학교(7주과정)</span></div>
+            <div class="item"><span> 6월 16일(주일)</span><span>강사: 김권능 선교사</span></div>
+            <div class="item"><span> 1월 19일(토)</span><span>119올네이션스 경배와 찬양 큰잔치<br>
+                   강사: 하스데반 선교사(온누리교회)외 경배와 찬양팀<br>
+                   주최: 사)한국기독교직장선교연합회  주관: 울산기독교직장선교연합회</span></div>
+
+
+            <div class="year">2012</div>
+            <div class="item"><span> 10월 23일(화)-25일(목)</span><span>영적새바람 울산복음화 대성회
+                  강사: 김학중 목사, 김문훈 목사, 백동조 목사
+                  울산광역시 기독교 연합회 주최</span></div>
+            <div class="item"><span> 6월 6일(수)</span><span>
+                  원로목사추대: 변재훈 목사
+                  목사위임: 예동열 목사
+                  장로은퇴: 남정도 장로, 박영환 장로</span></div>
+            <div class="item"><span> 5월 28일~31일</span><span>윤석전목사 초청 영적각성 연합대성회</span></div>
+            <div class="item"><span> 3월 25일~27일</span><span>정필도목사 초청 심령대부흥회</span></div>
+            <div class="item"><span> 1월 15일(주일)</span><span>선교헌신예배 강사: 이용남 선교사(세계선교공동체 국제대표)</span></div>
+            <div class="item"><span> 1월 9일</span><span>울산광역시 기독교 연합회 총회 및 신년 하례회, 변재훈 담임목사 울산기독교 연합회장 취임식.</span></div>
+            <div class="item"><span> 1월 1일(주일)</span><span>부임: 김길용 목사, 최호재 목사</span></div>
+
+            <div class="year">2011</div>
+            <div class="item"><span> 12월 25일(주일)</span><span>장로은퇴: 남정도, 박영환</span></div>
+            <div class="item"><span> 12월 25일(주일)</span><span>부임: 신수정 전도사</span></div>
+            <div class="item"><span> 10월 26일(수)~28일(금)</span><span>
+                   울산복음화대성회(강사: 조용기, 이동원, 김진홍목사), 울산기독교연합회 주최</span></div>
+            <div class="item"><span> 6월 5일(주일)</span><span>예동열 후임목사로 부임</span></div>
+            <div class="item"><span> 4월 24일(주일)</span><span>울산광역시 부활절연합예배</span></div>
+
+            <div class="year">2010년</div>
+            <div class="item"><span> 10월 23일(토)</span><span>
+                    <div class="div-2span">오후3시</div>
+                    <div class="div-2span"><span>장로 장립</span>김종득 박영환 성경모 이기범 이상봉 황치규</div>
+                    <div class="div-2span"><span>안수집사 장립</span><span>강석현 김남식 배영철 서재현 이강준 이주희 이재실 이재일 이창수 이태희 이형우 조석형 홍광석 황성호</span></div>
+                    <div class="div-2span"><span>권사취임</span><span>강갑석 김명숙 김미화 김성희 김혜경 박성옥 신세희 염정자 이은희 이향숙 이  화 장순녀 정은희 조경희 최명자 홍명숙 황윤자</span></div>
+                    <div class="div-2span"><span>명예권사추대</span><span>유옥순 조정연 황수진</span></div>
+                    <div class="div-2span"><span>원로장로추대</span>조정택</div>
+                    <div class="div-2span"><span>장로은퇴</span>이종희</div>
+                </span></div>
+
+            <div class="year">2009</div>
+            <div class="item"><span>9월 21일(월)~25일(금)</span><span> 대한예수교장로회(합동)94차 총회개최</span></div>
+            <div class="item"><span>8월 16일(주일)</span><span> 우정비전센터입당예배</span></div>
+            <div class="year">2008</div>
+            <div class="item"><span> 7월 6일(주일)</span><span>왕찬주, 김현지 선교사 파송(남아프리카 공화국)</span></div>
+            <div class="item"><span> 6월 22일(주일)</span><span>교회창립 25주년 감사예배</span></div>
+            <div class="item"><span> 6월 6일</span><span>인카운터 수양회</span></div>
+            <div class="item"><span> 5월 5일</span><span>전교인 체육대회</span></div>
+            <div class="item"><span> 4월 20일(주일)</span><span>우정아카데미(6기) 개강</span></div>
+            <div class="item"><span> 2월 24일(주일)</span><span>11기 알파코스 개강</span></div>
+
+
+            <div class="year">2007</div>
+            <div class="item"><span> 11월 10일(토)</span><span>우정비전센터기공예배(진장동)</span></div>
+            <div class="item"><span> 6월 3일~2008년 10월 15일</span><span>10만번제 축복성회</span></div>
+
+
+            <div class="year">2006</div>
+            <div class="item"><span>12월 26일</span><span>우정비전센터부지 매입 진장명촌택지개발지구.</span></div>
+            <div class="item"><span>4월 3일~5월 22일</span><span>성전건축을위한 일만번제성회</span></div>
+            <div class="item"><span>1월 1일</span><span>비전우정3330선포</span></div>
+
+            <div class="year">2005</div>
+            <div class="item"><span>10월 3일~22일</span><span>목적이 이끄는 삶 집회</span></div>
+            <div class="item"><span>8월</span><span>교동 157-2번지외 4필지를 매입하여 주차장 확장</span></div>
+
+
+            <div class="year">2004</div>
+            <div class="item"><span>8월</span><span>우정동 458-1, 470-13번지을 매입하여 주차장 확장</span></div>
+
+            <div class="year">2003</div>
+            <div class="item"><span>11월 24일</span><span>
+                  1992년 필리핀에 권영수 선교사 파송을 시작하여 현재 8가정 14명의 선교사 파송및 12명의 현역 선교사 지원,
+                  국내 42개교회를 후원</span></div>
+            <div class="item"><span>8월 10일</span><span>
+                  목사관 2채 구입및 선교관 부지 추가 매입(우정동 466-11번지외)</span></div>
+            <div class="item"><span>6월 28일(토)</span><div class="div-2span">창립20주년기념행사</div>
+                <div class="div-2span">1.변재훈 목사 근속20주년 감사예배</div>
+                <div class="div-2span">2.장로,안수집사,권사 임직식 (김남민장로 임직)</div>
+                <div class="div-2span"><span>장로</span>김남민</div>
+                <div class="div-2span"><span>안수집사</span>강호영 김상덕 김정록 김종득 김현식 류춘남 문상홍 박영환 박정대
+                    박주유 서상철 성경모 양병철 오찬희 이기범 이상봉 이영우 이왕언
+                    임성조 정길준 정동갑 정임수 최현율 한대수 황치규</div>
+                <div class="div-2span"><span>권사</span> 강정자 고정숙 김강자 김성애 김옥선 김효숙 김흥녀 백운자 서해숙
+                    엄차희 우분옥 유순년 유옥선 윤인남 최경희 최태옥 최향숙 홍영희
+                    한영숙 (명예권사)오영자</div>
+                <div class="div-2span">3.선교사 파송식(강국미 선교사 파송)</div>
+                <div class="div-2span">4.제2교육관 헌당예배</div>
+                <div class="div-2span">5.우정 한국화 미술관 개관</div></span></div>
+
+            <div class="year">2002</div>
+            <div class="item"><span>3월 14일</span><span>우정노인대학설립 및 개강</span></div>
+            <div class="item"><span>1월</span><span>선교관 115평 식당 준공</span></div>
+
+
+            <div class="year">2001</div>
+            <div class="item"><span>4월</span><span>
+                  선교관주차부지250평 매입하여 주차장 건물 완공</span></div>
+
+            <div class="year">2000</div>
+            <div class="item"><span>6월 16일 -6월19일</span><span>
+                교회창립 17주년 기념 (우정세계선교대회개최)</span></div>
+            <!--                <div class="year">1999년</div>-->
+            <div class="year">1998</div>
+            <div class="item"><span>7월 26일</span><span>
+                  우정동 467-11번지 2층주택매입하여 부교역자 사택마련</span></div>
+
+            <div class="year">1997</div>
+            <div class="item"><span>1월 4일</span><span>
+                  울산시 우정동 465-1, 465-3,467-9번지 주택 및 대지를 매입하여 지하1층 지상4층교육관 건축 헌당</span></div>
+
+            <div class="year">1996</div>
+            <div class="item"><span>10월 5일</span><span>
+                장로임직-이종희, 김달환</span></div>
+            <!--                <div class="year">1995년</div>-->
+            <div class="year">1994</div>
+            <div class="item"><span>6월 29일</span><span>
+                교회창립11주년 기념임직식 장로장립-남정도, 안수집사-8명, 권사취임 .</span></div>
+            <!--                <div class="year">1993년</div>-->
+            <!--                <div class="year">1992년</div>-->
+            <!--                <div class="year">1991년</div>-->
+            <!--                <div class="year">1990년</div>-->
+            <div class="year">1989</div>
+            <div class="item"><span>5월 23일</span><span> 우정동 465-3, 467-14번지를 주차부지로 매입</span></div>
+            <!--                <div class="year">1988년</div>-->
+            <div class="year">1987</div>
+            <div class="item"><span>6월 18일</span><span>
+                교회헌당식 및 변재훈 목사 위임 및 조정택장로 임직</span></div>
+            <div class="year">1986</div>
+            <div class="item"><span>10월 1일</span><span>울산시 중구 우정동 465-5번지 부지를 구입하여 교회건축 기공</span></div>
+            <!--                <div class="year">1985년</div>-->
+            <div class="year">1984</div>
+            <div class="item"><span>12월 22일</span><span>
+                울산시 중구 우정동 416번지 상가 건물로 확장 이전</span></div>
+            <div class="year">1983</div>
+            <div class="item"><span>6월 18일</span><span>(교회개척) 중구 우정동 406번지 지하에서 변재훈 전도사 가족과 함께 첫 예배를 드림.</span></div>
+            <div style="margin-bottom: 60px;"></div>
+        </div>
+    </div>
+    <div class="detail helper hide">
+        <div class="title">섬기는 사람들</div>
+        <div>
+            <!--                <div class="sub-title">담임목사</div>-->
+            <div class="helper-list" style="padding-bottom: 30px;">
+                <div class="line">
+                    <div class="big">
+                        <div class="pic" style="background-color: #eeeeee;">
+                            <img th:src="@{/img/helper/old_pastor.jpeg}" alt="">
+                        </div>
+                        <div class="name">변재훈 원로목사</div>
+                    </div>
+                    <div class="big">
+                        <div class="pic" style="background-color: #eeeeee;">
+                            <img th:src="@{/img/pastor.png}" alt="">
+                        </div>
+                        <div class="name">예동열 담임목사</div>
+                        <!--                            <div class="e-mail">-->
+                        <!--                                <i class="fas fa-envelope"></i>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="tel">-->
+                        <!--                                <i class="fas fa-phone-alt"></i>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="sub-title">교역자</div>
+            <div class="helper-list">
+                <div class="line by3">
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/mjw.png}" alt="">
+                        </div>
+                        <div class="name">문지원 목사</div>
+                        <div class="job">행정, 목장국, 3교구, 청년부</div>
+                        <div class="e-mail">
+                            <i class="fas fa-envelope"></i>
+                            81jiwon@hanmail.net
+                        </div>
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            052-244-7833 (2층 사무실)
+                        </div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/김정길.png}" alt="">
+                        </div>
+                        <div class="name">김정길 목사</div>
+                        <div class="job">예배국, 2교구, 중고등부</div>
+                        <div class="e-mail">
+                            <i class="fas fa-envelope"></i>
+                            0691vow@gmail.com
+                        </div>
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            052-244-7833 (2층 사무실)
+                        </div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/정지수.jpeg}" alt="">
+                        </div>
+                        <div class="name">정지수 목사</div>
+                        <div class="job">교육국, 4교구, 초등부</div>
+                        <div class="job"></div>
+                        <div class="e-mail">
+                            <i class="fas fa-envelope"></i>
+                            annyungjs@naver.com
+                        </div>
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            052-244-7833 (2층 사무실)
+                        </div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/조성필.jpeg}" alt="">
+                        </div>
+                        <div class="name">조성필 목사</div>
+                        <div class="job">목장국, 선교국, 5교구, 신혼부부</div>
+                        <div class="e-mail">
+                            <i class="fas fa-envelope"></i>
+                            jsp1823@naver.com
+                        </div>
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            052-244-7833 (2층 사무실)
+                        </div>
+                    </div>
+                    <div>
+                        <div class="pic">
+
+                            <img th:src="@{/img/helper/jks.jpeg}" alt="">
+                        </div>
+                        <div class="name">전경숙 전도사</div>
+                        <div class="job">1교구 새가족국</div>
+<!--                        <div class="e-mail">-->
+<!--                            <i class="fas fa-envelope"></i>-->
+<!--                        </div>-->
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            052-244-7833 (2층 사무실)
+                        </div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/이세형.jpeg}" alt="">
+                        </div>
+                        <div class="name">이세형 전도사</div>
+                        <div class="job">음향, 사역보조</div>
+<!--                        <div class="e-mail">-->
+<!--                            <i class="fas fa-envelope"></i>-->
+<!--                        </div>-->
+                        <div class="tel">
+                            <i class="fas fa-phone-alt"></i>
+                            052-244-7833 (2층 사무실)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-title">장로</div>
+            <div class="helper-list small">
+                <div class="line">
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/강호영 장로님.jpeg}" alt="">
+                        </div>
+                        <div class="name">강호영 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/김남진 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">김남진 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/김달환 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">김달환 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/김순천 장로님.jpeg}" alt="">
+                        </div>
+                        <div class="name">김순천 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/김유인 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">김유인 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/김정록 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">김정록 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/김종득 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">김종득 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/김현식.png}" alt="">
+                        </div>
+                        <div class="name">김현식 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/박두익 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">박두익 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/박용욱 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">박용욱 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/서승철 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">서승철 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/성경모 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">성경모 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/육성우.png}" alt="">
+                        </div>
+                        <div class="name">육성우 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/이기범 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">이기범 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/이상봉 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">이상봉 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/홍광석 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">홍광석 장로</div>
+                    </div>
+                </div>
+                <div class="spc">은퇴장로</div>
+                <div class="line">
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/retire/이종희 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">이종희 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/retire/황치규 장로님.jpg}" alt="">
+                        </div>
+                        <div class="name">황치규 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/retire/박중학.jpeg}" alt="">
+                        </div>
+                        <div class="name">박중학 장로</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/retire/임성조.jpeg}" alt="">
+                        </div>
+                        <div class="name">임성조 장로</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="sub-title">심방간사</div>
+
+            <div class="helper-list small">
+                <div class="line">
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/박소연.png}" alt="">
+                        </div>
+                        <div class="name">박소연 권사</div>
+                        <div class="job">1교구</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/정경옥 권사.JPG}" alt="">
+                        </div>
+                        <div class="name">정경옥 권사</div>
+                        <div class="job">2교구</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/최정방 권사.jpg}" alt="">
+                        </div>
+                        <div class="name">최정방 권사</div>
+                        <div class="job">3교구</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/박정화.png}" alt="">
+                        </div>
+                        <div class="name">박정화 권사</div>
+                        <div class="job">4교구</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/윤해숙.png}" alt="">
+                        </div>
+                        <div class="name">윤해숙 권사</div>
+                        <div class="job">5교구</div>
+                    </div>
+<!--                    <div>-->
+<!--                        <div class="pic">-->
+<!--                            <img th:src="@{/img/helper/윤정화 권사.jpg}" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="name">윤정화 권사</div>-->
+<!--                        <div class="job">새가족</div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+            <div class="sub-title">전도간사</div>
+            <div class="helper-list small">
+                <div class="line">
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/차남숙.png}" alt="">
+                        </div>
+                        <div class="name">차남숙 권사</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-title">교육간사</div>
+            <div class="helper-list small">
+                <div class="line">
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/김부신.jpeg}" alt="">
+                        </div>
+                        <div class="name">김부신 사모</div>
+                        <div class="job">유치부</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/blank.png}" alt="">
+                        </div>
+                        <div class="name">김현정 사모</div>
+                        <div class="job">영유아부</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/blank.png}" alt="">
+                        </div>
+                        <div class="name">윤준상 집사</div>
+                        <div class="job">유년부</div>
+                    </div>
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/이순진 집사.jpeg}" alt="">
+                        </div>
+                        <div class="name">이순진 집사</div>
+                        <div class="job">유년부</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-title">직원</div>
+            <div class="helper-list small">
+                <div class="line">
+                    <div>
+                        <div class="pic">
+                            <img th:src="@{/img/helper/조석형.jpeg}" alt="">
+                        </div>
+                        <div class="name">조석형 집사</div>
+                        <div class="job">사무장</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="detail worship-time hide">
+        <div class="title">예배시간 안내</div>
+        <div class="sub-title">장년부</div>
+        <div class="worship-time-list">
+            <div>
+                <div>
+                    <table>
+                        <tr>
+                            <td class="type">주일낮 1부</td>
+                            <td class="time">오전 07:00</td>
+                            <td class="place">1층 우정홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">주일낮 2부</td>
+                            <td class="time">오전 10:00</td>
+                            <td class="place">3층 예루살렘홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">주일낮 3부</td>
+                            <td class="time">오후 12:00</td>
+                            <td class="place">3층 예루살렘홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">주일 4부예배</td>
+                            <td class="time">오후 03:30</td>
+                            <td class="place">3층 예루살렘홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">금요성령집회</td>
+                            <td class="time">오후 08:30</td>
+                            <td class="place">3층 예루살렘홀</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                            <td class="type">새벽기도회(매일)</td>
+                            <td class="time">새벽 05:00</td>
+                            <td class="place">1층 우정홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">수요예배 1부</td>
+                            <td class="time">오전 10:00</td>
+                            <td class="place">1층 우정홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">수요예배 2부</td>
+                            <td class="time">오후 07:30</td>
+                            <td class="place">1층 우정홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">저녁기도회(매일)</td>
+                            <td class="time">오후 08:00</td>
+                            <td class="place">2층 은혜홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">철야기도회(매일)</td>
+                            <td class="time">오후 10:00</td>
+                            <td class="place">2층 은혜홀</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="sub-title">교회학교</div>
+        <div class="worship-time-list">
+            <div>
+                <div>
+                    <table>
+                        <tr>
+                            <td class="type">영유아부</td>
+                            <td class="time">주일 오전 11:30</td>
+                            <td class="place">2층 은혜홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">유치부</td>
+                            <td class="time">주일 오후 12:00</td>
+                            <td class="place">1층 유치부실</td>
+                        </tr>
+                        <tr>
+                            <td class="type">유년부/초등부</td>
+                            <td class="time">주일 오후 12:00</td>
+                            <td class="place">3층 예루살렘홀</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                            <td class="type">중고등부</td>
+                            <td class="time">주일 오전 10:00</td>
+                            <td class="place">3층 예루살렘홀</td>
+                        </tr>
+                        <tr>
+                            <td class="type">청년대학부</td>
+                            <td class="time">주일 오후 03:30</td>
+                            <td class="place">1층 우정홀</td>
+                        </tr>
+<!--                        <tr>-->
+<!--                            <td class="type">신혼부부회</td>-->
+<!--                            <td class="time">토요일 오후 04:00</td>-->
+<!--                            <td class="place">2층 비전홀</td>-->
+<!--                        </tr>-->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail direction hide">
+        <div class="title">오시는 길</div>
+<!--        <div id="map">-->
+<!--        </div>-->
+        <div style="margin-top: 30px;">
+            <img th:src="@{/img/location.png}" alt="">
+        </div>
+
+        <script>
+            // const defaultPosition = new naver.maps.LatLng(35.5597665, 129.3567066)
+            // const mapOption = {
+            //     center: defaultPosition, //지도의 초기 중심 좌표
+            //     zoom: 16, //지도의 초기 줌 레벨
+            //     minZoom: 7, //지도의 최소 줌 레벨
+            //     zoomControl: true, //줌 컨트롤의 표시 여부
+            //     zoomControlOptions: { //줌 컨트롤의 옵션
+            //         position: naver.maps.Position.TOP_RIGHT
+            //     }
+            // };
+            // const map = new naver.maps.Map('map', mapOption);
+            // const marker = new naver.maps.Marker({
+            //     position: defaultPosition,
+            //     map: map
+            // });
+        </script>
+    </div>
+</div>
+</html>

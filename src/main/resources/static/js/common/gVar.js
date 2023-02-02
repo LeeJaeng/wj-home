@@ -8,13 +8,16 @@ define(['common/util'], function(util){
         this.data = {
             pastorList: [
                 '예동열 담임목사',
+                '변재훈 원로목사',
                 '문지원 목사',
-                '유수창 목사',
-                '전윤광 목사',
-                '김재준 전도사'
-            ]
+                '김정길 목사',
+                '정지수 목사',
+                '조성필 목사'
+            ],
         }
 
+        this.isMobile = util.isMobile()
+        this.deviceWidth = $('body').width()
     }
 
     return new GVariable();

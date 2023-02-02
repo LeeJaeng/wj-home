@@ -24,6 +24,14 @@ define(['common/loginPopup', 'common/userInfo'], function(loginPopup, userInfo){
 
         this.menuEvent()
     }
+    Header.prototype.mobileInit = function() {
+        if (userInfo.loggedIn) {
+            this.userInit()
+        }
+        else {
+            this.guestInit()
+        }
+    }
     Header.prototype.userInit = function(){
         this.var.$login.remove()
         this.var.$user.find(".user-name").text(userInfo.userName + '님')

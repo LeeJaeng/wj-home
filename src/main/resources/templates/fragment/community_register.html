@@ -1,0 +1,49 @@
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<div id="registerPopup" class="popup" th:fragment="communityRegister">
+    <div id="loading">
+        <div>등록중입니다. 잠시만 기다려주세요.</div>
+    </div>
+    <div class="window">
+        <div class="close">✕</div>
+        <div class="title">게시물 등록</div>
+        <div class="form" style="padding: 30px;">
+            <div class="content-type">
+                <div class="label">게시물 구분</div>
+                <div class="data">
+                    <select name="category">
+                        <option value="">선택해주세요</option>
+                        <!--                            <option value="1">교회소식</option>-->
+                        <option id="r-opt-paper" value="2">교회주보</option>
+                        <option id="r-opt-photo" value="3">교회사진들</option>
+                        <option value="4">방송실협조</option>
+                        <option id="r-opt-info" value="5">정보수정요청</option>
+                    </select>
+                </div>
+            </div>
+            <div class="content-title">
+                <div class="label">게시물 제목</div>
+                <div class="data">
+                    <input type="text" name="title" autocomplete="off" placeholder="">
+                </div>
+            </div>
+            <div>
+                <div class="label">파일 업로드</div>
+                <div class="data">
+                    <input type="file" name="files" multiple>
+                </div>
+            </div>
+            <div>
+                <div class="label">내용</div>
+                <div class="data">
+                    <textarea name="content" cols="30" rows="10" placeholder=""></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="functions">
+            <button class="register">등록</button>
+            <button class="cancel">취소</button>
+        </div>
+    </div>
+</div>
+</html>

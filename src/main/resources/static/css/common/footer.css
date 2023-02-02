@@ -1,3 +1,4 @@
+#footerM,
 #footer {
     /*background-color: rgba(35, 118, 173, 1);*/
     background-color: #333;
@@ -8,20 +9,27 @@
     color: white;
 }
 
+#footerM > div,
 #footer > div {
     text-align: center;
 }
+#footerM .content,
 #footer .content {
     display: inline-block;
     text-align: left;
 }
+#footerM .content .address,
 #footer .content .address {
     margin-bottom: 8px;
 }
+#footerM .content .copyright,
 #footer .content .copyright {
     margin-top: 8px;
 }
+#footerM .logo,
 #footer .logo {
     width: 200px;
 }
+
+
 

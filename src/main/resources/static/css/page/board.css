@@ -107,11 +107,29 @@
 #content .detail .desc .list table td.date {
     font-size: 0.96em;
     color: #aaa;
+    width: 150px;
+}
+#content .detail .desc .list table td.pastor {
+    width: 120px;
+}
+
+
+
+#content .detail .desc .list table td.title-verse {
+    text-align: left;
+    padding-left: 5px;
+}
+#content .detail .desc .list table td.title-verse > div:first-child{
+    font-size: 1.05rem;
+}
+#content .detail .desc .list table td.title-verse > div:last-child{
+    font-size: .9rem; color: gray;
 }
 #content .detail .desc .list table td.worship {
     color: rgba(15, 17, 119, 0.67);
     font-weight: bold;
     font-size: 0.96em;
+    width: 120px;
 }
 #content .board-detail {
     padding-top: 50px;

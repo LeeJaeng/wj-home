@@ -22,55 +22,7 @@
 <div class="row justify-content-md-center" layout:fragment="content" style="border-top: 2px solid #e5e5e5;">
     <input type="hidden" class="init-val-remove" name="board_type" th:value="${data.board_type}">
     <input type="hidden" class="init-val-remove" name="board_idx" th:value="${data.board_idx}">
-    <div id="content" class="col-md-auto">
-        <div class="menu-list">
-            <div class="title">커뮤니티</div>
-<!--            <div class="menu selected" data-value="all">영상전체</div>-->
-<!--            <div class="menu selected" data-value="notice">교회소식</div>-->
-            <div class="menu" data-value="paper">교회주보</div>
-            <div class="menu" data-value="photo">교회사진들</div>
-            <div class="menu" id="file-board" data-value="file">방송실협조</div>
-            <div class="menu" id="info-edit" data-value="edit">정보수정요청</div>
-        </div>
-        <div class="detail">
-            <div id="register"><i class="fas fa-pen"></i> 게시물 등록</div>
-            <div class="sub-title">교회주보</div>
-            <div class="desc">
-                <div class="functions"></div>
-                <div class="list">
-                    <table>
-                    </table>
-                    <div class="thumb-list">
-                    </div>
-                    <div class="container">
-                        <div class="paging row justify-content-md-center"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="board-detail hide">
-            <div class="functions">
-                <div class="back"><i class="fas fa-chevron-left"></i> 이전으로</div>
-            </div>
-            <div class="title-area">
-                <div>
-                    <div class="title"></div>
-                    <div class="date"></div>
-                </div>
-            </div>
-            <div class="files">
-                <div class="header">첨부파일</div>
-                <div class="list">
-                </div>
-            </div>
-            <div class="desc">
-            </div>
-            <div class="photos">
-            </div>
-            <div class="buttons">
-            </div>
-        </div>
-    </div>
+    <th:block th:replace="fragment/community_content :: communityFragment"> </th:block>
     <div id="registerPopup" class="popup">
         <div class="window">
             <div class="close">✕</div>

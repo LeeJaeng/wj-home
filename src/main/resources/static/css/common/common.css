@@ -3,13 +3,21 @@
 
 
 
+/*@font-face {*/
+/*    font-family: 'Noto Sans KR', Sans-serif;*/
+/*    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');*/
+/*    font-weight: normal;*/
+/*    font-style: normal;*/
+/*    color: #3f3f3f;*/
+/*}*/
 @font-face {
-    font-family: 'Noto Sans KR', Sans-serif;
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
-    font-weight: normal;
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 500;
     font-style: normal;
-    color: #3f3f3f;
+    color: #494949;
 }
+
 
 body {
     overflow-x: hidden;
@@ -145,3 +153,5 @@ body {
 .paging > div:not(.disabled).prev:hover{
     font-weight: bold;
 }
+
+#footerM

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/m_default_layout">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/page/mobile/m_board.css}">
+    <link rel="stylesheet" th:href="@{/css/page/mobile/m_community.css}">
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <script type="text/javascript"
+            th:src="@{'/js/require/require.min.js'}"
+            th:attr="data-main=@{/js/community/communityInit.js}">
+    </script>
+</th:block>
+
+<div class="row justify-content-md-center" layout:fragment="content" style="border-top: 2px solid #e5e5e5;">
+    <input type="hidden" class="init-val-remove" name="board_type" th:value="${data.board_type}">
+    <input type="hidden" class="init-val-remove" name="board_idx" th:value="${data.board_idx}">
+    <th:block th:replace="fragment/community_content :: communityFragment"> </th:block>
+    <th:block th:replace="fragment/community_register :: communityRegister"> </th:block>
+</div>
+</html>

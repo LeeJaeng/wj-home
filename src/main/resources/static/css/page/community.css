@@ -264,3 +264,7 @@
     right: 20px;
     font-size: .9rem;
 }
+
+#content .desc .list table > td.date{
+    width: 150px;
+}

@@ -1,6 +1,6 @@
 define(
-    ['common/loginPopup', 'common/ajaxRequests', 'common/util'],
-    function(loginPopup, ajaxRequests, util){
+    ['common/loginPopup', 'common/ajaxRequests', 'common/util', 'common/gVar'],
+    function(loginPopup, ajaxRequests, util, gVar){
         function HomeMain() {
             this.var = {
                 $mainPreach: $(".list.sermon"),
@@ -12,6 +12,14 @@ define(
             const _this = this;
             ajaxRequests.getMainBanners({
                 callback: function(json) {
+                    json.data.push(
+                        {url: 'https://kor-wj-bucket.s3.ap-northeast-2.amazonaws.com/images/banner/wj_church.png'},
+                    )
+                    if (!gVar.isMobile) {
+                        json.data.push(
+                            {url: 'https://kor-wj-bucket.s3.ap-northeast-2.amazonaws.com/images/banner/wj.png'},
+                        )
+                    }
                     $.each(json.data, function(i, v){
                         const $img = $(
                             '<div class="swiper-slide"></div>'
@@ -19,6 +27,9 @@ define(
                         $img.css('background-image', "url('"+ v.url +"')")
                         _this.var.$bannerSlide.append($img)
                     });
+
+
+
                     const swiper = new Swiper(".mySwiper", {
                         navigation: {
                             nextEl: ".swiper-button-next",
@@ -57,7 +68,7 @@ define(
                 page: 1,
                 init: true,
                 callback: function (json) {
-                    console.log(json);
+                    // console.log(json);
                     $.each(json.list, function (i, v) {
                         setSermon('main', v)
                         if (i === 1)
@@ -88,8 +99,15 @@ define(
                 if (data.content) {
                     const div = $('<div></div>');
                     const iframe = $(data.content)
-                    iframe.attr('width', '400');
-                    iframe.attr('height', '250');
+                    if (gVar.isMobile) {
+                        const width = gVar.deviceWidth - 40
+                        const height = Math.floor(width / 1.6)
+                        iframe.attr('width', width + '');
+                        iframe.attr('height', height + '');
+                    } else {
+                        iframe.attr('width', '400');
+                        iframe.attr('height', '250');
+                    }
                     div.append(iframe);
                     $preachPlayer.append(div)
                 }
@@ -111,10 +129,20 @@ define(
                             '   <div class="date">'+ v.date +'</div>' +
                             '</div>'
                         )
-                        $row.click(function(){
-                            window.location.href = '/community?type=paper&idx=' + v.board_idx
-                        })
+                        if (gVar.isMobile) {
+                            $row.click(function(){
+                                window.location.href = '/m/community?type=paper&idx=' + v.board_idx
+                            })
+                        } else {
+                            $row.click(function(){
+                                window.location.href = '/community?type=paper&idx=' + v.board_idx
+                            })
+                        }
                         $paperBoardList.append($row)
+
+                        if (gVar.isMobile && i === 4) {
+                            return false;
+                        }
                     })
                 }
             });
@@ -198,8 +226,13 @@ define(
                 init: true,
                 callback: function(json) {
                     $.each(json.list, function(i, v){
-                        if (i === 4)
-                            return false
+                        if (gVar.isMobile) {
+                            if (i === 8)
+                                return false
+                        } else {
+                            if (i === 4)
+                                return false
+                        }
 
                         const $row = $(
                             '<div>' +
@@ -211,7 +244,11 @@ define(
                             '</div>'
                         )
                         $row.click(function(){
-                            window.location.href = '/community?type=photo&idx=' + v.board_idx
+                            if (gVar.isMobile) {
+                                window.location.href = '/m/community?type=photo&idx=' + v.board_idx
+                            } else {
+                                window.location.href = '/community?type=photo&idx=' + v.board_idx
+                            }
                         })
 
                         $boardList.append($row)

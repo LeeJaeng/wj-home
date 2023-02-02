@@ -1,4 +1,4 @@
-define([], function(){
+define(['common/gVar'], function(gVar){
     function DepartmentMain() {
         const $content = $("#content");
         this.var = {
@@ -18,6 +18,9 @@ define([], function(){
 
         const $selected = this.var.$menuList.find(".menu[data-value="+ this.var.menuSelected +"]")
         $selected.addClass("selected")
+        if (gVar.isMobile) {
+            this.var.$menuList.scrollLeft($selected[0].offsetLeft);
+        }
         this.var.$content.find(".detail").addClass("hide")
         this.var.$content.find(".detail").filter("." + this.var.menuSelected).removeClass("hide")
     }

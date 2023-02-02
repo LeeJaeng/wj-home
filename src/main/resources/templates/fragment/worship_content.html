@@ -1,0 +1,53 @@
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<div id="content" class="col-md-auto" th:fragment="worshipFragment">
+    <div class="menu-list">
+        <div class="title">말씀과 찬양</div>
+<!--            <div class="menu selected" data-value="all">영상전체</div>-->
+        <div class="menu" data-value="head-pastor">담임목사 설교</div>
+        <div class="menu" data-value="old-pastor">원로목사 설교</div>
+        <div class="menu" data-value="sub-pastor">부교역자/강사 설교</div>
+        <div class="menu" data-value="sunday">주일예배</div>
+        <div class="menu" data-value="friday">금요성령집회</div>
+        <div class="menu" data-value="wednesday">수요예배</div>
+        <div class="menu" data-value="dawn">새벽예배</div>
+        <div class="menu" data-value="praise">찬양</div>
+        <div class="menu" data-value="etc">기타예배</div>
+    </div>
+    <div class="detail">
+        <div id="register" style="display: none;"><i class="fas fa-pen"></i> 게시물 등록</div>
+        <div class="sub-title"></div>
+        <div class="desc">
+            <div class="functions"></div>
+            <div class="list">
+                <table>
+                </table>
+                <div class="mobile-list"></div>
+                <div class="container page-container">
+                    <div class="paging row justify-content-md-center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="board-detail hide">
+        <div class="functions">
+            <div class="back"><i class="fas fa-chevron-left"></i> 이전으로</div>
+        </div>
+        <div class="title-area">
+            <div>
+                <div class="title"></div>
+                <div class="verse"><i class="fas fa-bible"></i><span></span></div>
+            </div>
+            <div>
+                <div class="host-name"></div>
+                <div class="date"></div>
+                <div class="worship-type"></div>
+            </div>
+        </div>
+        <div class="desc">
+        </div>
+        <div class="buttons">
+        </div>
+    </div>
+</div>
+</html>

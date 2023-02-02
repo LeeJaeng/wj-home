@@ -1,0 +1,345 @@
+.row {
+    height: calc(100% - 55px);
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+#content {
+    height: 100%;
+}
+#content .menu-list {
+    height: 50px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid #dedede;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+#content .menu-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+#content .menu-list .title{
+    display: none;
+}
+#content .menu-list .menu {
+    display: inline-block;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    line-height: 50px;
+    color: #4d4d4d;
+    font-size: .9rem;
+}
+#content .menu-list .menu.selected {
+    border-bottom: 3px solid #2376AD;
+    color: #2376AD;
+    font-weight: 600;
+}
+
+#content .detail {
+    height: calc(100% - 50px);
+    overflow-y: scroll;
+}
+#content .detail .title{
+    display: none;
+}
+#content .detail.introduce .bdy{
+}
+#content .detail.introduce .box{
+    border: 4px solid rgba(35, 118, 173, 0.2);
+    /*box-shadow: 2px 1px 1px rgba(35, 118, 173, 1);*/
+    border-radius: 20px;
+    margin: 30px;
+    padding: 10px;
+}
+#content .detail.introduce .box .icon {
+    margin: 16px;
+    text-align: center;
+}
+#content .detail.introduce .box .icon i {
+    font-size: 5em;
+    color: rgba(35, 118, 173, 0.5);
+}
+#content .detail.introduce .box .sub-title{
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    /*color: #404040;*/
+    color: rgba(35, 118, 173, 1);
+}
+#content .detail.introduce .box .desc{
+    font-size: .9rem;
+    /*line-height: 30px;*/
+    color: #404040;
+    text-align: center;
+}
+
+#content .detail.history {
+    padding-top: 20px;
+}
+#content .detail.history .year {
+    font-size: 1.4rem;
+    color: #2376AD;
+    font-weight: 600;
+    margin-bottom: 14px;
+    margin-top: 30px;
+    padding-top: 25px;
+    padding-left: 30px;
+    border-top: 1px solid #eaeaea;
+}
+#content .detail.history .year:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+#content .detail.history .item {
+    font-size: .9rem;
+    margin-bottom: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#content .detail.history .item > span:first-child{
+    display: inline-block;
+    width: 240px;
+    color: #909090;
+    /*font-weight: 300;*/
+}
+#content .detail.history .item > span:last-child{
+    display: block;
+    margin-top: 3px;
+    margin-bottom: 25px;
+    font-size: .85rem;
+}
+#content .detail.history .item .div-2span {
+    display: table;
+    width: 100%;
+    margin-bottom: 8px;
+}
+#content .detail.history .item .div-2span span:first-child{
+    display: table-cell;
+    width: 90px;
+}
+
+#content .detail.head-pastor  {
+    position: relative;
+}
+#content .detail.head-pastor .img {
+    margin-top: 30px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
+}
+#content .detail.head-pastor .img img{
+    width: 150px;
+}
+#content .detail.head-pastor .greetings {
+    font-size: .9em;
+    line-height: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 30px;
+}
+#content .detail.head-pastor .greetings br.m-no{
+    display: none;
+}
+#content .detail.head-pastor .greetings span {
+    color: rgba(35, 118, 173, 1);
+    font-weight: bold;
+}
+#content .detail.head-pastor .greetings span.subtitle {
+    display: inline-block;
+    font-size: 1.2em;
+    color: rgba(15, 17, 119, 0.8);
+    margin: 8px 0 8px 0;
+}
+
+
+#content .detail.helper .sub-title{
+    font-weight: bold;
+    font-size: 1.15rem;
+    height: 40px;
+    border-bottom: 2px solid #eeee;
+    margin-bottom: 20px;
+    color: #404040;
+    padding-left: 20px;
+}
+#content .detail.helper .helper-list:first-child {
+    margin-top: 30px;
+}
+#content .detail.helper .helper-list{
+    padding: 0 12px 56px 12px;
+}
+
+#content .detail.helper .helper-list .spc{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: rgba(35, 118, 173, 0.75);
+    margin-bottom: 15px;
+}
+#content .detail.helper .helper-list > div {
+    display: inline-block;
+    /*border-bottom: 1px solid #eee;*/
+}
+#content .detail.helper .helper-list .contact {
+    width: inherit;
+    color: #888;
+}
+#content .detail.helper .helper-list .contact i {
+    color: rgba(35, 118, 173, 1);
+    margin: 4px 4px 0 0;
+}
+#content .detail.helper .helper-list > div:last-child {
+    border-bottom: 0;
+}
+#content .detail.helper .helper-list > div span{
+    display: inline-block;
+    width: 80px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: rgba(35, 118, 173, 0.75);
+}
+#content .detail.helper .helper-list .line{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+#content .detail.helper .helper-list .line > div{
+    width: 50%;
+    margin-bottom: 30px;
+}
+/*#content .detail.helper .helper-list .line.by3 > div{*/
+/*    width: 33.3%;*/
+/*    height: 130px;*/
+/*}*/
+#content .detail.helper .helper-list .line > div > div.pic{
+    width: calc(100% - 40px);
+    height: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+    /*display: none;*/
+}
+#content .detail.helper .helper-list .line > div > div.pic img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+#content .detail.helper .helper-list.small .line > div .job{
+    padding-left: 0;
+    text-align: center;
+}
+#content .detail.helper .helper-list .line > div .name{
+    margin-top: 8px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2f2f2f;
+}
+#content .detail.helper .helper-list .line > div .job{
+    text-align: center;
+    margin-bottom: 4px;
+    font-size: .7rem;
+    color: #aaa;
+}
+#content .detail.helper .helper-list .line > div .e-mail{
+    font-size: .7rem;
+    color: #555;
+    padding-left: 12px;
+}
+#content .detail.helper .helper-list .line > div .tel{
+    padding-top: 3px;
+    font-size: .7rem;
+    color: #555;
+    padding-left: 12px;
+}
+#content .detail.helper .helper-list .line > div i {
+    color: rgba(35, 118, 173, 1);
+    /*margin-right: 3px;*/
+}
+
+#content .detail.helper .helper-list.small > div.line > div{
+    width: 33.3%;
+}
+#content .detail.helper .helper-list.small .line > div > div.pic{
+    width: calc(100% - 30px);
+    height: 120px;
+    margin-left: 15px;
+    margin-right: 15px;
+    /*display: none;*/
+}
+#content .detail.helper .helper-list.small .line > div > div.pic img{
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+
+#content .detail.worship-time {
+    margin-top: 15px;
+}
+
+#content .detail.worship-time .sub-title{
+    font-weight: bold;
+    font-size: 1.15rem;
+    height: 35px;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+    color: #404040;
+    padding-left: 20px;
+}
+#content .detail.worship-time .worship-time-list {
+    margin-bottom: 50px;
+}
+#content .detail.worship-time .worship-time-list > div{
+}
+#content .detail.worship-time .worship-time-list > div > div{
+    width: 100%;
+}
+#content .detail.worship-time .worship-time-list > div > div:first-child{
+    margin-right: 35px;
+}
+#content .detail.worship-time .worship-time-list > div > div table{
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    border: 2px solid rgba(35, 118, 173, 0.2);
+}
+#content .detail.worship-time .worship-time-list > div > div table td{
+    font-size: .82rem;
+    height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    color: #676767;
+}
+#content .detail.worship-time .worship-time-list > div > div table td.type{
+    width: 110px;
+    background-color: rgba(35, 118, 173, 0.1);
+    color: #4e4e4e;
+    font-size: .8rem;
+}
+#content .detail.worship-time .worship-time-list > div > div table td.time{
+    width: 115px;
+}
+#content .detail.worship-time .worship-time-list > div > div table tr:nth-child(even) td.type{
+    background-color: rgba(35, 118, 173, 0.15);
+}
+#content .detail.worship-time .worship-time-list > div > div table tr:nth-child(even) td.time,
+#content .detail.worship-time .worship-time-list > div > div table tr:nth-child(even) td.place {
+    background-color: rgba(35, 118, 173, 0.05);
+}
+
+
+
+#content .detail.direction img {
+    width: 100%;
+}
+
+#content .detail.direction #map {
+    margin-top: 30px;
+    width: 800px;
+    height: 400px;
+    border: 1px solid lightgrey;
+}

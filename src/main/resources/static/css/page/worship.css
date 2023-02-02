@@ -196,6 +196,9 @@
 #content .board-detail .title-area > div > div.verse {
     color: gray;
 }
+#content .board-detail .title-area > div > div.verse i{
+    display: none;
+}
 #content .board-detail .title-area > div > div.date {
     color: gray;
 }

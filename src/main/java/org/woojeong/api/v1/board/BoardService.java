@@ -2,6 +2,7 @@ package org.woojeong.api.v1.board;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,6 +64,9 @@ public class BoardService {
         switch (dto.getType()) {
             case "head-pastor":
                 dto.setQuery("AND category = 1 ");
+                break;
+            case "old-pastor":
+                dto.setQuery("AND category = 5 ");
                 break;
             case "head-pastor-main":
                 dto.setQuery("AND category = 1 AND worship_type IN ('sun3', 'sun4', 'fri') ");
@@ -143,9 +147,11 @@ public class BoardService {
             int ord  = 0;
             int i = 0;
             for (MultipartFile file : files) {
-                String rand = UUID.randomUUID() + file.getName();
+                String ext = FilenameUtils.getExtension(file.getOriginalFilename());
+                String rand = RandomStringUtils.random(8, "0123456789abcdefghijklmnopqrstubvwxyz") + "_" + file.getOriginalFilename();
                 String fileName = "images" + "/files/" + rand;   // S3에 저장된 파일 이름
                 String thumbUrl = "";
+
 
                 String url = s3Uploader.upload(file, fileName);
                 params.put("url", url);

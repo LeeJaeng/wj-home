@@ -153,3 +153,7 @@
     margin-top: 20px;
 }
 
+
+.only-mobile {
+    display: none !important;
+}

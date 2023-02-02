@@ -1,4 +1,4 @@
-define([], function(){
+define(['common/gVar'], function(gVar){
     function Paging() {
         this.totalCnt = 0
         this.curPage = 0
@@ -29,7 +29,11 @@ define([], function(){
     }
     Paging.prototype.setPagingInfo = function({curPage, cntPerPage, pageCnt, totalCnt}) {
         this.totalCnt = totalCnt
-        this.pageCnt = pageCnt
+        if (gVar.isMobile) {
+            this.pageCnt = 5
+        } else {
+            this.pageCnt = 10
+        }
         this.curPage = curPage
         this.cntPerPage = cntPerPage
         this.endPage = parseInt(totalCnt / cntPerPage) + 1
@@ -109,7 +113,7 @@ define([], function(){
         const _this = this
         const $num = $next.siblings('.num')
         $next.click(function(){
-            console.log("click")
+            // console.log("click")
             if ($next.hasClass("disabled")) {
                 return false
             }

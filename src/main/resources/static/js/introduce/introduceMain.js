@@ -1,4 +1,4 @@
-define(['common/ajaxRequests',], function(ajaxRequests){
+define(['common/ajaxRequests', 'common/gVar'], function(ajaxRequests, gVar){
     function IntroduceMain() {
         const $content = $("#content");
         this.var = {
@@ -16,6 +16,9 @@ define(['common/ajaxRequests',], function(ajaxRequests){
 
         const $selected = this.var.$menuList.find(".menu[data-value="+ this.var.menuSelected +"]")
         $selected.addClass("selected")
+        if (gVar.isMobile) {
+            this.var.$menuList.scrollLeft($selected[0].offsetLeft);
+        }
         this.var.$content.find(".detail").addClass("hide")
         this.var.$content.find(".detail").filter("." + this.var.menuSelected).removeClass("hide")
     }

@@ -1,0 +1,265 @@
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!--headerFragment 선언-->
+
+<div th:fragment="headerFragment">
+    <style>
+        body {
+            letter-spacing: -.03rem;
+        }
+        #header > .title{
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /*border-bottom: 1px solid #dadada;*/
+            background-color: #2376AD;
+            color: white;
+        }
+        #header > .title img.hamburger{
+            width: 22px;
+            margin-left: 15px;
+        }
+        #header > .title img.home{
+            width: 22px;
+            margin-right: 15px;
+        }
+
+        #title-name {
+            font-size: 1.1rem;
+        }
+
+        #main-menu-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9;
+            background-color: rgba(0, 0, 0, 0.55);
+        }
+        #main-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 270px;
+            background-color: white;
+            z-index: 10;
+            display: flex;
+        }
+        #main-menu img.logo{
+            position: fixed;
+            top: 7px;
+            left: 15px;
+        }
+        #main-menu > div{
+            height: calc(100% - 60px);
+            margin-top: 60px;
+        }
+        #main-menu > div.menu-list{
+            width: 120px;
+            border-right: 1px solid lightgrey;
+        }
+        #main-menu > div.menu-list-detail{
+            width: 150px;
+        }
+        #main-menu > div.menu-list > div {
+            height: 50px;
+            line-height: 50px;
+            padding-left: 15px;
+            color: #4d4d4d;
+        }
+        #main-menu > div.menu-list > div.selected{
+            border-right: 3px solid #2376AD;
+            color: #2376AD;
+            font-weight: 600;
+        }
+        #main-menu > div.menu-list-detail > div{
+            height: 50px;
+            line-height: 50px;
+            padding-left: 12px;
+            font-size: .9rem;
+        }
+
+        #main-menu #user-info {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            height: 40px;
+            margin: 0;
+            width: 120px;
+        }
+        #main-menu #user-info button{
+            border: none;
+            background-color: transparent;
+            width: 120px;
+            text-align: center;
+            color: #007aff;
+            font-size: .9rem;
+        }
+        #main-menu #user-info .user{
+            text-align: center;
+        }
+
+        #login-popup {
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        #login-popup .window{
+            position: relative;
+            width: calc(100% - 60px);
+            padding: 30px 40px;
+            background-color: white;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #login-popup .window .close {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+        #login-popup .window > div{
+            height: 70px;
+            text-align: center;
+        }
+        #login-popup .window > div.logo{
+            height: 100px;
+        }
+        #login-popup .window img{
+            height: 60px;
+        }
+        #login-popup .window > div input{
+            height: 55px;
+            width: 100%;
+            border: 1px solid lightgrey;
+            font-size: 1rem;
+            padding-left: 10px;
+        }
+        #login-popup .window button {
+            height: 60px;
+            width: 100%;
+            background-color: rgba(35, 118, 173, 1);
+            color: white;
+            border: 1px solid rgba(35, 118, 173, 1);
+        }
+        #login-popup .window .functions {
+            line-height: 60px;
+            font-size: 1rem;
+        }
+        #login-popup .window .functions span{
+            color: gray;
+            cursor: pointer;
+        }
+        #login-popup .window .functions span:nth-child(2){
+            color: lightgrey;
+            cursor: default;
+            padding-left:10px;
+            padding-right:10px;
+        }
+
+
+
+    </style>
+    <div id="header">
+        <div class="title">
+            <div class="menu-hamburger">
+                <img class="hamburger" th:src="@{/img/icon/hamburger.png}" alt="">
+            </div>
+            <div id="title-name">
+<!--                <img th:src="@{/img/logo-small.png}" alt="" onclick="window.location.href = '/m'" style="height: 35px;">-->
+            </div>
+            <div onclick="window.location.href = '/m'">
+                <img class="home" th:src="@{/img/icon/home.png}" alt="">
+            </div>
+        </div>
+        <div id="main-menu-background" style="display: none;"></div>
+        <div id="main-menu" style="display: none">
+            <img class="logo" th:src="@{/img/logo-small.png}" alt="" style="height: 40px;">
+            <div class="menu-list">
+                <div class="menu introduce selected" data-value="introduce">교회소개</div>
+                <div class="menu department" data-value="department">교육부서</div>
+                <div class="menu worship" data-value="worship">말씀과 찬양</div>
+                <div class="menu community" data-value="community">커뮤니티</div>
+            </div>
+            <div class="menu-list-detail">
+                <div class="column introduce">
+                    <div data-url="/m/introduce?type=introduce">우정교회는?</div>
+                    <div data-url="/m/introduce?type=head-pastor">담임목사 인사말</div>
+                    <div data-url="/m/introduce?type=history">역사</div>
+                    <div data-url="/m/introduce?type=helper">섬기는 사람들</div>
+                    <div data-url="/m/introduce?type=worship-time">예배시간 안내</div>
+                    <div data-url="/m/introduce?type=direction">오시는 길</div>
+                </div>
+                <div class="column department hide">
+                    <div data-url="/m/department?type=infant">영유아부</div>
+                    <div data-url="/m/department?type=kinder">유치부</div>
+                    <div data-url="/m/department?type=elementary-1">유년부</div>
+                    <div data-url="/m/department?type=elementary-2">초등부</div>
+                    <div data-url="/m/department?type=high">중고등부</div>
+                    <div data-url="/m/department?type=youth">청년대학부</div>
+                    <div data-url="/m/department?type=couple">신혼부부회</div>
+                </div>
+                <div class="column worship hide">
+                    <div data-url="/m/worship?type=head-pastor">담임목사 설교</div>
+                    <div data-url="/m/worship?type=old-pastor">원로목사 설교</div>
+                    <div data-url="/m/worship?type=sub-pastor">부교역자/강사 설교</div>
+                    <div data-url="/m/worship?type=sunday">주일예배</div>
+                    <div data-url="/m/worship?type=friday">금요성령집회</div>
+                    <div data-url="/m/worship?type=wednesday">수요예배</div>
+                    <div data-url="/m/worship?type=dawn">새벽예배</div>
+                    <div data-url="/m/worship?type=praise">찬양</div>
+                    <div data-url="/m/worship?type=etc">기타예배</div>
+                </div>
+                <div class="column community hide">
+                    <div data-url="/m/community?type=paper">교회주보</div>
+                    <div data-url="/m/community?type=photo">교회사진들</div>
+                    <div class="only-login" data-url="/m/community?type=file">방송실협조</div>
+                    <div class="only-admin" data-url="/m/community?type=edit">정보수정요청</div>
+                </div>
+            </div>
+            <div id="user-info">
+                <div class="login">
+                    <button>관리자로그인</button>
+                </div>
+                <div class="user">
+                    <span class="logout">로그아웃</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="login-popup" class="popup">
+            <div class="window">
+                <div class="close">✕</div>
+                <div class="logo"><img th:src="@{/img/logo-small.png}" alt=""></div>
+                <div>
+                    <input type="text" id="user_id" name="user_id" placeholder="아이디">
+                </div>
+                <div>
+                    <input type="password" id="password" name="password" placeholder="비밀번호">
+                </div>
+                <div>
+                    <button id="login-btn">관리자 로그인</button>
+                </div>
+                <!--            <div class="functions">-->
+                <!--                <span>회원가입</span>-->
+                <!--                <span>|</span>-->
+                <!--                <span>아이디/비밀번호 찾기</span>-->
+                <!--            </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

@@ -29,6 +29,17 @@ public class WebController {
         return modelAndView;
     }
 
+    @GetMapping("/m")
+    public ModelAndView indexM() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("page/m/m_home");
+
+        Map<String, Object> map = new HashMap<>();
+        modelAndView.addObject("data", map);
+
+        return modelAndView;
+    }
+
     @GetMapping("/introduce")
     public ModelAndView introduce(
             @RequestParam(name="type", defaultValue = "introduce") String boardType,
@@ -44,7 +55,21 @@ public class WebController {
 
         return modelAndView;
     }
+    @GetMapping("/m/introduce")
+        public ModelAndView introduceM(
+                @RequestParam(name="type", defaultValue = "introduce") String boardType,
+                @RequestParam (name="idx", required = false) Long idx
+        ) {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("page/m/m_introduce");
 
+            Map<String, Object> map = new HashMap<>();
+            map.put("board_type", boardType);
+            map.put("board_idx", idx);
+            modelAndView.addObject("data", map);
+
+            return modelAndView;
+        }
     @GetMapping("/department")
     public ModelAndView department(
             @RequestParam(name="type", defaultValue = "infant") String boardType,
@@ -52,6 +77,21 @@ public class WebController {
     ) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("page/department");
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("board_type", boardType);
+        map.put("board_idx", idx);
+        modelAndView.addObject("data", map);
+
+        return modelAndView;
+    }
+    @GetMapping("/m/department")
+    public ModelAndView departmentM(
+            @RequestParam(name="type", defaultValue = "infant") String boardType,
+            @RequestParam (name="idx", required = false) Long idx
+    ) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("page/m/m_department");
 
         Map<String, Object> map = new HashMap<>();
         map.put("board_type", boardType);
@@ -76,6 +116,22 @@ public class WebController {
         return modelAndView;
     }
 
+    @GetMapping("/m/worship")
+    public ModelAndView worshipM(
+            @RequestParam(name="type", defaultValue = "head-pastor") String boardType,
+            @RequestParam (name="idx", required = false) Long idx) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("page/m/m_worship");
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("board_type", boardType);
+        map.put("board_idx", idx);
+        modelAndView.addObject("data", map);
+
+        return modelAndView;
+    }
+
+
     @GetMapping("/community")
     public ModelAndView community(
             @RequestParam(name="type", defaultValue = "paper") String boardType,
@@ -90,6 +146,23 @@ public class WebController {
 
         return modelAndView;
     }
+
+
+    @GetMapping("/m/community")
+    public ModelAndView communityM(
+            @RequestParam(name="type", defaultValue = "paper") String boardType,
+            @RequestParam (name="idx", required = false) Long idx) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("page/m/m_community");
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("board_type", boardType);
+        map.put("board_idx", idx);
+        modelAndView.addObject("data", map);
+
+        return modelAndView;
+    }
+
 
 
 

@@ -49,6 +49,11 @@ define(
                 $("#file-board").remove()
             }
 
+            if (gVar.isMobile) {
+                // $("#info-edit").remove()
+                // $("#file-board").remove()
+            }
+
             // 초기 세팅
             const $selected = this.var.$menuList.find(".menu[data-value="+ this.var.menuSelected +"]")
             $selected.addClass("selected")
@@ -73,6 +78,7 @@ define(
                                 callback: function(json){
                                     _this.clearList()
                                     _this.setList(json.list)
+                                    _this.var.$detail.scrollTop(0);
                                 }
                             }
                         )
@@ -106,11 +112,11 @@ define(
 
                 _this.var.menuSelected = menu
                 _this.var.$detail.find(".sub-title").text($(this).text())
-                if (_this.var.menuSelected === 'file') {
-                    _this.var.$register.show()
-                } else {
-                    _this.var.$register.hide()
-                }
+                // if (_this.var.menuSelected === 'file') {
+                //     _this.var.$register.show()
+                // } else {
+                //     _this.var.$register.hide()
+                // }
 
                 _this.clearList()
                 paging.init()
@@ -331,7 +337,7 @@ define(
                     '<td style="text-align: left; padding-left: 5px;">'+
                     '   <div style="font-size: 1.05rem;">'+ v.title +'</div>'+
                     '</td>'+
-                    '<td class="date" style="width: 150px;">'+ v.date +'</td>'
+                    '<td class="date">'+ v.date +'</td>'
                 )
                 // }
 
@@ -348,8 +354,14 @@ define(
             $list.hide();
             $thumb.show();
             $.each(data, function(i, v){
-                if (i % 3 === 0) {
-                    $thumb.append("<div class='row'></div>")
+                if (gVar.isMobile) {
+                    if (i % 1 === 0) {
+                        $thumb.append("<div class='row'></div>")
+                    }
+                } else {
+                    if (i % 3 === 0) {
+                        $thumb.append("<div class='row'></div>")
+                    }
                 }
 
                 const $row = $(
@@ -375,6 +387,9 @@ define(
             this.var.$boardDetail.find(".back").click(function(){
                 _this.var.$detail.removeClass("hide")
                 _this.var.$boardDetail.addClass("hide")
+                if (gVar.isMobile) {
+                    _this.var.$menuList.show();
+                }
             })
             // this.var.$boardDetail.find(".edit").click(function(){
             //     alert("현재 수정기능은 준비중입니다. 기존 게시글 삭제 후 다시 등록해주세요.")
@@ -388,6 +403,9 @@ define(
             const $boardDetail = this.var.$boardDetail
             const $photos = $boardDetail.find(".photos")
             const $files = $boardDetail.find(".files")
+            if (gVar.isMobile) {
+                this.var.$menuList.hide();
+            }
             $boardDetail.find(".buttons").find("button").remove()
             $files.hide();
             $files.find('div.file').remove()

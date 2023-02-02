@@ -1,0 +1,177 @@
+
+
+#register {
+    position: absolute;
+    top: 50px;
+    font-size: .95rem;
+    right: 5px;
+    height: 38px;
+    line-height: 34px;
+    text-align: center;
+    color: rgba(35, 118, 173, 1);
+    padding: 0 16px;
+    border: 2px solid rgba(35, 118, 173, 0.33);
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+#register:hover {
+    color: white;
+    font-weight: bold;
+    border: 2px solid rgba(35, 118, 173, 1);
+    background-color: rgba(35, 118, 173, 0.9);
+}
+#register i {
+    margin-right: 4px;
+}
+
+
+#registerPopup {
+    /*display: block;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#registerPopup .window{
+    position: relative;
+    width: 800px;
+    height: 640px;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: hidden;
+}
+#registerPopup .window .close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 47px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+#registerPopup .window .title{
+    font-size: 1.1rem;
+    background-color: rgba(35, 118, 173, 1);
+    color: white;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 15px;
+}
+#registerPopup .window .form{
+    overflow-y: scroll;
+    padding: 30px;
+    height: 490px;
+}
+#registerPopup .window .functions{
+    text-align: center;
+    height: 100px;
+    padding-top: 30px;
+}
+#registerPopup .window .functions button{
+    height: 40px;
+    width: 90px;
+    color: #404040;
+    margin-left: 20px;
+}
+#registerPopup .window .functions button.edit,
+#registerPopup .window .functions button.register{
+    border: 1px solid rgba(35, 118, 173, 1);
+    background-color: rgba(35, 118, 173, 1);
+    color: white;
+    box-shadow: none;
+}
+#registerPopup .window .functions button.cancel{
+    border: 1px solid lightgrey;
+    box-shadow: none;
+}
+
+#registerPopup .window .form > div {
+    display: flex;
+    margin-bottom: 20px;
+    height: 40px;
+}
+#registerPopup .window .form > div.hide {
+    display: none;
+}
+#registerPopup .window .form > div .label{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: gray;
+}
+#registerPopup .window .form > div .data{
+    height: 45px;
+    padding-left: 20px;
+}
+#registerPopup .window .form > div .data select{
+    width: 200px;
+    height: 40px;
+    border: 1px solid #aeaeae;
+    color: #404040;
+    padding: 5px;
+    border-radius: 5px;
+}
+#registerPopup .window .form > div .data input{
+    color: #404040;
+    width: 600px;
+    height: 40px;
+    border: 1px solid #aeaeae;
+    padding: 5px;
+}
+#registerPopup .window .form > div .data textarea{
+    border: 1px solid #aeaeae;
+    width: 600px;
+    height: 200px;
+    padding: 5px;
+}
+#registerPopup .window .form > div .data input.short{
+    width: 200px;
+}
+
+#content .board-detail .title-area {
+    margin-top: 15px;
+    /*border-left: 4px solid rgba(35, 118, 173, 1);*/
+    padding-top: 7px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(35, 118, 173, 1);
+}
+#content .board-detail .title-area > div {
+    display: flex;
+    padding-left: 15px;
+}
+#content .board-detail .title-area > div:first-child {
+    display: block;
+    margin-bottom: 6px;
+}
+#content .board-detail .title-area > div > div {
+    margin-right: 7px;
+}
+#content .board-detail .title-area > div > div.title {
+    font-weight: bold;
+    color: #404040;
+    font-size: 1.1rem;
+}
+#content .board-detail .title-area > div > div.verse {
+    color: gray;
+}
+#content .board-detail .title-area > div > div.verse i{
+    margin-right: 5px;
+}
+#content .board-detail .title-area > div > div.date {
+    color: gray;
+}
+#content .board-detail .title-area > div > div.worship-type {
+    color: gray;
+}
+
+#content .board-detail .desc {
+    padding: 40px 20px 40px 20px;
+}

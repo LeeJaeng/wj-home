@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/m_default_layout">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/page/mobile/m_home.css}" >
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <script type="text/javascript"
+            th:src="@{'/js/require/require.min.js'}"
+            th:attr="data-main=@{/js/home/homeInit.js}">
+    </script>
+</th:block>
+
+<div id="content" class="" layout:fragment="content">
+    <div class="upper">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+<!--                <div class="swiper-slide">-->
+<!--                    <img style="width: 100%; object-fit: cover;" src="" alt="">-->
+<!--                </div>-->
+<!--                <div class="swiper-slide">-->
+<!--                    <img style="width: 100%; height: auto; object-fit: cover;" src="" alt="">-->
+<!--                </div>-->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="middle gray-background">
+        <div>
+            <div class="board sermon">
+                <div class="header">
+                    <div><div><img class="hamburger" th:src="@{/img/icon/bible.png}" alt="" style="width:20px;"></div><div>담임목사 설교</div></div>
+                    <div class="more"><a href="/m/worship"><i class="fas fa-plus-circle"></i> 더보기</a></div>
+                </div>
+                <div class="list sermon">
+                </div>
+            </div>
+            <div class="board paper">
+                <div class="header">
+                    <div><div><img class="hamburger" th:src="@{/img/icon/bell.png}" alt=""></div><div>교회소식</div></div>
+                    <div class="more"><a href="/m/community"><i class="fas fa-plus-circle"></i> 더보기</a></div>
+                </div>
+                <div class="list">
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="board picture double col-lg-4">
+                <div class="header">
+                    <div><div><img class="hamburger" th:src="@{/img/icon/camera.png}" alt=""></div><div>교회사진</div></div>
+                    <div class="more"><a href="/m/community?type=photo"><i class="fas fa-plus-circle"></i> 더보기</a></div>
+                </div>
+                <div class="photo list">
+                    <div class="pic-area">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <th:block th:replace="fragment/footer :: footerFragment"> </th:block>
+</div>
+</html>
