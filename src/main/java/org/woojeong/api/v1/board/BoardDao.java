@@ -43,8 +43,17 @@ public class BoardDao {
     public int registerCommunityBoard (Map<String, Object> params) {
         return sqlSessionTemplate.insert("org.mybatis.example.board.insertCommunityBoard", params);
     }
+    public int editCommunityBoard (Map<String, Object> params) {
+        return sqlSessionTemplate.update("org.mybatis.example.board.editCommunityBoard", params);
+    }
+    public Integer getFileOrd (Integer boardIdx) {
+        return sqlSessionTemplate.selectOne("org.mybatis.example.board.getFileOrd", boardIdx);
+    }
     public int registerCommunityBoardFiles (Map<String, Object> params) {
         return sqlSessionTemplate.insert("org.mybatis.example.board.insertCommunityBoardFiles", params);
+    }
+    public int deleteFile (List<String> idxList) {
+        return sqlSessionTemplate.update("org.mybatis.example.board.deleteFile", idxList);
     }
     public int deleteCommunityBoard (Long board_idx) {
         return sqlSessionTemplate.update("org.mybatis.example.board.deleteCommunityBoard", board_idx);

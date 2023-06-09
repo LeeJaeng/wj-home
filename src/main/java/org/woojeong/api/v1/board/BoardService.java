@@ -181,6 +181,55 @@ public class BoardService {
         return true;
     }
 
+    @Transactional
+    public boolean editCommunityBoard(List<MultipartFile> files, Map<String, Object> params) {
+        boardDao.editCommunityBoard(params);
+        if (params.containsKey("deleted_files")) {
+            String[] deletedFiles = (String[])params.get("deleted_files");
+            boardDao.deleteFile(Arrays.asList(deletedFiles));
+        }
+        if (files == null) {
+            return true;
+        }
+        Integer ord = boardDao.getFileOrd((Integer)params.get("board_idx"));
+        ord = ord == null ? 0 : ord;
+        try {
+            int i = 0;
+            for (MultipartFile file : files) {
+                String ext = FilenameUtils.getExtension(file.getOriginalFilename());
+                String rand = RandomStringUtils.random(8, "0123456789abcdefghijklmnopqrstubvwxyz") + "_" + file.getOriginalFilename();
+                String fileName = "images" + "/files/" + rand;   // S3에 저장된 파일 이름
+                String thumbUrl = "";
+
+
+                String url = s3Uploader.upload(file, fileName);
+                params.put("url", url);
+                params.put("ord", ++ord);
+                params.put("file_type", file.getContentType());
+                params.put("aws_file_name", fileName);
+                params.put("origin_file_name", file.getOriginalFilename());
+                boardDao.registerCommunityBoardFiles(params);
+
+                if (i == 0 && file.getContentType().contains("image") ) {
+                    String thumbName = "images" + "/thumbs/" + rand;   // S3에 저장된 파일 이름
+                    File thumbs = makeThumbnail(file, rand, FilenameUtils.getExtension(file.getOriginalFilename()));
+                    thumbUrl = s3Uploader.upload(thumbs, thumbName);
+                    thumbs.delete();
+                    params.put("url", thumbUrl);
+                    params.put("ord", -1);
+                    params.put("aws_file_name", thumbName);
+                    params.put("origin_file_name", file.getOriginalFilename());
+                    i++;
+                    boardDao.registerCommunityBoardFiles(params);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
 
     // MultipartFile 을 file로 변형 후 로컬로 저장, 파일객체를 리턴
     public Optional<File> convertMultipartFileToFile(MultipartFile file) throws IOException {
@@ -261,6 +310,9 @@ public class BoardService {
                 break;
             case "edit":
                 dto.setQuery("AND category = 5 ");
+                break;
+            case "mp3":
+                dto.setQuery("AND category = 6 ");
                 break;
         }
 

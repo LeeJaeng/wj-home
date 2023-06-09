@@ -17,6 +17,7 @@
                         <option id="r-opt-paper" value="2">교회주보</option>
                         <option id="r-opt-photo" value="3">교회사진들</option>
                         <option value="4">방송실협조</option>
+                        <option value="6">설교음원</option>
                         <option id="r-opt-info" value="5">정보수정요청</option>
                     </select>
                 </div>
@@ -30,9 +31,13 @@
             <div>
                 <div class="label">파일 업로드</div>
                 <div class="data">
-                    <input type="file" name="files" multiple>
+                    <input id="fileUpload" type="file" name="files" multiple data-text="파일 선택" hidden>
+                    <label for="fileUpload" class="file-upload">파일 선택</label>
+                    <span id="file-count" style="margin-left: 10px;"></span>
                 </div>
             </div>
+            <article class="original-data">
+            </article>
             <div>
                 <div class="label">내용</div>
                 <div class="data">
@@ -41,6 +46,7 @@
             </div>
         </div>
         <div class="functions">
+            <button class="edit">수정</button>
             <button class="register">등록</button>
             <button class="cancel">취소</button>
         </div>

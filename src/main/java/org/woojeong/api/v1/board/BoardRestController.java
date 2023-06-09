@@ -106,6 +106,36 @@ public class BoardRestController {
         }
     }
 
+    @PostMapping(value = "/user/board/community/edit", produces = "application/json; charset=utf-8")
+    public ResponseEntity communityBoardEdit(@AuthenticationPrincipal WjUserInfo activeUser,
+                                                 @RequestParam(value = "files", required = false) List<MultipartFile> files,
+                                                 @RequestParam(name="board_idx") Integer board_idx,
+                                                 @RequestParam(name="category") Integer category,
+                                                 @RequestParam(name="title", defaultValue = "") String title,
+                                                 @RequestParam(name="deleted_files", defaultValue = "") String deletedFiles,
+                                                 @RequestParam(name="content", defaultValue = "") String content){
+        if (!activeUser.isAdmin())
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("board_idx", board_idx);
+        params.put("category", category);
+        params.put("title", title);
+        params.put("content", content);
+        params.put("user_idx", activeUser.getUser_idx());
+        if (!deletedFiles.equals("")) {
+            params.put("deleted_files", deletedFiles.split(","));
+        }
+
+        if (boardService.editCommunityBoard(files, params)) {
+            return ResponseEntity.ok(true);
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }
+
+
+
 
     @GetMapping(value = "/user/board/community")
     public ResponseEntity getCommunityBoardList(@AuthenticationPrincipal WjUserInfo activeUser,

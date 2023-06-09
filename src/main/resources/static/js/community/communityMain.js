@@ -16,13 +16,16 @@ define(
                 uploading: false,
             }
 
+            this.detailInfo = {}
+            this.deletedPhotoIdx = []
+            this.imgFiles = []
+
 
             this.var.menuSelected = $('[name=board_type]').val()
             this.var.selectedIdx = $('[name=board_idx]').val()
             $('.init-val-remove').remove()
 
             this.menuSelectEvent()
-
 
         }
 
@@ -59,7 +62,6 @@ define(
             $selected.addClass("selected")
             this.var.$detail.find('.sub-title').text($selected.text())
 
-
             // 첫 데이터 받기
             ajaxRequests.getCommunityBoardList({
                 type: this.var.menuSelected,
@@ -90,7 +92,7 @@ define(
             _this.detailEvent()
 
             if (this.var.selectedIdx !== '') {
-                this.openDetail({board_idx: this.var.selectedIdx})
+                this.openDetail(this.var.selectedIdx)
             }
         }
 
@@ -185,8 +187,7 @@ define(
                 _this.var.uploading = true
 
                 _this.setRegisterParams(function (params) {
-                    const files = _this.var.$registerPopup.find('[name=files]')[0].files
-                    const filesArr = Array.prototype.slice.call(files)
+                    const filesArr = _this.imgFiles
                     let formData = new FormData()
                     $.each(filesArr, function(i, v){
                         formData.append("files", v);
@@ -212,34 +213,108 @@ define(
                     });
                 });
             })
+
+            $registerPopup.find("[name=files]").change(function () {
+                if($registerPopup.find('[name=category]').val() === '3') {
+                    _this.imgFiles = _this.imgFiles.concat(Array.from(this.files))
+                    _this.appendImg()
+                    $("#file-count").text("");
+                } else {
+                    _this.imgFiles = _this.imgFiles.concat(Array.from(this.files))
+                    $("#file-count").text(_this.imgFiles.length + '개 파일')
+                }
+            });
+
         }
-        CommunityMain.prototype.openRegisterPopup = function ({menu, isEdit}) {
+
+        CommunityMain.prototype.appendImg = function () {
+            const _this = this;
+            const $originalData = this.var.$registerPopup.find(".original-data")
+            $.each(_this.imgFiles, function(i, v){
+                if (!v.type.match('image.*')) {
+                    return true
+                }
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const $img = $(
+                        '<div>' +
+                        '   <img src="'+ e.target.result +'" alt="">' +
+                        '   <div class="delete">✕</div>' +
+                        '</div>'
+                    )
+                    $img.find('.delete').click(function(){
+                        _this.imgFiles.splice(i, 1)
+                        $img.remove()
+                    })
+                    $originalData.append($img)
+                }
+                reader.readAsDataURL(v);
+            })
+        }
+
+        CommunityMain.prototype.openRegisterPopup = function ({menu, isEdit, data}) {
+            const _this = this
             const $registerPopup = this.var.$registerPopup
             const $category = this.var.$registerPopup.find("[name=category]")
-            switch (menu) {
-                case "notice":
-                    $category.val("1")
-                    break
-                case "paper":
-                    $category.val("2")
-                    break;
-                case "photo":
-                    $category.val("3")
-                    break;
-                case "file":
-                    $category.val("4")
-                    break;
-                case "edit":
-                    $category.val("5")
-                    break;
+            const $originalData = this.var.$registerPopup.find(".original-data")
+            $("#file-count").text('')
+            _this.imgFiles = []
+            $registerPopup.find('.window').removeClass('photo-edit')
+            $originalData.hide()
+            $originalData.find('div').remove()
+            if (menu) {
+                switch (menu) {
+                    case "notice":
+                        $category.val("1")
+                        break
+                    case "paper":
+                        $category.val("2")
+                        break;
+                    case "photo":
+                        $category.val("3")
+                        break;
+                    case "mp3":
+                        $category.val("6")
+                        break;
+                    case "file":
+                        $category.val("4")
+                        break;
+                    case "edit":
+                        $category.val("5")
+                        break;
+                }
+            }
+            if (menu === 'photo' || menu === 'paper') {
+                $registerPopup.find('.window').addClass('photo-edit')
+                $originalData.show()
             }
 
             if (isEdit) {
                 $registerPopup.find('.register').hide()
                 $registerPopup.find('.edit').show()
+                $registerPopup.find('.window .title').text('게시물 수정')
+                _this.deletedPhotoIdx = []
+                if (menu === 'photo' || menu === 'paper') {
+                    if (data.files.length > 0) {
+                        $.each(data.files, function(i, v){
+                            const $img = $(
+                                '<div>' +
+                                '   <img src="'+ v.url +'" alt="">' +
+                                '   <div class="delete">✕</div>' +
+                                '</div>'
+                            )
+                            $img.find('.delete').click(function(){
+                                $img.remove()
+                                _this.deletedPhotoIdx.push(v.idx)
+                            })
+                            $originalData.append($img)
+                        })
+                    }
+                }
             } else {
                 $registerPopup.find('.edit').hide()
                 $registerPopup.find('.register').show()
+                $registerPopup.find('.window .title').text('게시물 등록')
             }
             $registerPopup.show()
 
@@ -251,7 +326,7 @@ define(
                 idx,
                 callback: function(json){
                     const data = json.data
-                    _this.categorySelect(data.category)
+                    // _this.categorySelect(data.category)
 
                     $registerPopup.find('[name=category]').val(data.category)
                     $registerPopup.find('[name=title]').val(data.title)
@@ -261,8 +336,7 @@ define(
                     $registerPopup.find(".edit").off()
                     $registerPopup.find(".edit").click(function(){
                         _this.setRegisterParams(function (params) {
-                            const files = _this.var.$registerPopup.find('[name=files]')[0].files
-                            const filesArr = Array.prototype.slice.call(files)
+                            const filesArr = _this.imgFiles
                             let formData = new FormData()
                             $.each(filesArr, function(i, v){
                                 formData.append("files", v);
@@ -271,18 +345,18 @@ define(
                             formData.append("category", params.category);
                             formData.append("title", params.title);
                             formData.append("content", params.content);
+                            formData.append("deleted_files", _this.deletedPhotoIdx.join(','));
 
                             ajaxRequests.editCommunityBoard(formData, function(json){
                                 alert("수정이 완료되었습니다.")
                                 $registerPopup.find(".close").click();
-                                _this.openDetail(params)
+                                _this.openDetail(idx)
                             });
                         });
                     })
-                    _this.openRegisterPopup({isEdit: true})
+                    _this.openRegisterPopup({menu: _this.var.menuSelected, isEdit: true, data: json })
                 }
             })
-            this.openRegisterPopup({isEdit: true})
         }
         CommunityMain.prototype.setRegisterParams = function (callback) {
             const params = {}
@@ -343,7 +417,7 @@ define(
 
                 $list.append($row)
                 $row.click(function(){
-                    _this.openDetail(v)
+                    _this.openDetail(v.board_idx)
                 })
             })
         }
@@ -373,7 +447,7 @@ define(
                 )
                 $thumb.find("div.row:last-child").append($row)
                 $row.click(function(){
-                    _this.openDetail(v)
+                    _this.openDetail(v.board_idx)
                 })
 
             })
@@ -395,7 +469,7 @@ define(
             //     alert("현재 수정기능은 준비중입니다. 기존 게시글 삭제 후 다시 등록해주세요.")
             // });
         }
-        CommunityMain.prototype.openDetail = function (info) {
+        CommunityMain.prototype.openDetail = function (board_idx) {
             const _this = this
             this.var.$detail.addClass("hide")
             this.var.$boardDetail.removeClass("hide")
@@ -413,7 +487,7 @@ define(
             $photos.find('div').remove()
 
             ajaxRequests.getCommunityBoard({
-                idx: info.board_idx,
+                idx: board_idx,
                 callback: function(json){
                     const data = json.data
                     $boardDetail.find(".title").text(data.title)
@@ -452,7 +526,9 @@ define(
                         $boardDetail.find(".buttons").append($delete)
 
                         $edit.click(function (){
-                            alert("현재 수정기능은 준비중입니다. 기존 게시글 삭제 후 다시 등록해주세요.")
+                            // alert('수정기능은 준비 중입니다. 기존 게시물 삭제 후 다시 등록해주세요.');
+                            _this.openEditPopup(board_idx)
+
                         })
                         $delete.click(function (){
                             if (confirm('정말 삭제하시겠습니까?')) {

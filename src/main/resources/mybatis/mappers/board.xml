@@ -69,6 +69,15 @@
         INSERT INTO board_files (board_idx, file_type, aws_file_name, origin_file_name, ord, url, thumb_url, created_date, is_deleted)
         VALUE (#{board_idx}, #{file_type}, #{aws_file_name}, #{origin_file_name}, #{ord}, #{url} ,#{thumb_url}, now(), false)
     </insert>
+    <update id="editCommunityBoard" parameterType="hashmap">
+        UPDATE wj_board
+        SET
+            category = #{category},
+            title = #{title},
+            content = #{content},
+            updated_date = now()
+        WHERE board_idx = #{board_idx}
+    </update>
     <update id="deleteCommunityBoard" parameterType="java.lang.Long">
         UPDATE wj_board board
             left join board_files files ON board.board_idx = files.board_idx
@@ -85,7 +94,7 @@
             DATE_FORMAT(created_date, '%Y-%m-%d') as date,
             DATE_FORMAT(created_date, '%Y.%m.%d %H:%i') as created_date,
             DATE_FORMAT(updated_date, '%Y.%m.%d %H:%i') as updated_date,
-            (SELECT url FROM board_files WHERE board_idx = board.board_idx AND ord = -1) as thumb_url,
+            (SELECT url FROM board_files WHERE board_idx = board.board_idx AND ord = -1 ORDER BY created_date LIMIT 1) as thumb_url,
             (select url from board_files where board_idx = board.board_idx AND is_deleted is not TRUE order by idx limit 1) as thumb
         FROM wj_board board
 
@@ -110,4 +119,21 @@
         WHERE board_idx = #{board_idx} AND is_deleted is not true and ord >= 0
         ORDER BY ord
     </select>
+
+    <select id="getFileOrd" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select ord from board_files
+        WHERE board_idx = #{board_idx}
+        ORDER BY ord desc
+        LIMIT 1
+    </select>
+    <update id="deleteFile" parameterType="list">
+        UPDATE board_files
+        SET is_deleted = TRUE
+        WHERE
+            idx IN
+        <foreach collection="list" item="idx"  open="(" close=")" separator=",">
+            ${idx}
+        </foreach>
+    </update>
 </mapper>
+
