@@ -121,29 +121,9 @@
     /*width: calc(100% - 40px);*/
     width: 100%;
 }
-#content .detail .desc.people > div > div {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#content .detail .desc.people .label {
-    width: 90px;
-    display: inline-block;
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 10px;
-}
-#content .detail .desc.people .n {
-    width: calc(100% - 90px);
-    display: inline-block;
-    font-size: .9rem;
-    color: #404040;
-    margin-bottom: 10px;
-}
 
 
 #content .mt-30,
-#content .mt-15,
 #content .mt-10 {
     margin-top: 0;
 }
@@ -164,6 +144,29 @@
 }
 
 
-.only-pc {
-    display: none !important;
+#content .detail .desc.people .list{
+
+}
+#content .detail .desc.people .list > div{
+    display: flex;
+    margin-bottom: 15px;
+}
+#content .detail .desc.people .list > div.by-2{
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+#content .detail .desc.people .list > div.by-2 > div {
+    margin-bottom: 15px;
+}
+#content .detail .desc.people .list > div .n{
+    width: calc(100% - 80px);
+}
+#content .detail .desc.people .list > div .label{
+    width: 80px;
+    color: #969696;
+}
+#content .detail .desc.people .list > div .teacher{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }

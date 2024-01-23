@@ -155,7 +155,7 @@
     height: 250px;
 }
 #content .detail.helper .helper-list .line > div > div{
-    width: 230px;
+    width: 220px;
     margin-right: 50px;
 }
 #content .detail.helper .helper-list.small .line > div > div{
@@ -166,12 +166,14 @@
     height: 260px;
     overflow: hidden;
     text-align: center;
+    border-radius: 8px;
 }
 #content .detail.helper .helper-list.small .line > div .pic{
     height: 160px;
 }
 #content .detail.helper .helper-list .line > div img{
     width: 220px;
+    border-radius: 8px;
 }
 #content .detail.helper .helper-list.small .line > div img{
     width: 120px;

@@ -219,11 +219,13 @@
     height: 200px;
     margin-left: 20px;
     margin-right: 20px;
+    border-radius: 8px;
     /*display: none;*/
 }
 #content .detail.helper .helper-list .line > div > div.pic img{
     width: 100%;
     height: 200px;
+    border-radius: 8px;
     object-fit: cover;
 }
 
