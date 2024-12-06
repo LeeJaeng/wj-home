@@ -127,13 +127,13 @@
 }
 #content .detail.head-pastor .img {
     margin-top: 30px;
-    height: 150px;
+    height: 300px;
     overflow: hidden;
     border-radius: 10px;
     text-align: center;
 }
 #content .detail.head-pastor .img img{
-    width: 150px;
+    width: 300px;
 }
 #content .detail.head-pastor .greetings {
     font-size: .9em;
@@ -220,6 +220,7 @@
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 8px;
+    background-color: #bebebe;
     /*display: none;*/
 }
 #content .detail.helper .helper-list .line > div > div.pic img{

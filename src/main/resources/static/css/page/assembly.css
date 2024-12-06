@@ -1,0 +1,160 @@
+.wrapper {
+    width: 700px;
+}
+
+/* 모바일 디바이스 */
+@media screen and (max-width: 768px) {
+    .wrapper {
+        width: 100%;
+    }
+}
+* {
+    box-sizing: border-box;
+}
+.main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    justify-content: center;
+}
+
+.main .wrapper {
+}
+
+.main .wrapper .tab {
+    display: flex;
+    border-bottom: 1px solid #eaeaea;
+}
+.main .wrapper .tab > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 60px;
+    font-size: 1.1rem;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+.main .wrapper .tab > div:hover{
+    font-weight: bold;
+    color: rgba(35, 118, 173, 1);
+}
+.main .wrapper .tab > div.selected{
+    font-weight: bold;
+    color: rgba(35, 118, 173, 1);
+    border-bottom: 2px solid rgba(35, 118, 173, 1);
+}
+
+.main.m .wrapper .content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.main .wrapper .content {
+    width: 100%;
+}
+.main .wrapper .content .hotel {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.main .wrapper .content .hotel > div > div.title{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.main .wrapper .content .hotel > div > div{
+}
+.main .wrapper .content .hotel > div > div > div:first-child {
+    font-size: 1.1rem;
+}
+.main .wrapper .content .hotel > div > div > div:first-child span{
+    color: gray;
+}
+.main .wrapper .content .hotel > div > div > div:last-child{
+    color: #696969;
+    padding-left: 10px;
+    margin-top: 8px;
+}
+.m.main .wrapper .content .hotel table {
+    width: 100%;
+}
+.main .wrapper .content .hotel table {
+    width: 700px;
+    font-size: .9rem;
+}
+.main .wrapper .content .hotel table th{
+    height: 50px;
+    font-weight: normal;
+    text-align: left;
+    border: none;
+    padding-left: 6px;
+    color: gray;
+    vertical-align: middle;
+}
+.main.m .wrapper .content .hotel table td{
+    height: 55px;
+}
+.main .wrapper .content .hotel table td{
+    height: 45px;
+    border: none;
+    padding-left: 6px;
+    padding-right: 6px;
+    vertical-align: middle;
+}
+.main.m .wrapper .content .hotel table th:first-child {
+    width: auto;
+}
+.main .wrapper .content .hotel table th:first-child{
+    width: 200px;
+}
+.main.m .wrapper .content .hotel table th:last-child{
+    width: auto;
+}
+.main .wrapper .content .hotel table th:last-child{
+    width: 180px;
+}
+.main .wrapper .content .hotel table tr:first-child {
+    border-radius: 10px 10px 0 0;
+}
+.main .wrapper .content .hotel table tr:nth-child(odd){
+    background-color: #f8f9fa;
+}
+
+
+
+.main .wrapper .content .restaurant {
+    padding-top: 40px;
+}
+.main .wrapper .content .restaurant img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.main.m .wrapper .content .way {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.main .wrapper .content .way {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+.main .wrapper .content .way > div{
+    flex: 1;
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: 1px solid rgba(35, 118, 173, 1);
+    margin-bottom: 50px;
+    text-align: center;
+}
+.main .wrapper .content .way > div span{
+    color: rgba(35, 118, 173, 1);
+
+}

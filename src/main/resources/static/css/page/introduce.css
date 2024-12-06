@@ -167,6 +167,7 @@
     overflow: hidden;
     text-align: center;
     border-radius: 8px;
+    background-color: #d3d3d3;
 }
 #content .detail.helper .helper-list.small .line > div .pic{
     height: 160px;
@@ -189,13 +190,12 @@
     text-align: center;
 }
 #content .detail.helper .helper-list .line > div .name{
-    padding: 12px 0 4px 12px;
+    padding: 12px 0 4px 2px;
     font-size: 1.15rem;
-    font-weight: bold;
     color: #2f2f2f;
 }
 #content .detail.helper .helper-list .line > div .job{
-    padding-left: 12px;
+    padding-left: 2px;
     margin-bottom: 4px;
     font-size: .9rem;
     color: #aaa;
@@ -204,13 +204,13 @@
     padding-top: 6px;
     font-size: .9rem;
     color: #555;
-    padding-left: 12px;
+    padding-left: 2px;
 }
 #content .detail.helper .helper-list .line > div .tel{
     padding-top: 3px;
     font-size: .9rem;
     color: #555;
-    padding-left: 12px;
+    padding-left: 2px;
 }
 #content .detail.helper .helper-list .line > div i {
     color: rgba(35, 118, 173, 1);
@@ -282,19 +282,17 @@
 }
 #content .detail.head-pastor .img {
     position: absolute;
-    top: 120px;
-    right: 80px;
-    width: 220px;
-    height: 250px;
+    top: 60px;
+    right: 70px;
+    width: 300px;
     overflow: hidden;
-    border-radius: 100%;
 }
 #content .detail.head-pastor .img img{
-    width: 220px;
+    width: 100%;
 }
 #content .detail.head-pastor .greetings {
     font-size: .98em;
-    line-height: 1.5em;
+    line-height: 28px;
     margin-top: 10px;
     margin-bottom: 80px;
 }
@@ -306,7 +304,7 @@
     display: inline-block;
     font-size: 1.2em;
     color: rgba(15, 17, 119, 0.8);
-    margin: 8px 0 8px 0;
+    margin: 16px 0 16px 0;
 }
 
 #content .detail.head-pastor .greetings .signature {

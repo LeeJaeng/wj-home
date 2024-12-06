@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/m_default_layout">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/page/assembly.css}" >
+</th:block>
+
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <script type="text/javascript"
+            th:src="@{'/js/require/require.min.js'}"
+            th:attr="data-main=@{/js/assembly/assemblyInit.js}">
+    </script>
+</th:block>
+<div id="content" class="main m" layout:fragment="content">
+    <div class="wrapper">
+        <div class="tab">
+            <div class="menu hotel">울산 호텔</div>
+            <div class="menu restaurant">주변 맛집</div>
+            <div class="menu way">찾아오는 길</div>
+        </div>
+        <div class="content">
+            <div style="display: none" class="item hotel">
+                <div>
+                    <div class="title">
+                        프리미엄
+                    </div>
+                    <table>
+                        <tr>
+                            <th>이름</th>
+                            <th>주소</th>
+                            <th>거리</th>
+                        </tr>
+                        <tr>
+                            <td>롯데 호텔 울산점</td>
+                            <td>남구 삼산로 282</td>
+                            <td>11분(4.1km)</td>
+                        </tr>
+                        <tr>
+                            <td>롯데시티 호텔</td>
+                            <td>남구 삼산로 204</td>
+                            <td>15분(5.6km)</td>
+                        </tr>
+                        <tr>
+                            <td>르 이데아 호텔</td>
+                            <td>남구 정동로 76번길 22</td>
+                            <td>10분(3.5km)</td>
+                        </tr>
+                        <tr>
+                            <td>신라 스테이</td>
+                            <td>남구 삼산로 200</td>
+                            <td>15분(5km)</td>
+                        </tr>
+                        <tr>
+                            <td>호텔 다움</td>
+                            <td>중구 번영로 538</td>
+                            <td>10분(2.9km)</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <div class="title">
+                        비즈니스
+                    </div>
+                    <table>
+                        <tr>
+                            <th>이름</th>
+                            <th>주소</th>
+                            <th>거리</th>
+                        </tr>
+                        <tr>
+                            <td>토요코인</td>
+                            <td>남구 삼산로 308</td>
+                            <td>11분(4km)</td>
+                        </tr>
+                        <tr>
+                            <td>울산 애쉬튼 호텔</td>
+                            <td>남구 중앙로 213번길 8</td>
+                            <td>17분(6.8km)</td>
+                        </tr>
+                        <tr>
+                            <td>울산 시티 호텔</td>
+                            <td>남구 삼산로 246</td>
+                            <td>12분(4.6km)</td>
+                        </tr>
+                        <tr>
+                            <td>스타즈 호텔 울산점</td>
+                            <td>남구 남중로 65</td>
+                            <td>8분(3.9km)</td>
+                        </tr>
+                        <tr>
+                            <td>호텔 리버사이드</td>
+                            <td>중구 젊음의 거리 20</td>
+                            <td>14분(4.6km)</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <div class="title">
+                        모텔급
+                    </div>
+                    <table>
+                        <tr>
+                            <th>이름</th>
+                            <th>주소</th>
+                            <th>거리</th>
+                        </tr>
+                        <tr>
+                            <td>울산 커스텀 호텔</td>
+                            <td>남구 삼산로 383번길 6-10</td>
+                            <td>8분(3.2km)</td>
+                        </tr>
+                        <tr>
+                            <td>호텔 여우비</td>
+                            <td>남구 산업로 647번길 14</td>
+                            <td>9분(3.4km)</td>
+                        </tr>
+                        <tr>
+                            <td>H 호텔</td>
+                            <td>남구 화합로 178번길 7</td>
+                            <td>10분(3.9km)</td>
+                        </tr>
+                        <tr>
+                            <td>브라운 도트 호텔 삼산점</td>
+                            <td>남구 삼산로 383번길 6-17</td>
+                            <td>8분(3km)</td>
+                        </tr>
+                        <tr>
+                            <td>호텔 루바토</td>
+                            <td>중구 학성로 228-10</td>
+                            <td>8분(2.5km)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div style="display: none" class="item restaurant">
+                <img th:src="@{/img/assembly/res-1.jpeg}" alt="">
+                <img th:src="@{/img/assembly/res-2.jpeg}" alt="">
+                <img th:src="@{/img/assembly/res-3.jpeg}" alt="">
+                <img th:src="@{/img/assembly/res-4.jpeg}" alt="">
+                <img th:src="@{/img/assembly/res-5.jpeg}" alt="">
+                <img th:src="@{/img/assembly/res-6.jpeg}" alt="">
+            </div>
+            <div style="display: none" class="item way">
+                <div class="station">
+                    <span>울산역</span>에서
+                    <br>오는 방법 ＞
+                </div>
+                <div class="airport">
+                    <span>울산공항</span>에서
+                    <br>오는 방법 ＞
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</html>

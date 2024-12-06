@@ -42,8 +42,14 @@ define(['common/userInfo', 'common/header', 'common/gVar'], function(userInfo, h
         $mainMenu.find(".menu-list").find(".menu").click(function(){
             var value = $(this).data('value')
 
+
             $(this).siblings().removeClass('selected')
             $(this).addClass("selected")
+
+            if (value === 'assembly') {
+                window.location.href = '/m/assembly';
+                return false;
+            }
 
             $mainMenu.find(".menu-list-detail").find('.column').addClass('hide')
             $mainMenu.find(".menu-list-detail").find('.column.' + value).removeClass('hide')

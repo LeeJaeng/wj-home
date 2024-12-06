@@ -164,6 +164,19 @@ public class WebController {
     }
 
 
+    @GetMapping("/assembly")
+    public ModelAndView assembly() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("page/assembly");
+        return modelAndView;
+    }
+    @GetMapping("/m/assembly")
+    public ModelAndView assemblyM() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("page/m/m_assembly");
+        return modelAndView;
+    }
+
 
 
     @GetMapping("/hidden/prayer/{group_key}")
@@ -179,4 +192,9 @@ public class WebController {
 
         return modelAndView;
     }
+
+
+
+
 }
+
