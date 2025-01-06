@@ -80,10 +80,9 @@
 #content .detail .title-desc {
     font-weight: bold;
     /*text-align: center;*/
-    height: 45px;
-    line-height: 45px;
+    line-height: 35px;
     /*color: rgba(35, 118, 173, 1);*/
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     /*color: rgba(15, 17, 119, 0.8);*/
     color: rgba(35, 118, 173, 1)
 }
@@ -124,7 +123,7 @@
     flex: 1;
 }
 #content .detail .desc.people .list > div .label{
-    width: 80px;
+    width: 120px;
     color: #969696;
 }
 #content .detail .desc.people .list > div .teacher{

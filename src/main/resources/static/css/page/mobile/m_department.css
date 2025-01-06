@@ -82,8 +82,7 @@
 }
 #content .detail .title-desc {
     font-weight: bold;
-    height: 45px;
-    line-height: 45px;
+    line-height: 35px;
     font-size: 1.1rem;
     color: rgba(35, 118, 173, 1);
     margin-bottom: 30px;
@@ -159,10 +158,10 @@
     margin-bottom: 15px;
 }
 #content .detail .desc.people .list > div .n{
-    width: calc(100% - 80px);
+    width: calc(100% - 100px);
 }
 #content .detail .desc.people .list > div .label{
-    width: 80px;
+    width: 100px;
     color: #969696;
 }
 #content .detail .desc.people .list > div .teacher{
