@@ -35,25 +35,29 @@ public class WjUserService implements UserDetailsService {
 
 
         wjUserInfo.setUser_idx(userVo.getUser_idx());
+        wjUserInfo.setUser_id(userVo.getUser_id());
         wjUserInfo.setUser_phone(userVo.getUser_phone());
         wjUserInfo.setUser_name(userVo.getUser_name());
+        wjUserInfo.setUser_email(userVo.getUser_email());
         wjUserInfo.setUser_salt(userVo.getUser_salt());
         wjUserInfo.setUser_hash(userVo.getUser_hash());
         authorities.add(new SimpleGrantedAuthority("USER"));
         Integer auth = accountDao.getUserAuth(userVo.getUser_idx());
-        switch (auth) {
-            case 1:
-                wjUserInfo.setAdmin(true);
-                authorities.add(new SimpleGrantedAuthority("ADMIN"));
-                break;
-            case 2:
-                wjUserInfo.setManager(true);
-                authorities.add(new SimpleGrantedAuthority("MANAGER"));
-                break;
-            case 3:
-                wjUserInfo.setPraise(true);
-                authorities.add(new SimpleGrantedAuthority("PRAISE"));
-                break;
+        if (auth != null) {
+            switch (auth) {
+                case 1:
+                    wjUserInfo.setAdmin(true);
+                    authorities.add(new SimpleGrantedAuthority("ADMIN"));
+                    break;
+                case 2:
+                    wjUserInfo.setManager(true);
+                    authorities.add(new SimpleGrantedAuthority("MANAGER"));
+                    break;
+                case 3:
+                    wjUserInfo.setPraise(true);
+                    authorities.add(new SimpleGrantedAuthority("PRAISE"));
+                    break;
+            }
         }
 
         wjUserInfo.setAuthorities(authorities);

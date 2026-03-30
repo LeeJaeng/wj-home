@@ -13,4 +13,5 @@ public class WorshipBoardListDTO {
     private Long my_user_idx;
 
     private String query;
+    private String host_name;
 }

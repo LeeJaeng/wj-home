@@ -344,6 +344,93 @@ public class BoardService {
         return retMap;
     }
 
+    // =============================
+    // 비로그인 공개 API용 메서드
+    // =============================
+
+    public Map<String, Object> getWorshipBoardListPublic(String type, String host, Integer page, Boolean init) {
+        Map<String, Object> retMap = new HashMap<>();
+        WorshipBoardListDTO dto = new WorshipBoardListDTO();
+
+        dto.setMy_user_idx(0L);
+        dto.setPage(page);
+        dto.setStart((dto.getPage() - 1) * CNT_PER_PAGE);
+        dto.setCnt(CNT_PER_PAGE);
+
+        if (host != null && !host.isEmpty()) {
+            dto.setQuery("");
+            dto.setHost_name(host);
+        } else {
+            dto.setType(type != null ? type : "all");
+            switch (dto.getType()) {
+                case "head-pastor": dto.setQuery("AND category = 1 "); break;
+                case "old-pastor":  dto.setQuery("AND category = 5 "); break;
+                case "sub-pastor":  dto.setQuery("AND category = 2 "); break;
+                case "sunday":    dto.setQuery("AND category = 3 AND worship_type IN ('sun1', 'sun2', 'sun3', 'sun4') "); break;
+                case "friday":    dto.setQuery("AND category = 3 AND worship_type = 'fri' "); break;
+                case "wednesday": dto.setQuery("AND category = 3 AND worship_type IN ('wed1', 'wed2') "); break;
+                case "dawn":      dto.setQuery("AND category = 3 AND worship_type = 'dawn' "); break;
+                case "praise":    dto.setQuery("AND category = 4 "); break;
+                case "etc":       dto.setQuery("AND category = 3 AND worship_type = 'etc' "); break;
+                default:          dto.setQuery(""); break;
+            }
+        }
+
+        retMap.put("list", boardDao.getWorshipBoardList(dto));
+
+        if (init) {
+            WorshipBoardListPaging paging = new WorshipBoardListPaging();
+            paging.setCurPage(1);
+            paging.setCntPerPage(CNT_PER_PAGE);
+            paging.setTotalCnt(boardDao.foundRows());
+            retMap.put("paging", paging);
+        }
+        return retMap;
+    }
+
+    public List<String> getWorshipPreachersPublic() {
+        return boardDao.getWorshipPreachers();
+    }
+
+    public Map<String, Object> getWorshipBoardPublic(Long idx) {
+        return getWorshipBoard(0L, idx);
+    }
+
+    public Map<String, Object> getCommunityBoardListPublic(String type, Integer page, Boolean init) {
+        Map<String, Object> retMap = new HashMap<>();
+        CommunityBoardListDTO dto = new CommunityBoardListDTO();
+
+        dto.setMy_user_idx(0L);
+        dto.setType(type);
+        dto.setPage(page);
+        dto.setStart((dto.getPage() - 1) * CNT_PER_PAGE);
+        dto.setCnt(CNT_PER_PAGE);
+
+        switch (dto.getType()) {
+            case "notice": dto.setQuery("AND category = 1 "); break;
+            case "paper": dto.setQuery("AND category = 2 "); break;
+            case "photo": dto.setQuery("AND category = 3 "); break;
+            case "file": dto.setQuery("AND category = 4 "); break;
+            case "edit": dto.setQuery("AND category = 5 "); break;
+            case "mp3": dto.setQuery("AND category = 6 "); break;
+        }
+
+        retMap.put("list", boardDao.getCommunityBoardList(dto));
+
+        if (init) {
+            CommunityBoardListPaging paging = new CommunityBoardListPaging();
+            paging.setCurPage(1);
+            paging.setCntPerPage(CNT_PER_PAGE);
+            paging.setTotalCnt(boardDao.foundRows());
+            retMap.put("paging", paging);
+        }
+        return retMap;
+    }
+
+    public Map<String, Object> getCommunityBoardPublic(Long idx) {
+        return getCommunityBoard(0L, idx);
+    }
+
     public boolean deleteCommunityBoard(Long board_idx) {
         boardDao.deleteCommunityBoard(board_idx);
         return true;

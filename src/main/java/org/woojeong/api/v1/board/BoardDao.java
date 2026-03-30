@@ -35,6 +35,9 @@ public class BoardDao {
     public List<WorshipBoardVo> getWorshipBoardList (WorshipBoardListDTO dto) {
         return sqlSessionTemplate.selectList("org.mybatis.example.board.getWorshipBoardList", dto);
     }
+    public List<String> getWorshipPreachers () {
+        return sqlSessionTemplate.selectList("org.mybatis.example.board.getWorshipPreachers");
+    }
     public WorshipBoardVo getWorshipBoard (Map<String, Object> params) {
         return sqlSessionTemplate.selectOne("org.mybatis.example.board.getWorshipBoard", params);
     }

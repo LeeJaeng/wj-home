@@ -15,6 +15,25 @@
         ORDER BY hist_year desc, hist_month desc, hist_day_from
     </select>
 
+    <select id="getAllBanners" resultType="hashmap">
+        SELECT * FROM main_banner_img ORDER BY ord
+    </select>
 
+    <insert id="insertBanner" parameterType="hashmap">
+        INSERT INTO main_banner_img (url, is_valid, ord)
+        VALUES (#{url}, true, (SELECT COALESCE(MAX(b.ord), 0) + 1 FROM main_banner_img b))
+    </insert>
+
+    <update id="updateBannerOrder" parameterType="hashmap">
+        UPDATE main_banner_img SET ord = #{ord} WHERE idx = #{idx}
+    </update>
+
+    <update id="toggleBannerValid" parameterType="java.lang.Long">
+        UPDATE main_banner_img SET is_valid = NOT is_valid WHERE idx = #{idx}
+    </update>
+
+    <delete id="deleteBanner" parameterType="java.lang.Long">
+        DELETE FROM main_banner_img WHERE idx = #{idx}
+    </delete>
 
 </mapper>

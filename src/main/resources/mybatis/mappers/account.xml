@@ -23,4 +23,39 @@
         WHERE user_idx = #{userIdx}
     </select>
 
+    <insert id="insertUserWithAuth" parameterType="wjUserVo" useGeneratedKeys="true" keyProperty="user_idx">
+        INSERT INTO wj_user (user_name, user_id, user_hash, user_salt, user_email, user_phone, cdate)
+        VALUES (#{user_name}, #{user_id}, #{user_hash}, #{user_salt}, #{user_email}, #{user_phone}, now())
+    </insert>
+
+    <insert id="insertUserAuth" parameterType="hashmap">
+        INSERT INTO wj_user_auth (user_idx, auth)
+        VALUES (#{user_idx}, #{auth})
+        ON DUPLICATE KEY UPDATE auth = #{auth}
+    </insert>
+
+    <select id="getUserList" resultType="hashmap">
+        SELECT u.user_idx, u.user_id, u.user_name, u.user_email, u.user_phone, u.cdate,
+               COALESCE(a.auth, 0) as auth
+        FROM wj_user u
+        LEFT JOIN wj_user_auth a ON u.user_idx = a.user_idx
+        ORDER BY u.user_idx DESC
+    </select>
+
+    <update id="updateUserAuth" parameterType="hashmap">
+        INSERT INTO wj_user_auth (user_idx, auth)
+        VALUES (#{user_idx}, #{auth})
+        ON DUPLICATE KEY UPDATE auth = #{auth}
+    </update>
+
+    <update id="updateUserPassword" parameterType="wjUserVo">
+        UPDATE wj_user
+        SET user_hash = #{user_hash}, user_salt = #{user_salt}
+        WHERE user_idx = #{user_idx}
+    </update>
+
+    <delete id="deleteUser" parameterType="java.lang.Long">
+        DELETE FROM wj_user WHERE user_idx = #{userIdx}
+    </delete>
+
 </mapper>

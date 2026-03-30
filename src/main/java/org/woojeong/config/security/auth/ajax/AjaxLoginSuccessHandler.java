@@ -44,9 +44,21 @@ public class AjaxLoginSuccessHandler implements AuthenticationSuccessHandler {
         JwtToken accessToken = tokenFactory.createAccessJwtToken(userInfo);
         JwtToken refreshToken = tokenFactory.createRefreshToken(userInfo);
         
-        Map<String, String> tokenMap = new HashMap<String, String>();
-        tokenMap.put("token", accessToken.getToken());
-        tokenMap.put("refreshToken", refreshToken.getToken());
+        // 권한 중 최상위 role 결정
+        String role = "USER";
+        for (org.springframework.security.core.GrantedAuthority auth : userInfo.getAuthorities()) {
+            if ("ADMIN".equals(auth.getAuthority())) { role = "ADMIN"; break; }
+            if ("MANAGER".equals(auth.getAuthority())) { role = "MANAGER"; }
+        }
+
+        Map<String, Object> tokenMap = new HashMap<>();
+        tokenMap.put("access_token", accessToken.getToken());
+        tokenMap.put("refresh_token", refreshToken.getToken());
+        tokenMap.put("user_idx", userInfo.getUser_idx());
+        tokenMap.put("user_id", userInfo.getUser_id());
+        tokenMap.put("user_name", userInfo.getUser_name());
+        tokenMap.put("user_email", userInfo.getUser_email());
+        tokenMap.put("role", role);
 
         response.setStatus(HttpStatus.OK.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);

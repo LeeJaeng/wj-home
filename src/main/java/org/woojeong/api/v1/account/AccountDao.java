@@ -25,5 +25,27 @@ public class AccountDao {
         return sqlSessionTemplate.selectOne("org.mybatis.example.account.getUserAuth", userIdx);
     }
 
+    public int insertUserWithAuth (WjUserVo userVo) {
+        return sqlSessionTemplate.insert("org.mybatis.example.account.insertUserWithAuth", userVo);
+    }
 
+    public int insertUserAuth (java.util.Map<String, Object> params) {
+        return sqlSessionTemplate.insert("org.mybatis.example.account.insertUserAuth", params);
+    }
+
+    public java.util.List<java.util.Map<String, Object>> getUserList () {
+        return sqlSessionTemplate.selectList("org.mybatis.example.account.getUserList");
+    }
+
+    public int updateUserAuth (java.util.Map<String, Object> params) {
+        return sqlSessionTemplate.update("org.mybatis.example.account.updateUserAuth", params);
+    }
+
+    public int updateUserPassword (WjUserVo userVo) {
+        return sqlSessionTemplate.update("org.mybatis.example.account.updateUserPassword", userVo);
+    }
+
+    public int deleteUser (Long userIdx) {
+        return sqlSessionTemplate.delete("org.mybatis.example.account.deleteUser", userIdx);
+    }
 }

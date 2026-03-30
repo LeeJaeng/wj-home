@@ -41,8 +41,18 @@
         FROM wj_board_worship
         WHERE is_deleted is NOT TRUE
             ${query}
+            <if test="host_name != null and host_name != ''">
+                AND host_name = #{host_name}
+            </if>
         ORDER BY worship_date desc, worship_type desc
         LIMIT #{start}, #{cnt}
+    </select>
+
+    <select id="getWorshipPreachers" resultType="java.lang.String">
+        SELECT DISTINCT host_name
+        FROM wj_board_worship
+        WHERE is_deleted IS NOT TRUE AND host_name IS NOT NULL AND host_name != ''
+        ORDER BY host_name
     </select>
     <select id="getWorshipBoard" parameterType="worshipBoardListDTO" resultType="worshipBoardVo">
         SELECT

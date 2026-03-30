@@ -143,7 +143,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .cors()
                 .and()
-                .addFilterBefore(buildJwtTokenAuthenticationProcessingFilter("/api/v*/user/**"), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(buildJwtTokenAuthenticationProcessingFilter("/api/v*/user/**"), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(buildJwtTokenAuthenticationProcessingFilter("/api/v*/user/admin/**"), UsernamePasswordAuthenticationFilter.class);
 
     }
 
@@ -162,18 +163,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(
-                "http://wjhome-env.eba-x82zpk3p.ap-northeast-2.elasticbeanstalk.com/",
+                // 운영 도메인
+                "https://woojeong.or.kr",
+                "https://www.woojeong.or.kr",
+                // Vercel 배포 도메인 (실제 프로젝트명 확정 후 업데이트 필요)
+                "https://woojeong.vercel.app",
+                "https://wj-front.vercel.app",
+                // 기존 EB 직접 접근 (전환 기간 유지)
                 "http://woojeong.or.kr",
-                "https://wjhome-env.eba-x82zpk3p.ap-northeast-2.elasticbeanstalk.com/",
-                "https://woojeong.or.kr"
-//                "https://checking-frontend.ddhouse.co.kr",
-//                "https://checking-frontend-test.ddhouse.co.kr",
-//                "https://checking-frontend-quick-test.ddhouse.co.kr",
-//                "https://drm.ddhouse.co.kr",
-//                "https://office.ddhouse.co.kr",
-//                "http://127.0.0.1:3000",
-//                "http://127.0.0.1:8081",
-//                "http://ssc.portfolio1000.com"
+                "http://wjhome-env.eba-x82zpk3p.ap-northeast-2.elasticbeanstalk.com",
+                // 로컬 개발
+                "http://localhost:3000",
+                "http://127.0.0.1:3000"
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE"));
         configuration.addAllowedHeader("*");
