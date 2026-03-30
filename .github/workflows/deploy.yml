@@ -29,7 +29,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           region: ap-northeast-2
-          application_name: wjhome
+          application_name: wj-home
           environment_name: wjhome-env
           version_label: ${{ github.sha }}
           deployment_package: build/libs/WjHomepage-1.0-SNAPSHOT.jar
