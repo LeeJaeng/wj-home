@@ -105,7 +105,8 @@
             DATE_FORMAT(created_date, '%Y.%m.%d %H:%i') as created_date,
             DATE_FORMAT(updated_date, '%Y.%m.%d %H:%i') as updated_date,
             (SELECT url FROM board_files WHERE board_idx = board.board_idx AND ord = -1 ORDER BY created_date LIMIT 1) as thumb_url,
-            (select url from board_files where board_idx = board.board_idx AND is_deleted is not TRUE order by idx limit 1) as thumb
+            (SELECT url FROM board_files WHERE board_idx = board.board_idx AND is_deleted IS NOT TRUE ORDER BY idx LIMIT 1) as thumb,
+            (SELECT COUNT(*) FROM board_files WHERE board_idx = board.board_idx AND is_deleted IS NOT TRUE AND ord >= 0) as file_cnt
         FROM wj_board board
 
         WHERE board.is_deleted is NOT TRUE ${query}
