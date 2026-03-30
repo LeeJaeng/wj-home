@@ -166,9 +166,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // 운영 도메인
                 "https://woojeong.or.kr",
                 "https://www.woojeong.or.kr",
-                // Vercel 배포 도메인 (실제 프로젝트명 확정 후 업데이트 필요)
-                "https://woojeong.vercel.app",
-                "https://wj-front.vercel.app",
+                // Vercel 배포 도메인
+                "https://wj-front-9dru3glkn-jeansvvv-8398s-projects.vercel.app",
                 // 기존 EB 직접 접근 (전환 기간 유지)
                 "http://woojeong.or.kr",
                 "http://wjhome-env.eba-x82zpk3p.ap-northeast-2.elasticbeanstalk.com",
