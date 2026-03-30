@@ -372,6 +372,7 @@ public class BoardService {
                 case "dawn":      dto.setQuery("AND category = 3 AND worship_type = 'dawn' "); break;
                 case "praise":    dto.setQuery("AND category = 4 "); break;
                 case "etc":       dto.setQuery("AND category = 3 AND worship_type = 'etc' "); break;
+                case "home-sermon": dto.setQuery("AND category = 1 AND worship_type = 'sun3' "); dto.setCnt(5); break;
                 default:          dto.setQuery(""); break;
             }
         }
