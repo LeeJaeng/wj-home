@@ -36,4 +36,189 @@
         DELETE FROM main_banner_img WHERE idx = #{idx}
     </delete>
 
+    <!-- ===== 섬기는 사람들 (wj_staff) ===== -->
+    <select id="getStaff" resultType="hashmap">
+        SELECT idx, category, category_ord, name, photo_url, job, phone, email, sort_order
+        FROM wj_staff
+        WHERE is_active = 1
+        ORDER BY category_ord, sort_order
+    </select>
+
+    <insert id="insertStaff" parameterType="hashmap">
+        INSERT INTO wj_staff (category, category_ord, name, photo_url, job, phone, email, sort_order, is_active, cdate)
+        VALUES (#{category}, #{category_ord,jdbcType=INTEGER}, #{name},
+                #{photo_url,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR},
+                #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+                #{sort_order,jdbcType=INTEGER}, 1, NOW())
+    </insert>
+
+    <update id="updateStaff" parameterType="hashmap">
+        UPDATE wj_staff
+        SET category    = #{category},
+            category_ord = #{category_ord,jdbcType=INTEGER},
+            name         = #{name},
+            job          = #{job,jdbcType=VARCHAR},
+            phone        = #{phone,jdbcType=VARCHAR},
+            email        = #{email,jdbcType=VARCHAR},
+            sort_order   = #{sort_order,jdbcType=INTEGER}
+            <if test="photo_url != null">, photo_url = #{photo_url}</if>
+        WHERE idx = #{idx}
+    </update>
+
+    <update id="deleteStaffSoft" parameterType="long">
+        UPDATE wj_staff SET is_active = 0 WHERE idx = #{idx}
+    </update>
+
+    <update id="updateStaffSortOrder" parameterType="hashmap">
+        UPDATE wj_staff SET sort_order = #{sort_order} WHERE idx = #{idx}
+    </update>
+
+    <update id="updateCategoryOrd" parameterType="hashmap">
+        UPDATE wj_staff SET category_ord = #{category_ord} WHERE category = #{category} AND is_active = 1
+    </update>
+
+    <update id="renameCategory" parameterType="hashmap">
+        UPDATE wj_staff SET category = #{new_category} WHERE category = #{old_category} AND is_active = 1
+    </update>
+
+    <!-- ===== 교육부서 (wj_department) ===== -->
+    <select id="getDepartmentList" resultType="hashmap">
+        SELECT dept_key, name, sort_order
+        FROM wj_department
+        WHERE is_active = 1
+        ORDER BY sort_order
+    </select>
+
+    <select id="getDepartment" resultType="hashmap" parameterType="string">
+        SELECT dept_key, name, verse_title, verse, verse_ref, description, goals,
+               worship_time, worship_place, image_url
+        FROM wj_department
+        WHERE dept_key = #{deptKey} AND is_active = 1
+    </select>
+
+    <update id="updateDepartment" parameterType="hashmap">
+        UPDATE wj_department
+        SET worship_time  = #{worship_time,jdbcType=VARCHAR},
+            worship_place = #{worship_place,jdbcType=VARCHAR}
+        WHERE dept_key = #{dept_key}
+    </update>
+
+    <!-- 부서별 섬기는 사람 -->
+    <select id="getDepartmentStaff" resultType="hashmap" parameterType="string">
+        SELECT idx, role, name, sort_order
+        FROM wj_department_staff
+        WHERE dept_key = #{deptKey}
+        ORDER BY sort_order
+    </select>
+
+    <insert id="insertDepartmentStaff" parameterType="hashmap">
+        INSERT INTO wj_department_staff (dept_key, role, name, sort_order)
+        VALUES (#{dept_key}, #{role,jdbcType=VARCHAR}, #{name}, COALESCE(#{sort_order,jdbcType=INTEGER}, 0))
+    </insert>
+
+    <update id="updateDepartmentStaff" parameterType="hashmap">
+        UPDATE wj_department_staff
+        SET role = #{role,jdbcType=VARCHAR}, name = #{name}, sort_order = #{sort_order,jdbcType=INTEGER}
+        WHERE idx = #{idx}
+    </update>
+
+    <delete id="deleteDepartmentStaff" parameterType="long">
+        DELETE FROM wj_department_staff WHERE idx = #{idx}
+    </delete>
+
+    <!-- 부서별 교사/목자 -->
+    <select id="getDepartmentTeachers" resultType="hashmap" parameterType="string">
+        SELECT idx, label, name, sort_order
+        FROM wj_department_teacher
+        WHERE dept_key = #{deptKey}
+        ORDER BY sort_order
+    </select>
+
+    <insert id="insertDepartmentTeacher" parameterType="hashmap">
+        INSERT INTO wj_department_teacher (dept_key, label, name, sort_order)
+        VALUES (#{dept_key}, COALESCE(#{label,jdbcType=VARCHAR}, '교사'), #{name}, COALESCE(#{sort_order,jdbcType=INTEGER}, 0))
+    </insert>
+
+    <update id="updateDepartmentTeacher" parameterType="hashmap">
+        UPDATE wj_department_teacher
+        SET label = #{label,jdbcType=VARCHAR}, name = #{name}, sort_order = #{sort_order,jdbcType=INTEGER}
+        WHERE idx = #{idx}
+    </update>
+
+    <delete id="deleteDepartmentTeacher" parameterType="long">
+        DELETE FROM wj_department_teacher WHERE idx = #{idx}
+    </delete>
+
+    <update id="updateDepartmentStaffSort" parameterType="hashmap">
+        UPDATE wj_department_staff SET sort_order = #{sort_order} WHERE idx = #{idx}
+    </update>
+
+    <update id="updateDepartmentTeacherSort" parameterType="hashmap">
+        UPDATE wj_department_teacher SET sort_order = #{sort_order} WHERE idx = #{idx}
+    </update>
+
+    <!-- 부서 콘텐츠 섹션 -->
+    <select id="getDepartmentSections" resultType="hashmap" parameterType="string">
+        SELECT idx, title, content, sort_order
+        FROM wj_department_section
+        WHERE dept_key = #{deptKey}
+        ORDER BY sort_order
+    </select>
+
+    <insert id="insertDepartmentSection" parameterType="hashmap" useGeneratedKeys="true" keyProperty="idx">
+        INSERT INTO wj_department_section (dept_key, title, content, sort_order, cdate)
+        VALUES (#{dept_key}, #{title}, #{content,jdbcType=LONGVARCHAR},
+                COALESCE(#{sort_order,jdbcType=INTEGER}, 0), NOW())
+    </insert>
+
+    <update id="updateDepartmentSection" parameterType="hashmap">
+        UPDATE wj_department_section
+        SET title = #{title}, content = #{content,jdbcType=LONGVARCHAR}
+        WHERE idx = #{idx}
+    </update>
+
+    <delete id="deleteDepartmentSection" parameterType="long">
+        DELETE FROM wj_department_section WHERE idx = #{idx}
+    </delete>
+
+    <update id="updateDepartmentSectionSort" parameterType="hashmap">
+        UPDATE wj_department_section SET sort_order = #{sort_order} WHERE idx = #{idx}
+    </update>
+
+    <!-- 부서 등록/수정/삭제 -->
+    <insert id="insertDepartment" parameterType="hashmap">
+        INSERT INTO wj_department (dept_key, name, sort_order, is_active)
+        VALUES (#{dept_key}, #{name},
+                COALESCE((SELECT MAX(d.sort_order) FROM wj_department d), -1) + 1, 1)
+    </insert>
+
+    <update id="updateDepartmentMeta" parameterType="hashmap">
+        UPDATE wj_department SET name = #{name}, sort_order = #{sort_order} WHERE dept_key = #{dept_key}
+    </update>
+
+    <update id="deleteDepartmentSoft" parameterType="string">
+        UPDATE wj_department SET is_active = 0 WHERE dept_key = #{dept_key}
+    </update>
+
+    <!-- 부서 이미지 -->
+    <select id="getDepartmentImages" resultType="hashmap" parameterType="string">
+        SELECT idx, url, sort_order
+        FROM wj_department_image
+        WHERE dept_key = #{deptKey}
+        ORDER BY sort_order
+    </select>
+
+    <insert id="insertDepartmentImage" parameterType="hashmap" useGeneratedKeys="true" keyProperty="idx">
+        INSERT INTO wj_department_image (dept_key, url, sort_order, cdate)
+        VALUES (#{dept_key}, #{url}, #{sort_order,jdbcType=INTEGER}, NOW())
+    </insert>
+
+    <delete id="deleteDepartmentImage" parameterType="long">
+        DELETE FROM wj_department_image WHERE idx = #{idx}
+    </delete>
+
+    <update id="updateDepartmentImageSort" parameterType="hashmap">
+        UPDATE wj_department_image SET sort_order = #{sort_order} WHERE idx = #{idx}
+    </update>
+
 </mapper>
