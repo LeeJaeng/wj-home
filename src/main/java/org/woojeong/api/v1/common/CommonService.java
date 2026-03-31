@@ -114,7 +114,7 @@ public class CommonService {
         return result;
     }
 
-    @CacheEvict("staff")
+    @CacheEvict(value = "staff", allEntries = true)
     public boolean insertStaff (Map<String, Object> params, MultipartFile photo) throws Exception {
         if (photo != null && !photo.isEmpty()) {
             String rand = RandomStringUtils.random(8, "0123456789abcdefghijklmnopqrstuvwxyz");
@@ -124,7 +124,7 @@ public class CommonService {
         return dao.insertStaff(params) > 0;
     }
 
-    @CacheEvict("staff")
+    @CacheEvict(value = "staff", allEntries = true)
     public boolean updateStaff (Map<String, Object> params, MultipartFile photo) throws Exception {
         if (photo != null && !photo.isEmpty()) {
             String rand = RandomStringUtils.random(8, "0123456789abcdefghijklmnopqrstuvwxyz");
@@ -134,19 +134,19 @@ public class CommonService {
         return dao.updateStaff(params) > 0;
     }
 
-    @CacheEvict("staff")
+    @CacheEvict(value = "staff", allEntries = true)
     public boolean deleteStaff (Long idx) {
         return dao.deleteStaffSoft(idx) > 0;
     }
 
-    @CacheEvict("staff")
+    @CacheEvict(value = "staff", allEntries = true)
     public void reorderStaff (List<Map<String, Object>> items) {
         for (Map<String, Object> item : items) {
             dao.updateStaffSortOrder(item);
         }
     }
 
-    @CacheEvict("staff")
+    @CacheEvict(value = "staff", allEntries = true)
     public void reorderCategories (List<Map<String, Object>> categories) {
         for (Map<String, Object> cat : categories) {
             dao.updateCategoryOrd(cat);
