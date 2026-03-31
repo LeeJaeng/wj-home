@@ -21,6 +21,7 @@ logging:
   level:
     org.springframework.boot: info
     org.mybatis.example: info
+    p6spy: off
 
 token:
   expiration-time: 14400
