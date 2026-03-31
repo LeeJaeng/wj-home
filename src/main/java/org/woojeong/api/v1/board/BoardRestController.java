@@ -90,7 +90,7 @@ public class BoardRestController {
                                                  @RequestParam(name="category") Integer category,
                                                  @RequestParam(name="title", defaultValue = "") String title,
                                                  @RequestParam(name="content", defaultValue = "") String content){
-        if (!activeUser.isAdmin())
+        if (!activeUser.isAdmin() && !activeUser.isManager())
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 
         Map<String, Object> params = new HashMap<>();
@@ -115,7 +115,7 @@ public class BoardRestController {
                                                  @RequestParam(name="deleted_files", defaultValue = "") String deletedFiles,
                                                  @RequestParam(name="existing_file_idxs", defaultValue = "") String existingFileIdxs,
                                                  @RequestParam(name="content", defaultValue = "") String content){
-        if (!activeUser.isAdmin())
+        if (!activeUser.isAdmin() && !activeUser.isManager())
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 
         Map<String, Object> params = new HashMap<>();
@@ -161,7 +161,7 @@ public class BoardRestController {
 
     @DeleteMapping(value = "/user/board/community/{idx}")
     public ResponseEntity communityBoardDelete(@AuthenticationPrincipal WjUserInfo activeUser, @PathVariable(name = "idx") Long idx) {
-        if (!activeUser.isAdmin())
+        if (!activeUser.isAdmin() && !activeUser.isManager())
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         if (boardService.deleteCommunityBoard(idx)) {
             return ResponseEntity.ok(true);
