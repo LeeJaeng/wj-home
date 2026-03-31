@@ -36,3 +36,5 @@ jobs:
           environment_name: wjhome-env
           version_label: ${{ github.sha }}
           deployment_package: build/libs/WjHomepage-1.0-SNAPSHOT.jar
+          wait_for_deployment: true
+          recovery_wait_time: 90
