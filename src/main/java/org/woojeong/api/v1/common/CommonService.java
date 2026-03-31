@@ -280,7 +280,7 @@ public class CommonService {
 
     // 부서 목록 관리 (생성/수정/삭제) → deptList + deptDetail 둘 다 초기화
     @Caching(evict = {
-        @CacheEvict("deptList"),
+        @CacheEvict(value = "deptList", allEntries = true),
         @CacheEvict(value = "deptDetail", allEntries = true)
     })
     public boolean insertDepartment (Map<String, Object> params) {
@@ -288,7 +288,7 @@ public class CommonService {
     }
 
     @Caching(evict = {
-        @CacheEvict("deptList"),
+        @CacheEvict(value = "deptList", allEntries = true),
         @CacheEvict(value = "deptDetail", allEntries = true)
     })
     public void updateDepartmentMetas (List<Map<String, Object>> items) {
@@ -298,7 +298,7 @@ public class CommonService {
     }
 
     @Caching(evict = {
-        @CacheEvict("deptList"),
+        @CacheEvict(value = "deptList", allEntries = true),
         @CacheEvict(value = "deptDetail", allEntries = true)
     })
     public boolean deleteDepartmentSoft (String deptKey) {
