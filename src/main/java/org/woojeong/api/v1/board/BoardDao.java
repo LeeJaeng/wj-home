@@ -58,6 +58,9 @@ public class BoardDao {
     public int deleteFile (List<String> idxList) {
         return sqlSessionTemplate.update("org.mybatis.example.board.deleteFile", idxList);
     }
+    public int updateFileOrd (Map<String, Object> params) {
+        return sqlSessionTemplate.update("org.mybatis.example.board.updateFileOrd", params);
+    }
     public int deleteCommunityBoard (Long board_idx) {
         return sqlSessionTemplate.update("org.mybatis.example.board.deleteCommunityBoard", board_idx);
     }

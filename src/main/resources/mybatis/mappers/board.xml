@@ -137,6 +137,9 @@
         ORDER BY ord desc
         LIMIT 1
     </select>
+    <update id="updateFileOrd" parameterType="hashmap">
+        UPDATE board_files SET ord = #{ord} WHERE idx = #{idx}
+    </update>
     <update id="deleteFile" parameterType="list">
         UPDATE board_files
         SET is_deleted = TRUE

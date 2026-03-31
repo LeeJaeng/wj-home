@@ -113,6 +113,7 @@ public class BoardRestController {
                                                  @RequestParam(name="category") Integer category,
                                                  @RequestParam(name="title", defaultValue = "") String title,
                                                  @RequestParam(name="deleted_files", defaultValue = "") String deletedFiles,
+                                                 @RequestParam(name="existing_file_idxs", defaultValue = "") String existingFileIdxs,
                                                  @RequestParam(name="content", defaultValue = "") String content){
         if (!activeUser.isAdmin())
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
@@ -125,6 +126,9 @@ public class BoardRestController {
         params.put("user_idx", activeUser.getUser_idx());
         if (!deletedFiles.equals("")) {
             params.put("deleted_files", deletedFiles.split(","));
+        }
+        if (!existingFileIdxs.equals("")) {
+            params.put("existing_file_idxs", existingFileIdxs.split(","));
         }
 
         if (boardService.editCommunityBoard(files, params)) {

@@ -188,6 +188,15 @@ public class BoardService {
             String[] deletedFiles = (String[])params.get("deleted_files");
             boardDao.deleteFile(Arrays.asList(deletedFiles));
         }
+        if (params.containsKey("existing_file_idxs")) {
+            String[] idxs = (String[]) params.get("existing_file_idxs");
+            for (int i = 0; i < idxs.length; i++) {
+                Map<String, Object> ordParams = new HashMap<>();
+                ordParams.put("idx", Integer.parseInt(idxs[i].trim()));
+                ordParams.put("ord", i);
+                boardDao.updateFileOrd(ordParams);
+            }
+        }
         if (files == null) {
             return true;
         }
