@@ -144,14 +144,11 @@ public class BoardService {
             return true;
         }
         try {
-            int ord  = 0;
-            int i = 0;
+            int ord = 0;
+            boolean thumbCreated = false;
             for (MultipartFile file : files) {
-                String ext = FilenameUtils.getExtension(file.getOriginalFilename());
                 String rand = RandomStringUtils.random(8, "0123456789abcdefghijklmnopqrstubvwxyz") + "_" + file.getOriginalFilename();
-                String fileName = "images" + "/files/" + rand;   // S3에 저장된 파일 이름
-                String thumbUrl = "";
-
+                String fileName = "images/files/" + rand;
 
                 String url = s3Uploader.upload(file, fileName);
                 params.put("url", url);
@@ -161,17 +158,21 @@ public class BoardService {
                 params.put("origin_file_name", file.getOriginalFilename());
                 boardDao.registerCommunityBoardFiles(params);
 
-                if (i == 0 && file.getContentType().contains("image") ) {
-                    String thumbName = "images" + "/thumbs/" + rand;   // S3에 저장된 파일 이름
-                    File thumbs = makeThumbnail(file, rand, FilenameUtils.getExtension(file.getOriginalFilename()));
-                    thumbUrl = s3Uploader.upload(thumbs, thumbName);
-                    thumbs.delete();
-                    params.put("url", thumbUrl);
-                    params.put("ord", -1);
-                    params.put("aws_file_name", thumbName);
-                    params.put("origin_file_name", file.getOriginalFilename());
-                    i++;
-                    boardDao.registerCommunityBoardFiles(params);
+                if (!thumbCreated && file.getContentType() != null && file.getContentType().contains("image")) {
+                    try {
+                        String thumbName = "images/thumbs/" + rand;
+                        File thumbs = makeThumbnail(file, rand, FilenameUtils.getExtension(file.getOriginalFilename()));
+                        String thumbUrl = s3Uploader.upload(thumbs, thumbName);
+                        thumbs.delete();
+                        params.put("url", thumbUrl);
+                        params.put("ord", -1);
+                        params.put("aws_file_name", thumbName);
+                        params.put("origin_file_name", file.getOriginalFilename());
+                        boardDao.registerCommunityBoardFiles(params);
+                        thumbCreated = true;
+                    } catch (Exception e) {
+                        logger.warn("썸네일 생성 실패, 건너뜀: " + file.getOriginalFilename(), e);
+                    }
                 }
             }
         } catch (Exception e) {
@@ -203,13 +204,10 @@ public class BoardService {
         Integer ord = boardDao.getFileOrd((Integer)params.get("board_idx"));
         ord = ord == null ? 0 : ord;
         try {
-            int i = 0;
+            boolean thumbCreated = false;
             for (MultipartFile file : files) {
-                String ext = FilenameUtils.getExtension(file.getOriginalFilename());
                 String rand = RandomStringUtils.random(8, "0123456789abcdefghijklmnopqrstubvwxyz") + "_" + file.getOriginalFilename();
-                String fileName = "images" + "/files/" + rand;   // S3에 저장된 파일 이름
-                String thumbUrl = "";
-
+                String fileName = "images/files/" + rand;
 
                 String url = s3Uploader.upload(file, fileName);
                 params.put("url", url);
@@ -219,17 +217,21 @@ public class BoardService {
                 params.put("origin_file_name", file.getOriginalFilename());
                 boardDao.registerCommunityBoardFiles(params);
 
-                if (i == 0 && file.getContentType().contains("image") ) {
-                    String thumbName = "images" + "/thumbs/" + rand;   // S3에 저장된 파일 이름
-                    File thumbs = makeThumbnail(file, rand, FilenameUtils.getExtension(file.getOriginalFilename()));
-                    thumbUrl = s3Uploader.upload(thumbs, thumbName);
-                    thumbs.delete();
-                    params.put("url", thumbUrl);
-                    params.put("ord", -1);
-                    params.put("aws_file_name", thumbName);
-                    params.put("origin_file_name", file.getOriginalFilename());
-                    i++;
-                    boardDao.registerCommunityBoardFiles(params);
+                if (!thumbCreated && file.getContentType() != null && file.getContentType().contains("image")) {
+                    try {
+                        String thumbName = "images/thumbs/" + rand;
+                        File thumbs = makeThumbnail(file, rand, FilenameUtils.getExtension(file.getOriginalFilename()));
+                        String thumbUrl = s3Uploader.upload(thumbs, thumbName);
+                        thumbs.delete();
+                        params.put("url", thumbUrl);
+                        params.put("ord", -1);
+                        params.put("aws_file_name", thumbName);
+                        params.put("origin_file_name", file.getOriginalFilename());
+                        boardDao.registerCommunityBoardFiles(params);
+                        thumbCreated = true;
+                    } catch (Exception e) {
+                        logger.warn("썸네일 생성 실패, 건너뜀: " + file.getOriginalFilename(), e);
+                    }
                 }
             }
         } catch (Exception e) {
@@ -256,6 +258,9 @@ public class BoardService {
 
         // 저장된 원본파일로부터 BufferedImage 객체를 생성합니다.
         BufferedImage srcImg = ImageIO.read(origin.getInputStream());
+        if (srcImg == null) {
+            throw new IOException("지원하지 않는 이미지 형식: " + origin.getOriginalFilename());
+        }
 
         // 썸네일의 너비와 높이 입니다.
         int dw = 400, dh = 400;
