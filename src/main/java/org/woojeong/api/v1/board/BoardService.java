@@ -176,7 +176,7 @@ public class BoardService {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("커뮤니티 게시글 파일 업로드 실패", e);
             return false;
         }
         return true;
@@ -235,7 +235,7 @@ public class BoardService {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("커뮤니티 게시글 파일 수정 실패", e);
             return false;
         }
         return true;
