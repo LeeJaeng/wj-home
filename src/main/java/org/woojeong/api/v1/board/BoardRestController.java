@@ -29,7 +29,7 @@ public class BoardRestController {
 
     @PostMapping(value = "/user/board/worship")
     public ResponseEntity worshipBoardRegister(@AuthenticationPrincipal WjUserInfo activeUser, @RequestBody WorshipRegisterDTO worshipRegisterDTO) {
-        if (!activeUser.isAdmin())
+        if (!activeUser.isAdmin() && !activeUser.isManager())
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 
         worshipRegisterDTO.setUser_idx(activeUser.getUser_idx());
@@ -43,7 +43,7 @@ public class BoardRestController {
 
     @PutMapping(value = "/user/board/worship")
     public ResponseEntity worshipBoardEdit(@AuthenticationPrincipal WjUserInfo activeUser, @RequestBody WorshipRegisterDTO worshipRegisterDTO) {
-        if (!activeUser.isAdmin())
+        if (!activeUser.isAdmin() && !activeUser.isManager())
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 
         worshipRegisterDTO.setUser_idx(activeUser.getUser_idx());
@@ -56,7 +56,7 @@ public class BoardRestController {
 
     @DeleteMapping(value = "/user/board/worship/{idx}")
     public ResponseEntity worshipBoardDelete(@AuthenticationPrincipal WjUserInfo activeUser, @PathVariable(name = "idx") Long idx) {
-        if (!activeUser.isAdmin())
+        if (!activeUser.isAdmin() && !activeUser.isManager())
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         if (boardService.deleteWorshipBoard(idx)) {
             return ResponseEntity.ok(true);
