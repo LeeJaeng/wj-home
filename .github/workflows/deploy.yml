@@ -26,6 +26,11 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build -x test
 
+      - name: Package for Elastic Beanstalk
+        run: |
+          cp build/libs/WjHomepage-1.0-SNAPSHOT.jar ./WjHomepage-1.0-SNAPSHOT.jar
+          zip -r deploy.zip WjHomepage-1.0-SNAPSHOT.jar Procfile .platform
+
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v22
         with:
@@ -35,6 +40,6 @@ jobs:
           application_name: wj-home
           environment_name: wjhome-env
           version_label: ${{ github.sha }}
-          deployment_package: build/libs/WjHomepage-1.0-SNAPSHOT.jar
+          deployment_package: deploy.zip
           wait_for_deployment: true
           recovery_wait_time: 90
