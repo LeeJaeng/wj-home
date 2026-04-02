@@ -47,8 +47,8 @@ public class CommonService {
     }
 
     @Caching(evict = {
-        @CacheEvict("banners"),
-        @CacheEvict("allBanners")
+        @CacheEvict(value = "banners", allEntries = true),
+        @CacheEvict(value = "allBanners", allEntries = true)
     })
     public boolean uploadBanner (MultipartFile file) throws Exception {
         String rand = RandomStringUtils.random(8, "0123456789abcdefghijklmnopqrstuvwxyz");
@@ -62,8 +62,8 @@ public class CommonService {
     }
 
     @Caching(evict = {
-        @CacheEvict("banners"),
-        @CacheEvict("allBanners")
+        @CacheEvict(value = "banners", allEntries = true),
+        @CacheEvict(value = "allBanners", allEntries = true)
     })
     public boolean updateBannerOrder (Long idx, Integer ord) {
         Map<String, Object> params = new HashMap<>();
@@ -73,16 +73,16 @@ public class CommonService {
     }
 
     @Caching(evict = {
-        @CacheEvict("banners"),
-        @CacheEvict("allBanners")
+        @CacheEvict(value = "banners", allEntries = true),
+        @CacheEvict(value = "allBanners", allEntries = true)
     })
     public boolean toggleBannerValid (Long idx) {
         return dao.toggleBannerValid(idx) > 0;
     }
 
     @Caching(evict = {
-        @CacheEvict("banners"),
-        @CacheEvict("allBanners")
+        @CacheEvict(value = "banners", allEntries = true),
+        @CacheEvict(value = "allBanners", allEntries = true)
     })
     public boolean deleteBanner (Long idx) {
         return dao.deleteBanner(idx) > 0;
